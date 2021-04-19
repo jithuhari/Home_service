@@ -1,16 +1,23 @@
 import React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
-import MyTabs from './src/routes/tabnavigation';
-
 import {createStackNavigator} from '@react-navigation/stack';
+
+
+
+import Ele from '../Screens/Electrical';
 
 const Stack = createStackNavigator();
 
-export default HomeSerice = () => {
+export default Navigations = () => {
   return (
     <NavigationContainer>
-      <MyTabs />
+      <Stack.Navigator >
+        
+
+        <Stack.Screen name="Ele" component={Ele} options={{headerShown: false}} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
+
