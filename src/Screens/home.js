@@ -23,7 +23,7 @@ export default Home = ({navigation}) => {
     require('../Assets/3.png'),
   ];
   return (
-    <View style={{height: '100%', width: '100%'}}>
+    <View style={{height: '100%', width: '100%',backgroundColor:Colors.backgroundcolor}}>
       <View style={styles.header}>
         <View
           style={{
@@ -128,19 +128,19 @@ export default Home = ({navigation}) => {
         </View>
         <View style={{top: 10, height: 248}}>
           <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
-            <View style={styles.continer}>
+            <TouchableOpacity style={styles.continer} onPress={() => navigation.navigate('Cleaning')}>
               <Image
                 source={require('../Assets/clean.png')}
                 style={styles.img}
               />
               <Text style={styles.text}>Cleaning & Sanitization</Text>
-            </View>
-            <View style={styles.continer}>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.continer}>
               <Image source={require('../Assets/ac.png')} style={{}} />
-              <Text style={(styles.text, {top: 5})}>AC Service &</Text>
+              <Text style={(styles.text, {top: 5,color:colors.secondaryText})}>AC Service &</Text>
               <Text style={styles.text}> Repair</Text>
-            </View>
-            <TouchableOpacity  style={styles.continer} onPress={() => navigation.navigate("Ele")}>
+            </TouchableOpacity>
+            <TouchableOpacity  style={styles.continer} onPress={() => navigation.navigate('Ele')}>
               <Image source={require('../Assets/ele.png')} style={{}} />
               <Text style={styles.text}>Electrical </Text>
               <Text style={styles.text}>Work </Text>
@@ -153,21 +153,21 @@ export default Home = ({navigation}) => {
               justifyContent: 'space-around',
               top: 10,
             }}>
-            <View style={styles.continer}>
+            <TouchableOpacity style={styles.continer}>
               <Image source={require('../Assets/f.png')} style={{}} />
               <Text style={styles.text}>Appliance</Text>
               <Text style={styles.text}> Repair</Text>
-            </View>
-            <View style={styles.continer}>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.continer} onPress={() => navigation.navigate('Plumbing')}>
               <Image source={require('../Assets/pu.png')} style={{}} />
-              <Text style={(styles.text, {top: 5})}>Plumbing</Text>
+              <Text style={(styles.text, {top: 5,color:colors.secondaryText})}>Plumbing</Text>
               <Text style={styles.text}> Work</Text>
-            </View>
-            <View style={styles.continer}>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.continer} onPress={() => navigation.navigate('InteriorDesigning')}>
               <Image source={require('../Assets/in.png')} style={{}} />
               <Text style={styles.text}>Interior </Text>
               <Text style={styles.text}>Designing </Text>
-            </View>
+            </TouchableOpacity>
           </View>
         </View>
         {/* second part */}
@@ -325,7 +325,7 @@ export default Home = ({navigation}) => {
           </View>
           <ScrollView
             horizontal={true}
-            style={{top: 15, left: 10, right: 5, width: '92%'}}>
+            style={{top: 15, left: 10, right:5, width: '92%',}}>
             <View style={{right: 10}}>
               <Image source={require('../Assets/s1.png')} />
             </View>
@@ -338,6 +338,7 @@ export default Home = ({navigation}) => {
             <View style={{left: 30}}>
               <Image source={require('../Assets/s4.png')} />
             </View>
+            
           </ScrollView>
         </View>
         {/* fourth part */}
@@ -348,6 +349,7 @@ export default Home = ({navigation}) => {
             height: 160,
             left: '4%',
             paddingStart: 15,
+          
 
             top: 45,
             borderRadius: 15,
@@ -576,5 +578,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 12,
+    color:colors.secondaryText
   },
 });

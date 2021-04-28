@@ -10,14 +10,14 @@ import {
 } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Colors from '../config/colors';
-const Homesafe = () => {
+const Homesafe = ({navigation}) => {
   return (
     <View style={{flex: 1, backgroundColor: Colors.background}}>
       <ScrollView style={{backgroundColor:'#fff'}}>
         <View style={styles.header}>
         <TouchableOpacity
             style={{bottom: 5,top:10,left:5}}
-            onPress={() => navigation.goBack()}>
+            onPress={() => navigation.goBack(null)}>
             <AntDesign
               style={styles.iconItem}
               name="left"
