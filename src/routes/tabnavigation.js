@@ -6,18 +6,22 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
+import {NavigationContainer} from '@react-navigation/native';
+
+
 // import Home from '../Screens/home';
 import HomeSafe from '../Screens/homesafe';
 import Profile from '../Screens/profile';
 // import Ele from '../Screens/Electrical';
 
-import Navigation from './homenavigation'
-import ProfileNavigation from './profilenavigation'
+import Navigation from './homenavigation';
+import ProfileNavigation from './profilenavigation';
 
 const Tab = createBottomTabNavigator();
 
 export default function MyTabs() {
   return (
+   
     <Tab.Navigator
       initialRouteName="Home"
       tabBarOptions={{
@@ -58,9 +62,7 @@ export default function MyTabs() {
           },
         }}
       />
-      
     </Tab.Navigator>
-    
+   
   );
 }
-

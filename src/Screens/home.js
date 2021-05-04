@@ -135,7 +135,7 @@ export default Home = ({navigation}) => {
               />
               <Text style={styles.text}>Cleaning & Sanitization</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.continer}>
+            <TouchableOpacity style={styles.continer} onPress={() => navigation.navigate('AcServices')}>
               <Image source={require('../Assets/ac.png')} style={{}} />
               <Text style={(styles.text, {top: 5,color:colors.secondaryText})}>AC Service &</Text>
               <Text style={styles.text}> Repair</Text>
@@ -153,7 +153,7 @@ export default Home = ({navigation}) => {
               justifyContent: 'space-around',
               top: 10,
             }}>
-            <TouchableOpacity style={styles.continer}>
+            <TouchableOpacity style={styles.continer} onPress={() => navigation.navigate('Appliancesrepair')}>
               <Image source={require('../Assets/f.png')} style={{}} />
               <Text style={styles.text}>Appliance</Text>
               <Text style={styles.text}> Repair</Text>

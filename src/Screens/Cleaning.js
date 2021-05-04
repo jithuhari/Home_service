@@ -72,19 +72,28 @@ const Cleaning = ({navigation}) => {
 
         <Divider />
         <View style={styles.categorycontainer}>
-          <TouchableOpacity style={styles.categorybtn} onPress={() => navigation.navigate('HomeSanitization')}>
+          <TouchableOpacity style={styles.categorybtn} 
+           onPress={() => {
+            navigation.navigate('HomeSanitization', {head: 'Home Sanitization'}); }}
+          >
             <View style={styles.categoryicon}>
               <Image
                 source={require('../Assets/cleaning/homesanitization.jpeg')}
               />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.categorybtn} onPress={() => {}}>
+          <TouchableOpacity style={styles.categorybtn} 
+           onPress={() => {
+            navigation.navigate('HomeSanitization', {head: 'Full House Deep Cleaning'}); }}
+          >
             <View style={styles.categoryicon}>
               <Image source={require('../Assets/cleaning/deepcleaning.jpeg')} />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.categorybtn} onPress={() => {}}>
+          <TouchableOpacity style={styles.categorybtn} 
+           onPress={() => {
+            navigation.navigate('HomeSanitization', {head: 'Full House Basic Cleaning'}); }}
+          >
             <View style={styles.categoryicon}>
               <Image
                 source={require('../Assets/cleaning/basiccleaning.jpeg')}
@@ -93,21 +102,30 @@ const Cleaning = ({navigation}) => {
           </TouchableOpacity>
         </View>
         <View style={styles.categorycontainer}>
-          <TouchableOpacity style={styles.categorybtn} onPress={() => {}}>
+          <TouchableOpacity style={styles.categorybtn} 
+           onPress={() => {
+            navigation.navigate('HomeSanitization', {head: 'Bathroom Cleaning'}); }}
+          >
             <View style={styles.categoryicon}>
               <Image
                 source={require('../Assets/cleaning/bathroomcleaning.jpeg')}
               />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.categorybtn} onPress={() => {}}>
+          <TouchableOpacity style={styles.categorybtn} 
+           onPress={() => {
+            navigation.navigate('HomeSanitization', {head: 'Kitchen Cleaning'}); }}
+          >
             <View style={styles.categoryicon}>
               <Image
                 source={require('../Assets/cleaning/kitchencleaning.jpeg')}
               />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.categorybtn} onPress={() => {}}>
+          <TouchableOpacity style={styles.categorybtn} 
+           onPress={() => {
+            navigation.navigate('HomeSanitization', {head: 'Sofa Cleaning'}); }}
+          >
             <View style={styles.categoryicon}>
               <Image source={require('../Assets/cleaning/sofacleaning.jpeg')} />
             </View>

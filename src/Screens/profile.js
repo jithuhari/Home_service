@@ -21,7 +21,7 @@ const Profile = ({navigation}) => {
   const [isSwitchEnabled, setSwitch] = useState(false);
   return (
     /*main view*/
-    <View style={{height:'100%',width:'100%'}}>
+    <View style={{height: '100%', width: '100%'}}>
       {/**header view */}
       <View style={styles.headerstyle}>
         <View
@@ -30,7 +30,9 @@ const Profile = ({navigation}) => {
             justifyContent: 'space-between',
             paddingTop: 30,
           }}>
-          <TouchableOpacity style={{paddingLeft: 20,top:10}} onPress={() => navigation.goBack(null)}>
+          <TouchableOpacity
+            style={{paddingLeft: 20, top: 10}}
+            onPress={() => navigation.goBack(null)}>
             <AntDesign name="left" size={20} color="white"></AntDesign>
           </TouchableOpacity>
           <View
@@ -44,7 +46,14 @@ const Profile = ({navigation}) => {
               }}
               source={require('../Assets/appbar.png')}
             />
-            <Text style={{fontSize: 15, fontWeight: 'bold', color: 'white',top:5,left:3}}>
+            <Text
+              style={{
+                fontSize: 15,
+                fontWeight: 'bold',
+                color: 'white',
+                top: 5,
+                left: 3,
+              }}>
               HOME SERVE
             </Text>
           </View>
@@ -57,7 +66,7 @@ const Profile = ({navigation}) => {
             fontSize: 15,
             paddingLeft: 180,
             bottom: 18,
-            top:2
+            top: 2,
           }}>
           Profile
         </Text>
@@ -65,12 +74,10 @@ const Profile = ({navigation}) => {
       {/*header view ends */}
       {/*starts */}
       <View style={{}}>
-        <TouchableOpacity style={styles.viewfirst} onPress={() => navigation.navigate('userprofile')}>
-          <FontAwesome
-            name="user-circle"
-            size={70}
-            color={"#5F5F82"}
-          />
+        <TouchableOpacity
+          style={styles.viewfirst}
+          onPress={() => navigation.navigate('userprofile')}>
+          <FontAwesome name="user-circle" size={70} color={'#5F5F82'} />
           <Text
             style={{
               left: 100,
@@ -84,25 +91,24 @@ const Profile = ({navigation}) => {
           <TextInput
             style={{bottom: 60, left: 98}}
             placeholder={'4567899\njsmith@eample.com'}
-            placeholderTextColor={"#5F5F82"}></TextInput>
-          <TouchableOpacity style={{bottom: 120, left: 300}} onPress={() => navigation.navigate('userprofile')}>
+            placeholderTextColor={'#5F5F82'}></TextInput>
+          <TouchableOpacity
+            style={{bottom: 120, left: 300}}
+            onPress={() => navigation.navigate('userprofile')}>
             <AntDesign name="right" size={20} color="#DCDCDC" />
           </TouchableOpacity>
         </TouchableOpacity>
         {/* ends*/}
         {/*booking view */}
         <View style={styles.viewfirst1}>
-          <View
+          <TouchableOpacity
+            onPress={() => navigation.navigate('MyBookings')}
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
               padding: 10,
             }}>
-            <Ionicons
-              name="md-newspaper-outline"
-              size={28}
-              color={"#5F5F82"}
-            />
+            <Ionicons name="md-newspaper-outline" size={28} color={'#5F5F82'} />
             <Text
               style={{
                 fontWeight: 'bold',
@@ -114,8 +120,9 @@ const Profile = ({navigation}) => {
             <TouchableOpacity>
               <AntDesign name="right" size={15} color="#DCDCDC" />
             </TouchableOpacity>
-          </View>
-          <View
+          </TouchableOpacity>
+          <TouchableOpacity
+          onPress={() => navigation.navigate('Review')}
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
@@ -133,7 +140,7 @@ const Profile = ({navigation}) => {
             <TouchableOpacity>
               <AntDesign name="right" size={15} color="#DCDCDC" />
             </TouchableOpacity>
-          </View>
+          </TouchableOpacity>
         </View>
         {/*booking view ends */}
         {/*notifiction view starts */}
@@ -157,7 +164,8 @@ const Profile = ({navigation}) => {
         {/*notifiction view ends */}
         {/*register view starts */}
         <View style={styles.viewfirst2}>
-          <View
+          <TouchableOpacity
+          onPress={() => navigation.navigate('PartnerReg')}
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
@@ -173,15 +181,16 @@ const Profile = ({navigation}) => {
                 fontWeight: 'bold',
                 color: 'midnightblue',
                 paddingRight: 70,
-                color:Colors.secondaryText
+                color: Colors.secondaryText,
               }}>
               Register as partner
             </Text>
             <TouchableOpacity>
               <AntDesign name="right" size={15} color="#DCDCDC" />
             </TouchableOpacity>
-          </View>
-          <View
+          </TouchableOpacity>
+          <TouchableOpacity
+          onPress={() => navigation.navigate('About')}
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
@@ -204,11 +213,13 @@ const Profile = ({navigation}) => {
             <TouchableOpacity>
               <AntDesign name="right" size={15} color="#DCDCDC" />
             </TouchableOpacity>
-          </View>
+          </TouchableOpacity>
         </View>
         {/*register view ends */}
         {/*contct view starts */}
-        <TouchableOpacity style={styles.viewsecond1} onPress={()=>navigation.navigate('Contactus')}>
+        <TouchableOpacity
+          style={styles.viewsecond1}
+          onPress={() => navigation.navigate('Contactus')}>
           <Ionicons
             name="md-call-outline"
             size={28}
@@ -237,9 +248,7 @@ const Profile = ({navigation}) => {
               // justifyContent:'center',
               paddingLeft: 157,
               fontSize: 15,
-              top:34,
-              
-
+              top: 34,
             }}>
             Logout
           </Text>
@@ -256,13 +265,13 @@ const styles = StyleSheet.create({
     margin: 0,
     height: 120,
     width: '100%',
-    
+
     bottom: 6,
     // borderRadius: 15,
     // borderWidth: 1,
     backgroundColor: Colors.primarycolor,
-    borderBottomLeftRadius:15,
-    borderBottomRightRadius:15
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15,
   },
   viewfirst: {
     // margin: 6,
@@ -273,18 +282,17 @@ const styles = StyleSheet.create({
     borderColor: '#DCDCDC',
     borderRadius: 4,
     borderWidth: 1,
-    width:'92%',
-    left:'4%',
-    right:'4%'
-
+    width: '92%',
+    left: '4%',
+    right: '4%',
   },
   viewfirst1: {
     // margin: 6,
-    top:6,
+    top: 6,
     height: 95,
     width: '92%',
-    left:'4%',
-    right:'4%',
+    left: '4%',
+    right: '4%',
     padding: 3,
     backgroundColor: 'white',
     borderColor: '#DCDCDC',
@@ -293,12 +301,12 @@ const styles = StyleSheet.create({
   },
   viewsecond: {
     // margin: 6,
-    top:12,
-    bottom:6,
+    top: 12,
+    bottom: 6,
     height: 50,
     width: '92%',
-    left:'4%',
-    right:'4%',
+    left: '4%',
+    right: '4%',
     padding: 10,
     backgroundColor: 'white',
     borderColor: '#DCDCDC',
@@ -308,11 +316,11 @@ const styles = StyleSheet.create({
   },
   viewfirst2: {
     // margin: 6,
-    top:18,
+    top: 18,
     height: 95,
     width: '92%',
-    left:'4%',
-    right:'4%',
+    left: '4%',
+    right: '4%',
     padding: 3,
     backgroundColor: 'white',
     borderColor: '#DCDCDC',
@@ -321,12 +329,12 @@ const styles = StyleSheet.create({
   },
   viewsecond1: {
     // margin: 6,
-    top:24,
+    top: 24,
     // bottom:6,
     height: 50,
     width: '92%',
-    left:'4%',
-    right:'4%',
+    left: '4%',
+    right: '4%',
     padding: 10,
     backgroundColor: 'white',
     borderColor: '#DCDCDC',

@@ -79,21 +79,27 @@ const InteriorDesigning = ({navigation}) => {
 
         <Divider />
         <View style={styles.categorycontainer}>
-          <TouchableOpacity style={styles.categorybtn} onPress={() => {}}>
+          <TouchableOpacity style={styles.categorybtn} 
+           onPress={() => {navigation.navigate('Interiorsub',{head:'Complete House'});}}
+          >
             <View style={styles.categoryicon}>
               <Image
                 source={require('../Assets/interiordesigning/completehome.png')}
               />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.categorybtn} onPress={() => {}}>
+          <TouchableOpacity style={styles.categorybtn} 
+          onPress={() => {navigation.navigate('Interiorsub',{head:'Kitchen'});}}
+          >
             <View style={styles.categoryicon}>
               <Image
                 source={require('../Assets/interiordesigning/kitchen.png')}
               />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.categorybtn} onPress={() => {}}>
+          <TouchableOpacity style={styles.categorybtn} 
+          onPress={() => {navigation.navigate('Interiorsub',{head:'Furnishing & Decor'});}}
+          >
             <View style={styles.categoryicon}>
               <Image
                 source={require('../Assets/interiordesigning/furnishing.png')}
@@ -102,14 +108,18 @@ const InteriorDesigning = ({navigation}) => {
           </TouchableOpacity>
         </View>
         <View style={styles.categorycontainer}>
-          <TouchableOpacity style={styles.categorybtn} onPress={() => {}}>
+          <TouchableOpacity style={styles.categorybtn} 
+          onPress={() => {navigation.navigate('Interiorsub',{head:'wardrobe'});}}
+          >
             <View style={styles.categoryicon}>
               <Image
                 source={require('../Assets/interiordesigning/wardrobe.png')}
               />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.categorybtn} onPress={() => {}}>
+          <TouchableOpacity style={styles.categorybtn} 
+          onPress={() => {navigation.navigate('Interiorsub',{head:'painting & Wallpaper'});}}
+          >
             <View style={styles.categoryicon}>
               <Image
                 source={require('../Assets/interiordesigning/painting.png')}

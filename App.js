@@ -5,18 +5,22 @@ import MyTabs from './src/routes/tabnavigation';
 
 import {createStackNavigator} from '@react-navigation/stack';
 
-import Fan from './src/Screens/electricalsub'
+import Intoslider from './src/Screens/Intoslider'
+import Shedule from './src/Screens/Shedule'
 
 const Stack = createStackNavigator();
 
 export default HomeSerice = () => {
   return (
-    <NavigationContainer >
+      <NavigationContainer   >
+      {/* <Intoslider  /> */}
       <MyTabs />  
+     
     
       
 
     </NavigationContainer>
-    // <Fan />
+    // <Intoslider />
+   
   );
 };

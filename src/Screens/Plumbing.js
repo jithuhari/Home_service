@@ -1,6 +1,13 @@
 import React from 'react';
-import {View,Text,TouchableOpacity, StyleSheet, ScrollView,Image,} from 'react-native';
-import {Searchbar,Card,Title} from 'react-native-paper';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+  Image,
+} from 'react-native';
+import {Searchbar, Card, Title} from 'react-native-paper';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Colors from '../config/colors';
@@ -9,8 +16,13 @@ export default Plumbing = ({navigation}) => {
     <View style={{backgroundColor: Colors.backgroundcolor}}>
       <View style={styles.header}>
         <View style={{flexDirection: 'row'}}>
-          <TouchableOpacity style={{paddingLeft: 20, top: 7}} onPress={()=> navigation.goBack(null)}>
-            <AntDesign name="left" size={20} color={Colors.backgroundcolor}></AntDesign>
+          <TouchableOpacity
+            style={{paddingLeft: 20, top: 7}}
+            onPress={() => navigation.goBack(null)}>
+            <AntDesign
+              name="left"
+              size={20}
+              color={Colors.backgroundcolor}></AntDesign>
           </TouchableOpacity>
           <Image
             source={require('../Assets/appbar.png')}
@@ -19,7 +31,13 @@ export default Plumbing = ({navigation}) => {
           <Text style={styles.text1}> HOME SERVE </Text>
         </View>
       </View>
-      <View style={{ backgroundColor: Colors.primarycolor,  paddingLeft: 18, paddingRight: 16, height: 47, }}>
+      <View
+        style={{
+          backgroundColor: Colors.primarycolor,
+          paddingLeft: 18,
+          paddingRight: 16,
+          height: 47,
+        }}>
         <Searchbar
           placeholder="Search for a service"
           style={{borderRadius: 10, height: 40, width: '100%'}}
@@ -29,11 +47,16 @@ export default Plumbing = ({navigation}) => {
         <View style={styles.mainView}>
           <Image
             source={require('../Assets/plumbing/mainImage.png')}
-            style={{height:225,width:335,left:11, top: 5, position: 'absolute',borderRadius:7}}
+            style={{
+              height: 225,
+              width: 335,
+              left: 11,
+              top: 5,
+              position: 'absolute',
+              borderRadius: 7,
+            }}
           />
-          <Text style={styles.text2}>
-            PLUMBING WORKS
-          </Text>
+          <Text style={styles.text2}>PLUMBING WORKS</Text>
         </View>
         <View style={{left: '4%', right: '4%', top: 15, height: 90}}>
           <TouchableOpacity
@@ -63,83 +86,131 @@ export default Plumbing = ({navigation}) => {
         <View style={{top: 15, height: 400}}>
           {/* firsr row */}
           <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
-            <TouchableOpacity style={styles.continer}>
+            <TouchableOpacity
+              style={styles.continer}
+              onPress={() => {
+                navigation.navigate('Fan', {head: 'Basin & Sink'});
+              }}>
               <Image
                 source={require('../Assets/plumbing/basin.png')}
-                style={styles.img}
+                style={{}}
               />
-              <Text style={styles.text}>Basin & Sink</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.continer}>
-              <Image source={require('../Assets/plumbing/tap.png')} style={styles.img} />
-              <Text style={styles.text}>Tap & Mixer</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.continer}
-              onPress={() => navigation.navigate('Plumbing')}>
-              <Image source={require('../Assets/plumbing/Bathfitting.png')} style={{}} />
-              <Text style={styles.text}>Bath Fitting </Text>
+              onPress={() => {
+                navigation.navigate('Fan', {head: 'Tap & Mixer'}); }}
+                >
+              <Image
+                source={require('../Assets/plumbing/tap.png')}
+                style={{}}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.continer}
+              onPress={() => {
+                navigation.navigate('Fan', {head: 'Bath Fitting'});
+              }}>
+              <Image
+                source={require('../Assets/plumbing/Bathfitting.png')}
+                style={{}}
+              />
             </TouchableOpacity>
           </View>
           {/* second row */}
           <View style={{top: 15}}>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-around'}}>
-              <TouchableOpacity style={styles.continer}>
+              <TouchableOpacity
+                style={styles.continer}
+                onPress={() => {
+                  navigation.navigate('Fan', {head: 'Motor'});
+                }}>
                 <Image
                   source={require('../Assets/plumbing/motor.png')}
-                  style={styles.img}
+                  style={{}}
                 />
-                <Text style={styles.text}>Motor</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.continer}>
-                <Image source={require('../Assets/plumbing/toilet.png')} style={{}} />
-                <Text style={styles.text}>Toilet</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.continer}
-                onPress={() => navigation.navigate('plumbing')}>
-               <Image source={require('../Assets/plumbing/plus.png')} style={{}} />
-                <Text style={styles.text}>Looking for something else</Text>
+                onPress={() => {
+                  navigation.navigate('Fan', {head: 'Toilet'});
+                }}>
+                <Image
+                  source={require('../Assets/plumbing/toilet.png')}
+                  style={{}}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.continer}>
+                <Image
+                  source={require('../Assets/plumbing/plus.png')}
+                  style={{}}
+                />
               </TouchableOpacity>
             </View>
           </View>
-         
-        </View> 
-        <View style={{left: 7,width:375,bottom:120}}>
+        </View>
+        <View style={{left: 7, width: 375, bottom: 120}}>
           <View style={styles.rectangle}>
             <Text style={styles.text3}> Plumbing Services includes </Text>
-            <ScrollView horizontal={true} style={{top:10}}>
-             
-              <View style={{flexDirection:"row",paddingLeft:10,paddingRight:35}}>
-                <Card style={{marginTop:10,width:280,elevation:0,borderRadius:15,height:70}}>
+            <ScrollView horizontal={true} style={{top: 10}}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  paddingLeft: 10,
+                  paddingRight: 35,
+                }}>
+                <Card
+                  style={{
+                    marginTop: 10,
+                    width: 280,
+                    elevation: 0,
+                    borderRadius: 15,
+                    height: 70,
+                  }}>
                   <Card.Content>
-                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                      1   
+                    <Title
+                      style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                      1
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
-                        
-                      Doorstep Service
+                        Doorstep Service
                       </Text>
                     </Title>
                   </Card.Content>
                 </Card>
-                <Card style={{marginTop:10,width:280,elevation:0,left:15,borderRadius:15,height:70}}>
+                <Card
+                  style={{
+                    marginTop: 10,
+                    width: 280,
+                    elevation: 0,
+                    left: 15,
+                    borderRadius: 15,
+                    height: 70,
+                  }}>
                   <Card.Content>
-                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                    <Title
+                      style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
                       2
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
-                        
-                      Experienced, trained, and Background verified Partners
+                        Experienced, trained, and Background verified Partners
                       </Text>
                     </Title>
                   </Card.Content>
                 </Card>
-                <Card style={{marginTop:10,width:280,elevation:0,left:25,borderRadius:15,height:70}}>
+                <Card
+                  style={{
+                    marginTop: 10,
+                    width: 280,
+                    elevation: 0,
+                    left: 25,
+                    borderRadius: 15,
+                    height: 70,
+                  }}>
                   <Card.Content>
-                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                    <Title
+                      style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
                       3
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
-                        
                         Lowest Priced Quotes
                       </Text>
                     </Title>
@@ -150,7 +221,6 @@ export default Plumbing = ({navigation}) => {
           </View>
         </View>
         {/* <View style={{height: 20, width: '100%'}}></View> */}
-        
       </ScrollView>
     </View>
   );
@@ -169,38 +239,37 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primarycolor,
     // justifyContent:'center'
   },
-  image:{
+  image: {
     height: 45,
     width: 45,
     tintColor: Colors.backgroundcolor,
     left: 80,
     top: 2,
   },
-  text1:{
+  text1: {
     fontSize: 15,
     color: Colors.backgroundcolor,
     fontWeight: 'bold',
-    left:85,
+    left: 85,
     top: 11,
   },
-  mainView:{
+  mainView: {
     backgroundColor: Colors.primarycolor,
     width: '100%',
     height: 240,
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
   },
-  text2:{
+  text2: {
     fontWeight: 'bold',
     color: Colors.backgroundcolor,
     fontSize: 22,
     left: 85,
     top: 160,
-    justifyContent:'center'
-    
+    justifyContent: 'center',
   },
-  img:{
-      tintColor:Colors.primarycolor,
+  img: {
+    tintColor: Colors.primarycolor,
   },
   continer: {
     backgroundColor: Colors.continercolor,
@@ -211,45 +280,45 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    color:Colors.primarycolor,
+    color: Colors.primarycolor,
     fontSize: 12,
-    textAlign:'center'
+    textAlign: 'center',
   },
-  rectangle:{
+  rectangle: {
     backgroundColor: Colors.continercolor,
     borderRadius: 15,
     height: 130,
     width: '92%',
   },
-  text3:{
+  text3: {
     fontSize: 16,
     fontWeight: 'bold',
     color: Colors.primarycolor,
     left: 15,
     top: 10,
   },
-  card:{
-    marginTop:10,
-  width:280,
-  height:80,
-  elevation:0,
-  borderRadius:15,
-  left:7
-},
-card1:{
-    marginTop:10,
-  width:280,
-  height:80,
-  elevation:0,
-  borderRadius:15,
-  left:15
-},
-card2:{
-    marginTop:10,
-  width:260,
-  height:80,
-  elevation:0,
-  borderRadius:15,
-  left:25
-},
+  card: {
+    marginTop: 10,
+    width: 280,
+    height: 80,
+    elevation: 0,
+    borderRadius: 15,
+    left: 7,
+  },
+  card1: {
+    marginTop: 10,
+    width: 280,
+    height: 80,
+    elevation: 0,
+    borderRadius: 15,
+    left: 15,
+  },
+  card2: {
+    marginTop: 10,
+    width: 260,
+    height: 80,
+    elevation: 0,
+    borderRadius: 15,
+    left: 25,
+  },
 });

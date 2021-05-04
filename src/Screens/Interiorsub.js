@@ -228,7 +228,9 @@ export default Fan = ({route,navigation}) => {
                     bottom: 18,
                     alignSelf: 'flex-end',
                     right: 20,
-                  }}>
+                  }} 
+                  onPress={() => {navigation.navigate('Address');}}
+                  >
                   <Text
                     style={{
                       color: Colors.secondaryText,
@@ -282,7 +284,7 @@ export default Fan = ({route,navigation}) => {
               left: 15,
               top: 10,
             }}>
-            Electrical Services includes
+            Interior Designing includes
           </Text>
           <ScrollView horizontal={true}>
             <View
