@@ -8,7 +8,6 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import {NavigationContainer} from '@react-navigation/native';
 
-
 // import Home from '../Screens/home';
 import HomeSafe from '../Screens/homesafe';
 import Profile from '../Screens/profile';
@@ -17,11 +16,12 @@ import Profile from '../Screens/profile';
 import Navigation from './homenavigation';
 import ProfileNavigation from './profilenavigation';
 
+import IntroNav from './intronav';
+
 const Tab = createBottomTabNavigator();
 
 export default function MyTabs() {
   return (
-   
     <Tab.Navigator
       initialRouteName="Home"
       tabBarOptions={{
@@ -31,6 +31,7 @@ export default function MyTabs() {
         name="Home"
         component={Navigation}
         options={{
+          // set
           tabBarLabel: 'Home',
           tabBarIcon: ({focused}) => {
             const image = focused ? 'home' : 'home-outline';
@@ -63,6 +64,5 @@ export default function MyTabs() {
         }}
       />
     </Tab.Navigator>
-   
   );
 }

@@ -13,7 +13,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Colors from '../config/colors';
 import {Rating} from 'react-native-elements';
 
-const Review = () => {
+const Review = ({navigation}) => {
   return (
     <View style={{flex: 1, backgroundColor: Colors.backgroundcolor}}>
       {/* <ScrollView style={{height: 990}}> */}
@@ -57,6 +57,16 @@ const Review = () => {
           My Reviews
         </Text>
       </View>
+        </View>
+        <View>
+        <TouchableOpacity style={{ zIndex:1,alignSelf:'flex-end',right:20,position:'absolute',top:525}}>
+            <AntDesign
+              style={styles.iconItem}
+              name="pluscircle"
+              size={45}
+              color={Colors.primarycolor}
+            />
+          </TouchableOpacity>
         </View>
         <ScrollView>
         <View style={styles.mainView}>
@@ -187,14 +197,7 @@ const Review = () => {
             non deserunt uAmet minim mollit non deserunt u Amet minim mollit non
             Amet minim mollit non.”
           </Text>
-          <TouchableOpacity style={{top: 15, left: 20}}>
-            <AntDesign
-              style={styles.iconItem}
-              name="pluscircle"
-              size={20}
-              color={Colors.primarycolor}
-            />
-          </TouchableOpacity>
+          
         </View>
       </ScrollView>
     </View>
@@ -216,7 +219,7 @@ const styles = StyleSheet.create({
     // justifyContent:'center'
   },
   text: {
-    fontSize: 17,
+    fontSize: 15,
 
     fontWeight: 'bold',
     color: Colors.backgroundcolor,
@@ -227,4 +230,8 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     height: 700,
   },
+  mainView:{
+    flexDirection:'column',height:730
+},
+
 });

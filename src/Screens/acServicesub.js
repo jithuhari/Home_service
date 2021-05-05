@@ -84,9 +84,9 @@ const Servicesub = ({route,navigation}) => {
             />
           </TouchableOpacity>
 
-          <View style={{width: 148, height: 47, paddingLeft: 90}}>
+          <View style={{width: 148, height: 47, paddingLeft: 110}}>
             <Image
-              style={{flex: 1, width: 48, height: 10, tintColor: '#fff'}}
+              style={{ width: 45, height: 45, tintColor: '#fff'}}
               source={require('../Assets/Images/Home.png')}
             />
           </View>
@@ -516,11 +516,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   text: {
-    fontSize: 17,
+    fontSize: 15,
     fontWeight: '900',
     fontWeight: 'bold',
     color: Colors.backgroundcolor,
-    paddingLeft: -3,
+    paddingLeft: 12,
+    top:-4
   },
   searchStyle: {
     borderRadius: 16,

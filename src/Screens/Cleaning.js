@@ -31,13 +31,13 @@ const Cleaning = ({navigation}) => {
             />
           </TouchableOpacity>
 
-          <View style={{width: 148, height: 70, paddingLeft: 120,top:15}}>
+          <View style={{width: 148, height: 70, paddingLeft: 110,top:15}}>
             <Image
               style={{ width: 45, height: 45, tintColor: '#fff'}}
               source={require('../Assets/appbar.png')}
             />
           </View>
-          <Text style={styles.text}>Home Serve</Text>
+          <Text style={styles.text}>HOME SERVE</Text>
         </View>
         <View style={{backgroundColor: Colors.primarycolor,height:58}}>
           <Searchbar
@@ -132,54 +132,108 @@ const Cleaning = ({navigation}) => {
           </TouchableOpacity>
         </View>
 
-        <View style={styles.cardView}>
-          <Text style={styles.cardTitle}>Cleaning service includes</Text>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <ScrollView horizontal={true} style={{marginTop: 10,}}>
-              <Card style={styles.cardStyle}>
-                <Card.Content>
-                  <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                    1
-                    <Text style={{fontSize: 14, fontWeight: 'normal'}}>
-                      {' '}
-                      Use of Top Quality Specialized and Safe Chemicals.
-                    </Text>
-                  </Title>
-                </Card.Content>
-              </Card>
-              <Card style={styles.cardStyle}>
-                <Card.Content>
-                  <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                    2
-                    <Text style={{fontSize: 14, fontWeight: 'normal'}}>
-                      {' '}
-                      Use of Mechanical and Professional Equipments{' '}
-                    </Text>
-                  </Title>
-                </Card.Content>
-              </Card>
-              <Card style={styles.cardStyle}>
-                <Card.Content>
-                  <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                    3
-                    <Text style={{fontSize: 14, fontWeight: 'normal'}}>
-                      {' '}
-                      Experienced ,Trained and Background Verified Partners
-                    </Text>
-                  </Title>
-                </Card.Content>
-              </Card>
-              <Card style={styles.cardStyle2}>
-                <Card.Content>
-                  <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                    4
-                    <Text style={{fontSize: 14, fontWeight: 'normal'}}>
-                      {' '}
-                      Lowest Priced Quotes
-                    </Text>
-                  </Title>
-                </Card.Content>
-              </Card>
+        <View style={{left: '4%', right: '4%', top: 20,height:140}}>
+          <View
+            style={{
+              backgroundColor: Colors.continercolor,
+              borderRadius: 15,
+              height: 110,
+              width: '92%',
+            }}>
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: 'bold',
+                color: Colors.primarycolor,
+                left: 15,
+                top: 10,
+              }}>
+              Cleaning service includes
+            </Text>
+            <ScrollView horizontal={true}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  paddingLeft: 10,
+                  paddingRight: 45,
+                  top: 5,
+                }}>
+                <Card
+                  style={{
+                    marginTop: 10,
+                    width: 280,
+                    elevation: 0,
+                    borderRadius: 15,
+                    height: 70,
+                  }}>
+                  <Card.Content>
+                    <Title
+                      style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                      1
+                      <Text style={{fontSize: 12, fontWeight: 'normal'}}>
+                        Use of Top Quality Specialized and Safe Chemicals.
+                      </Text>
+                    </Title>
+                  </Card.Content>
+                </Card>
+                <Card
+                  style={{
+                    marginTop: 10,
+                    width: 280,
+                    elevation: 0,
+                    left: 15,
+                    borderRadius: 15,
+                    height: 70,
+                  }}>
+                  <Card.Content>
+                    <Title
+                      style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                      2
+                      <Text style={{fontSize: 12, fontWeight: 'normal'}}>
+                        Use of Mechanical and Professional Equipments{' '}
+                      </Text>
+                    </Title>
+                  </Card.Content>
+                </Card>
+                <Card
+                  style={{
+                    marginTop: 10,
+                    width: 280,
+                    elevation: 0,
+                    left: 25,
+                    borderRadius: 15,
+                    height: 70,
+                  }}>
+                  <Card.Content>
+                    <Title
+                      style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                      3
+                      <Text style={{fontSize: 12, fontWeight: 'normal'}}>
+                        Experienced ,Trained and Background Verified Partners
+                      </Text>
+                    </Title>
+                  </Card.Content>
+                </Card>
+                <Card
+                  style={{
+                    marginTop: 10,
+                    width: 280,
+                    elevation: 0,
+                    left: 35,
+                    borderRadius: 15,
+                    height: 70,
+                  }}>
+                  <Card.Content>
+                    <Title
+                      style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                      4
+                      <Text style={{fontSize: 12, fontWeight: 'normal'}}>
+                        Lowest Priced Quotes
+                      </Text>
+                    </Title>
+                  </Card.Content>
+                </Card>
+              </View>
             </ScrollView>
           </View>
         </View>
@@ -264,11 +318,11 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: '900',
     fontWeight: 'bold',
     color: Colors.backgroundcolor,
-    paddingLeft: 20,
+    paddingLeft: 10,
   },
   searchStyle: {
     borderRadius: 16,

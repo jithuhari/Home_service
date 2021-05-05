@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {
   View,
   Text,
@@ -13,6 +13,8 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Colors from '../config/colors';
 
 const PartnerReg = ({navigation}) => {
+
+  const [mobno, setMobileno] = useState('')
   return (
     <View style={{flex: 1, backgroundColor: Colors.background}}>
       <View>
@@ -72,7 +74,9 @@ const PartnerReg = ({navigation}) => {
           placeholderTextColor="grey"
           underlineColorAndroid="transparent"
           left={25}
-          onChangeText={text => this.setState({text})}></TextInput>
+          keyboardType="number-pad"
+          maxLength={10}
+          onChangeText={(num) => setMobileno(num)}></TextInput>
         <TouchableOpacity style={styles.button}>
           <Text style={{color: Colors.secondaryText}}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -105,7 +109,7 @@ const styles = StyleSheet.create({
         // justifyContent:'center'
       },
       text: {
-        fontSize: 17,
+        fontSize: 15,
     
         fontWeight: 'bold',
         color: Colors.backgroundcolor,

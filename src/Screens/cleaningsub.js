@@ -17,11 +17,8 @@ import {Searchbar, Button, Card, Title, Divider} from 'react-native-paper';
 import DropDownPicker from 'react-native-dropdown-picker';
 import Modal from 'react-native-modal';
 
-const CodeSample = ({route,navigation}) => {
-
-  const {head} =route.params;
-
-
+const HomeSanitization = ({route, navigation}) => {
+  const {head} = route.params;
 
   const [modalVisible, setModalVisible] = useState(false);
   const [select, setRemove] = useState('Select');
@@ -49,13 +46,20 @@ const CodeSample = ({route,navigation}) => {
     ssetcolor(styles.button1f);
     ssettextcolor(styles.storeyTextf);
   };
-  const [rate, setRate] = useState('₹1,499');
-  const srate = () => {
-    setRate('₹1,499');
-  };
-  const drate = () => {
-    setRate('₹1,899');
-  };
+  const [rateText, setRateText] = useState('');
+  const [sdText, setSDTxt] = useState('');
+  const [dropDownValue, setDropDownValue] = useState(
+    'Select size of your house/Apartment',
+  );
+  const [items, setItems] = useState([
+    {label: '1RK', value: '1RK'},
+    {label: '1BHK', value: '1BHK'},
+    {label: '2BHK', value: '2BHK'},
+    {label: '3BHK', value: '3BHK'},
+    {label: '4BHK', value: '4BHK'},
+    {label: '5BHK', value: '5BHK'},
+    {label: 'Duplex', value: 'Duplex'},
+  ]);
   const remove = () => {
     setRemove('Remove');
   };
@@ -92,73 +96,41 @@ const CodeSample = ({route,navigation}) => {
     onPressDuplex();
   };
 
-  const[ homesingle ,sethomeDuplex] = useState("")
-
-  const [bhk, setbhk] = useState("")
-
-
-  
-
   const onChangeSearch = query => setSearchQuery(query);
   return (
     <View style={{flex: 1, backgroundColor: Colors.backgroundcolor}}>
-      
-        <View style={styles.header}>
-          <View style={{flexDirection: 'row'}}>
-            <TouchableOpacity
-              style={{paddingLeft: 10, top: 7}}
-              onPress={() => navigation.goBack(null)}>
-              <AntDesign name="left" size={20} color="white"></AntDesign>
-            </TouchableOpacity>
-            <Image
-              source={require('../Assets/appbar.png')}
-              style={{
-                height: 45,
-                width: 45,
-                tintColor: Colors.backgroundcolor,
-                left: 120,
-                top: 4,
-              }}
-            />
-            <Text
-              style={{
-                fontSize: 15,
-                color: Colors.backgroundcolor,
-                fontWeight: 'bold',
-                left: 125,
-                top: 11,
-              }}>
-              HOME SERVE
-            </Text>
-          </View>
-        </View>
-        <View
-          style={{
-            backgroundColor: Colors.primarycolor,
-            paddingLeft: 18,
-            paddingRight: 16,
-            height: 75,
-            borderBottomRightRadius: 15,
-            borderBottomLeftRadius: 15,
-          }}>
-          <Searchbar
-            placeholder="Search for a service"
-            style={{borderRadius: 10, height: 40, width: '99%'}}
+      <View style={styles.header}>
+        <TouchableOpacity
+          style={{bottom: 5, left: 20}}
+          onPress={() => navigation.goBack()}>
+          <AntDesign
+            style={styles.iconItem}
+            name="left"
+            size={20}
+            color={Colors.backgroundcolor}
           />
-          <Text
-            style={{
-              fontSize: 18,
-              color: Colors.backgroundcolor,
-              fontWeight: 'bold',
-              top: 5,
+        </TouchableOpacity>
 
-              alignSelf: 'center',
-            }}>
-            {/* {JSON.stringify(head)} */}
-            {head}
-          </Text>
+        <View style={{width: 148, height: 47, paddingLeft: 110}}>
+          <Image
+            style={{ width: 45, height: 45, tintColor: '#fff'}}
+            source={require('../Assets/Images/Home.png')}
+          />
         </View>
-        <ScrollView>
+        <Text style={styles.text}>HOME SERVE</Text>
+      </View>
+      <View style={{backgroundColor: Colors.primarycolor}}>
+        <Searchbar
+          style={styles.searchStyle}
+          placeholder="Search for a Service"
+          onChangeText={onChangeSearch}
+          value={searchQuery}
+        />
+      </View>
+      <View style={styles.appbarcontainer}>
+        <Text style={styles.headingStyle}>{head}</Text>
+      </View>
+      <ScrollView>
         <View style={styles.buttonViewStyle}>
           <TouchableOpacity style={styles.buttonstyle}>
             <Image
@@ -172,7 +144,7 @@ const CodeSample = ({route,navigation}) => {
         </View>
 
         <View style={styles.container2}>
-          <Text style={styles.cardTitle}>Home Sanitization</Text>
+          <Text style={styles.cardTitle}>{head}</Text>
 
           <View style={{flexDirection: 'row', marginTop: 12}}>
             <Text style={styles.textdot}>{'\u2022'}</Text>
@@ -200,18 +172,10 @@ const CodeSample = ({route,navigation}) => {
           <View style={{flexDirection: 'row', marginTop: 10}}>
             <Text style={styles.text1}>Size of house:</Text>
             <View style={{marginLeft: 10}}>
-              <DropDownPicker 
-                items={[
-                  {label: '1RK', value: '1RK'},
-                  {label: '1BHK', value: '1BHK'},
-                  {label: '2BHK', value: '2BHK'},
-                  {label: '3BHK', value: '3BHK'},
-                  {label: '4BHK', value: '4BHK'},
-                  {label: '5BHK', value: '5BHK'},
-                  {label: 'Duplex', value: 'Duplex'},
-                ]}
-                defaultValue="Select size of your house/Apartment"
-                //  {this.state.bhk}
+              <DropDownPicker
+                items={items}
+                defaultValue={dropDownValue}
+                onChangeItem={item => setDropDownValue(item.value)}
                 labelStyle={{
                   fontSize: 12,
                   textAlign: 'justify',
@@ -243,9 +207,9 @@ const CodeSample = ({route,navigation}) => {
                 singleCombined();
                 change();
                 changedisable();
-                sethomeDuplex("Single");
+                setRateText('₹1,499');
+                setSDTxt('Single');
               }}
-              // styles.storeyButton1
               style={color}>
               <Text style={txtcolor}>Single</Text>
             </TouchableOpacity>
@@ -255,7 +219,8 @@ const CodeSample = ({route,navigation}) => {
                 duplexCombined();
                 rchange();
                 changedisable();
-                sethomeDuplex("Duplex");
+                setRateText('1,899');
+                setSDTxt('Duplex');
               }}
               style={scolor}>
               <Text style={stxtcolor}>Duplex</Text>
@@ -269,13 +234,13 @@ const CodeSample = ({route,navigation}) => {
             </Text>
             <Text style={{marginLeft: 10, fontWeight: 'bold'}}>{single}</Text>
           </View>
-          {/* <View style={styles.duplexRate}>
+          <View style={styles.duplexRate}>
             <Text
               style={{textDecorationLine: 'line-through', color: '#828282'}}>
               {duplexcut}
             </Text>
             <Text style={{marginLeft: 10, fontWeight: 'bold'}}>{duplex}</Text>
-          </View> */}
+          </View>
 
           {/* Single modal view */}
           <View
@@ -315,13 +280,16 @@ const CodeSample = ({route,navigation}) => {
               <View style={styles.modalView}>
                 <View style={{flexDirection: 'column'}}>
                   <View style={{marginLeft: 20, flexDirection: 'row'}}>
-                    <Text style={styles.modalText}>{single}</Text>
+                    <Text style={styles.modalText}>
+                      {rateText === '₹1,499' ? '₹1,499' : '₹1,899'}
+                    </Text>
                     <Text style={{marginLeft: 40, color: '#FFFFFF'}}>
                       1 item
                     </Text>
                   </View>
                   <Text style={{color: '#FFFFFF', marginLeft: 15}}>
-                  {head} | 2BHK | {homesingle}
+                    {head} | {dropDownValue} |{' '}
+                    {sdText === 'Single' ? 'Single' : 'Duplex'}
                   </Text>
                 </View>
                 <Pressable
@@ -332,10 +300,9 @@ const CodeSample = ({route,navigation}) => {
               </View>
             </View>
           </Modal>
-        </View>
-        {/* Duplex modal view */}
-
-        {/* <View>
+          {/* Duplex modal view */}
+          {/* 
+           
               <View style={styles.bottomView}>
                   <Modal
                     animationType="slide"
@@ -343,15 +310,15 @@ const CodeSample = ({route,navigation}) => {
                     visible={modalVisible}
                     hasBackdrop={true}
                     backdropOpacity={0}
-                    onBackdropPress={() => {toggleModal1();selecta()}}
+                    onBackdropPress={() => {toggleModal();selecta()}}
                     onRequestClose={() => {
-                      setModalVisible1(!modalVisible1);}}>
+                      setModalVisible(!modalVisible);}}>
                 <View style={styles.bottomView}>
                   <View style={styles.modalView}>
                     <View style={{flexDirection:'column'}}>
                       <View style={{marginLeft:20,flexDirection:'row'}}>
                   
-                  <Text style={styles.modalText}>₹1,899</Text>
+                  <Text style={styles.modalText}>₹1,499</Text>
                   <Text style={{marginLeft:40,color: "#FFFFFF",}}>1 item</Text>
                   </View>
                     <Text style={{color: "#FFFFFF",marginLeft:15}}>Home Sanitization | 2BHK | Single</Text>
@@ -363,58 +330,110 @@ const CodeSample = ({route,navigation}) => {
             </Pressable>
           </View>
         </View>
-      </Modal>
+      </Modal> */}
         </View>
-        </View> */}
-
-        <View style={styles.cardView}>
-          <Text style={styles.cardTitle}>Cleaning service includes</Text>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <ScrollView horizontal={true} style={{marginTop: 10}}>
-              <Card style={styles.cardStyle}>
-                <Card.Content>
-                  <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                    1
-                    <Text style={{fontSize: 14, fontWeight: 'normal'}}>
-                      {' '}
-                      Treatment with certified antiviral solutions.
-                    </Text>
-                  </Title>
-                </Card.Content>
-              </Card>
-              <Card style={styles.cardStyle}>
-                <Card.Content>
-                  <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                    2
-                    <Text style={{fontSize: 14, fontWeight: 'normal'}}>
-                      {' '}
-                      Kills 999.99% of germe for maximum protection.{' '}
-                    </Text>
-                  </Title>
-                </Card.Content>
-              </Card>
-              <Card style={styles.cardStyle}>
-                <Card.Content>
-                  <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                    3
-                    <Text style={{fontSize: 14, fontWeight: 'normal'}}>
-                      {' '}
-                      Experienced ,Trained and Background Verified Partners
-                    </Text>
-                  </Title>
-                </Card.Content>
-              </Card>
-              <Card style={styles.cardStyle}>
-                <Card.Content>
-                  <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                    4
-                    <Text style={{fontSize: 14, fontWeight: 'normal'}}>
-                      {' '}
-                      Lowest Priced Quotes
-                    </Text>
-                  </Title>
-                </Card.Content>
-              </Card>
+        <View style={{left: '4%', right: '4%', top: -25}}>
+          <View
+            style={{
+              backgroundColor: Colors.continercolor,
+              borderRadius: 15,
+              height: 110,
+              width: '92%',
+            }}>
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: 'bold',
+                color: Colors.primarycolor,
+                left: 15,
+                top: 10,
+              }}>
+              Cleaning service includes
+            </Text>
+            <ScrollView horizontal={true}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  paddingLeft: 10,
+                  paddingRight: 45,
+                  top: 5,
+                }}>
+                <Card
+                  style={{
+                    marginTop: 10,
+                    width: 280,
+                    elevation: 0,
+                    borderRadius: 15,
+                    height: 70,
+                  }}>
+                  <Card.Content>
+                    <Title
+                      style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                      1
+                      <Text style={{fontSize: 12, fontWeight: 'normal'}}>
+                        Use of Top Quality Specialized and Safe Chemicals.
+                      </Text>
+                    </Title>
+                  </Card.Content>
+                </Card>
+                <Card
+                  style={{
+                    marginTop: 10,
+                    width: 280,
+                    elevation: 0,
+                    left: 15,
+                    borderRadius: 15,
+                    height: 70,
+                  }}>
+                  <Card.Content>
+                    <Title
+                      style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                      2
+                      <Text style={{fontSize: 12, fontWeight: 'normal'}}>
+                        Use of Mechanical and Professional Equipments{' '}
+                      </Text>
+                    </Title>
+                  </Card.Content>
+                </Card>
+                <Card
+                  style={{
+                    marginTop: 10,
+                    width: 280,
+                    elevation: 0,
+                    left: 25,
+                    borderRadius: 15,
+                    height: 70,
+                  }}>
+                  <Card.Content>
+                    <Title
+                      style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                      3
+                      <Text style={{fontSize: 12, fontWeight: 'normal'}}>
+                        Experienced ,Trained and Background Verified Partners
+                      </Text>
+                    </Title>
+                  </Card.Content>
+                </Card>
+                <Card
+                  style={{
+                    marginTop: 10,
+                    width: 280,
+                    elevation: 0,
+                    left: 35,
+                    borderRadius: 15,
+                    height: 70,
+                  }}>
+                  <Card.Content>
+                    <Title
+                      style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                      4
+                      <Text style={{fontSize: 12, fontWeight: 'normal'}}>
+                        Lowest Priced Quotes
+                      </Text>
+                    </Title>
+                  </Card.Content>
+                </Card>
+              </View>
             </ScrollView>
           </View>
         </View>
@@ -490,12 +509,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     alignItems: 'center',
     fontWeight: 'bold',
-    color: Colors.text,
+    color: Colors.backgroundcolor,
   },
   container2: {
-    width: 345,
+    left: '4%',
+    right: '4%',
+    width: '92%',
     height: 365,
-    backgroundColor: '#E5E5E5',
+    backgroundColor: Colors.continercolor,
     marginStart: 5,
     marginEnd: 5,
     borderRadius: 16,
@@ -596,11 +617,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   text: {
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: '900',
     fontWeight: 'bold',
     color: Colors.backgroundcolor,
-    paddingLeft: 10,
+    paddingLeft: 12,
   },
   searchStyle: {
     borderRadius: 16,
@@ -671,15 +692,16 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     marginTop: 50,
     left: 10,
+    // right:100
   },
   modalView: {
     flexDirection: 'row',
     backgroundColor: '#5F5F82',
     borderRadius: 20,
-    width: 345,
+    width: 330,
     height: 90,
     marginLeft: 5,
-    marginRight: 3,
+    marginRight: 10,
     marginBottom: 15,
     alignItems: 'center',
     shadowColor: '#000',
@@ -694,11 +716,13 @@ const styles = StyleSheet.create({
   },
   modalButton: {
     borderRadius: 8,
-    marginLeft: 20,
+    marginLeft: 10,
+    // right:20,
     width: 96,
     height: 32,
     // elevation: 2,
     backgroundColor: '#d1d1d1',
+    // top:-10
   },
   modalButtondisable: {
     borderRadius: 8,
@@ -725,7 +749,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: 5,
-    
   },
   modalText: {
     color: '#FFFFFF',
@@ -744,5 +767,19 @@ const styles = StyleSheet.create({
     bottom: 2,
     width: '100%',
   },
+  cardTitle: {
+    marginTop: 10,
+    color: Colors.primarycolor,
+    fontWeight: 'bold',
+    fontSize: 15,
+    left: 30,
+  },
+  appbarcontainer: {
+    width: 360,
+    height: 50,
+    backgroundColor: Colors.primarycolor,
+    borderBottomEndRadius: 15,
+    borderBottomStartRadius: 15,
+  },
 });
-export default CodeSample;
+export default HomeSanitization;

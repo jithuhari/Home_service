@@ -44,7 +44,7 @@ const InteriorDesigning = ({navigation}) => {
               source={require('../Assets/appbar.png')}
             />
           </View>
-          <Text style={styles.text}>Home Serve</Text>
+          <Text style={styles.text}>HOME SERVE</Text>
         </View>
         <View style={{backgroundColor: Colors.primarycolor}}>
           <Searchbar
@@ -135,48 +135,87 @@ const InteriorDesigning = ({navigation}) => {
           </TouchableOpacity>
         </View>
 
-        <View style={styles.cardView}>
-          <Text style={styles.cardTitle}>
-            Interior Designing Service includes
+        <View style={{left: '4%', right: '4%', top: 20,height:140}}>
+        <View
+          style={{
+            backgroundColor: Colors.continercolor,
+            borderRadius: 15,
+            height: 110,
+            width: '92%',
+          }}>
+          <Text
+            style={{
+              fontSize: 16,
+              fontWeight: 'bold',
+              color: Colors.primarycolor,
+              left: 15,
+              top: 10,
+            }}>
+            Interior Designing includes
           </Text>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <ScrollView horizontal={true} style={{marginTop: 10}}>
-              <Card style={styles.cardStyle}>
+          <ScrollView horizontal={true}>
+            <View
+              style={{flexDirection: 'row', paddingLeft: 10, paddingRight: 35,top:5}}>
+              <Card
+                style={{
+                  marginTop: 10,
+                  width: 280,
+                  elevation: 0,
+                  borderRadius: 15,
+                  height: 70,
+                }}>
                 <Card.Content>
-                  <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                  <Title
+                    style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
                     1
-                    <Text style={{fontSize: 14, fontWeight: 'normal'}}>
-                      {' '}
-                      Doorstep Service.
+                    <Text style={{fontSize: 12, fontWeight: 'normal'}}>
+                      Highly trained professionals
                     </Text>
                   </Title>
                 </Card.Content>
               </Card>
-              <Card style={styles.cardStyle}>
+              <Card
+                style={{
+                  marginTop: 10,
+                  width: 280,
+                  elevation: 0,
+                  left: 15,
+                  borderRadius: 15,
+                  height: 70,
+                }}>
                 <Card.Content>
-                  <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                  <Title
+                    style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
                     2
-                    <Text style={{fontSize: 14, fontWeight: 'normal'}}>
-                      {' '}
-                      Experienced ,Trained and Background Verified Partners
+                    <Text style={{fontSize: 12, fontWeight: 'normal'}}>
+                      Experienced, trained, and Background verified Partners
                     </Text>
                   </Title>
                 </Card.Content>
               </Card>
-              <Card style={styles.cardStyle1}>
+              <Card
+                style={{
+                  marginTop: 10,
+                  width: 280,
+                  elevation: 0,
+                  left: 25,
+                  borderRadius: 15,
+                  height: 70,
+                }}>
                 <Card.Content>
-                  <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                  <Title
+                    style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
                     3
-                    <Text style={{fontSize: 14, fontWeight: 'normal'}}>
-                      {' '}
+                    <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                       Lowest Priced Quotes
                     </Text>
                   </Title>
                 </Card.Content>
               </Card>
-            </ScrollView>
-          </View>
+            </View>
+          </ScrollView>
         </View>
+      </View>
        
       </ScrollView>
     </View>
@@ -257,11 +296,12 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: '900',
     fontWeight: 'bold',
     color: Colors.backgroundcolor,
-    paddingLeft: 20,
+    paddingLeft: 23,
+    top:-6
   },
   searchStyle: {
     borderRadius: 16,

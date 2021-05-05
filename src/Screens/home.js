@@ -42,7 +42,7 @@ export default Home = ({navigation}) => {
             }}
           />
           <Text style={{color: '#fff', top: 11, fontWeight: 'bold', left: 6}}>
-            Home Serve
+          HOME SERVE
           </Text>
         </View>
       </View>
@@ -96,23 +96,27 @@ export default Home = ({navigation}) => {
               style={{borderRadius: 10, margin: 10, height: 40}}
             />
           </View>
-          <View style={{borderBottomLeftRadius: 10}}>
+          <View style={{borderBottomLeftRadius: 10,}}>
             <SliderBox
               images={image}
               autoplay={true}
               circleLoop
               ImageComponentStyle={{
                 borderRadius: 15,
-                width: '97%',
+                // width: 20,
                 marginTop: 5,
-                borderBottomLeftRadius: 10,
+                borderRadius: 15,
+                
+             
               }}
               style={{
-                start: 14,
-                end: 10,
+                start: '4%',
+                right: '4%',
+                width:'92%',
                 top: 10,
-                borderRadius: 10,
+                borderRadius: 15,
                 height: 220,
+                borderBottomLeftRadius:15
               }}
               dotStyle={{
                 width: 10,
@@ -218,18 +222,18 @@ export default Home = ({navigation}) => {
                 <View style={{justifyContent: 'center', alignItems: 'center'}}>
                   <Image source={require('../Assets/step1.png')} />
                   <Text
-                    style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                    style={{color: Colors.primarycolor, fontWeight: 'bold',top:10}}>
                     Schedule{' '}
                   </Text>
                   <Text
-                    style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                    style={{color: Colors.primarycolor, fontWeight: 'bold',top:10}}>
                     your service{' '}
                   </Text>
 
-                  <Text style={{color: Colors.primarycolor}}>
+                  <Text style={{color: Colors.primarycolor,fontSize:12,top:10}}>
                     Fill Credentials,
                   </Text>
-                  <Text style={{color: Colors.primarycolor}}>
+                  <Text style={{color: Colors.primarycolor,fontSize:12,top:10}}>
                     Book & Relax{' '}
                   </Text>
                 </View>
@@ -258,10 +262,10 @@ export default Home = ({navigation}) => {
                     your home
                   </Text>
 
-                  <Text style={{color: Colors.primarycolor}}>
+                  <Text style={{color: Colors.primarycolor,fontSize:12}}>
                     Keep Calm, We Will
                   </Text>
-                  <Text style={{color: Colors.primarycolor}}>
+                  <Text style={{color: Colors.primarycolor,fontSize:12}}>
                     Serve At Your Door
                   </Text>
                 </View>
@@ -281,18 +285,18 @@ export default Home = ({navigation}) => {
                   }}>
                   <Image source={require('../Assets/step3.png')} />
                   <Text
-                    style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                    style={{color: Colors.primarycolor, fontWeight: 'bold',top:10}}>
                     Pay after
                   </Text>
                   <Text
-                    style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                    style={{color: Colors.primarycolor, fontWeight: 'bold',top:10}}>
                     service
                   </Text>
 
-                  <Text style={{color: Colors.primarycolor}}>
+                  <Text style={{color: Colors.primarycolor,fontSize:12,top:10}}>
                     Make Payment After
                   </Text>
-                  <Text style={{color: Colors.primarycolor}}>
+                  <Text style={{color: Colors.primarycolor,fontSize:12,top:10}}>
                     work completion
                   </Text>
                 </View>
@@ -325,7 +329,7 @@ export default Home = ({navigation}) => {
           </View>
           <ScrollView
             horizontal={true}
-            style={{top: 15, left: 10, right:5, width: '92%',}}>
+            style={{top: 15, left: 10,  width: '92%',}}>
             <View style={{right: 10}}>
               <Image source={require('../Assets/s1.png')} />
             </View>
@@ -335,7 +339,7 @@ export default Home = ({navigation}) => {
             <View style={{left: 20}}>
               <Image source={require('../Assets/s3.png')} />
             </View>
-            <View style={{left: 30}}>
+            <View style={{left: 30,marginRight:40}}>
               <Image source={require('../Assets/s4.png')} />
             </View>
             
@@ -474,6 +478,7 @@ export default Home = ({navigation}) => {
                 width: 290,
                 borderRadius: 15,
                 left: 25,
+                marginRight:30
               }}>
               <View>
                 <View style={{flexDirection: 'row', top: 5}}>
@@ -503,6 +508,7 @@ export default Home = ({navigation}) => {
                       color: Colors.primarycolor,
                       padding: 7,
                       top: 4,
+                      
                     }}>
                     “Amet minim mollit non deserunt uAmet minim mollit non
                     deserunt u mjfvet minim mollit non Amet minim mollit non
@@ -535,7 +541,7 @@ export default Home = ({navigation}) => {
            
             
           </View>
-          <View style={{backgroundColor:'#fff',height:250,width:'100%',top:500}}></View>
+          <View style={{backgroundColor:'#fff',height:140,width:'100%',top:500}}></View>
       </ScrollView>
     </View>
   );

@@ -30,11 +30,12 @@ const MyComponent = () => {
           borderBottomWidth: 2,
         }}>
         <List.Item
-          titleStyle={{fontSize: 0, padding: 0, margin: 0}}
-          style={{margin: 0, padding: 0}}
+          titleStyle={{fontSize: 0, padding: 0, margin: 0,height:0}}
+          style={{margin: 0, padding: 0,
+          height:34}}
           descriptionStyle={{
             fontSize: 10,
-            // top: -30,
+            // top: -15,
             color: Colors.primarycolor,
           }}
           description="“Amet minim mollit non deserunt uAmet minim mollit non deserunt u mjfvet minim mollit non Amet minim mollit non deserunt uAmet minim Amet minim mollit non deserunt uAmet minim Amet minim ffmolfmllit non deserunt uAmet minim mollit non deserunt u Amet minim mollit non Amet minim mollit non.”"
@@ -52,6 +53,8 @@ const MyComponent = () => {
         }}>
         <List.Item
           titleStyle={{fontSize: 0, padding: 0, margin: 0}}
+          style={{margin: 0, padding: 0,
+            height:34}}
           descriptionStyle={{
             fontSize: 10,
             // top: -30,
@@ -72,6 +75,8 @@ const MyComponent = () => {
         }}>
         <List.Item
           titleStyle={{fontSize: 0, padding: 0, margin: 0}}
+          style={{margin: 0, padding: 0,
+            height:34}}
           descriptionStyle={{
             fontSize: 10,
             // top: -30,
@@ -92,9 +97,11 @@ const MyComponent = () => {
         }}>
         <List.Item
           titleStyle={{fontSize: 0, padding: 0, margin: 0}}
+          style={{margin: 0, padding: 0,
+            height:34}}
           descriptionStyle={{
             fontSize: 10,
-           
+
             color: Colors.primarycolor,
             justifyContent: 'center',
             alignItems: 'center',

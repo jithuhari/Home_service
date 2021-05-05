@@ -14,6 +14,7 @@ import Appliancesrepair from '../Screens/appliancesrepair';
 import AcServices from '../Screens/AcServices';
 
 import Fan from '../Screens/subpage1';
+import Plumbingsub from '../Screens/plumbingsub';
 import Appliancesubpage from '../Screens/appliancesubpage';
 import AcServicesub from '../Screens/acServicesub';
 import Interiorsub from '../Screens/Interiorsub';
@@ -29,7 +30,7 @@ const Stack = createStackNavigator();
 
 export default HomeNavigations = () => {
   return (
-    <Stack.Navigator
+    <Stack.Navigator 
       initialRouteName="Home"
       screenOptions={{headerShown: false}}>
       <Stack.Screen name="Home" component={Home} />
@@ -43,6 +44,7 @@ export default HomeNavigations = () => {
       <Stack.Screen name="AcServices" component={AcServices} />
 
       <Stack.Screen name="Fan" component={Fan} />
+      <Stack.Screen name="Plumbingsub" component={Plumbingsub} />
       <Stack.Screen name="Appliancesubpage" component={Appliancesubpage} />
       <Stack.Screen name="AcServicesub" component={AcServicesub} />
       <Stack.Screen name="Interiorsub" component={Interiorsub} />
@@ -53,7 +55,7 @@ export default HomeNavigations = () => {
       <Stack.Screen name="ServiceBooking" component={ServiceBooking} />
 
 
-      <Stack.Screen name="Intro" component={Intro}  />
+      {/* <Stack.Screen name="Intro" component={Intro}  /> */}
 
 
 

@@ -89,7 +89,7 @@ export default Plumbing = ({navigation}) => {
             <TouchableOpacity
               style={styles.continer}
               onPress={() => {
-                navigation.navigate('Fan', {head: 'Basin & Sink'});
+                navigation.navigate('Plumbingsub', {head: 'Basin & Sink'});
               }}>
               <Image
                 source={require('../Assets/plumbing/basin.png')}
@@ -99,7 +99,7 @@ export default Plumbing = ({navigation}) => {
             <TouchableOpacity
               style={styles.continer}
               onPress={() => {
-                navigation.navigate('Fan', {head: 'Tap & Mixer'}); }}
+                navigation.navigate('Plumbingsub', {head: 'Tap & Mixer'}); }}
                 >
               <Image
                 source={require('../Assets/plumbing/tap.png')}
@@ -109,7 +109,7 @@ export default Plumbing = ({navigation}) => {
             <TouchableOpacity
               style={styles.continer}
               onPress={() => {
-                navigation.navigate('Fan', {head: 'Bath Fitting'});
+                navigation.navigate('Plumbingsub', {head: 'Bath Fitting'});
               }}>
               <Image
                 source={require('../Assets/plumbing/Bathfitting.png')}
@@ -124,7 +124,7 @@ export default Plumbing = ({navigation}) => {
               <TouchableOpacity
                 style={styles.continer}
                 onPress={() => {
-                  navigation.navigate('Fan', {head: 'Motor'});
+                  navigation.navigate('Plumbingsub', {head: 'Motor'});
                 }}>
                 <Image
                   source={require('../Assets/plumbing/motor.png')}
@@ -134,7 +134,7 @@ export default Plumbing = ({navigation}) => {
               <TouchableOpacity
                 style={styles.continer}
                 onPress={() => {
-                  navigation.navigate('Fan', {head: 'Toilet'});
+                  navigation.navigate('Plumbingsub', {head: 'Toilet'});
                 }}>
                 <Image
                   source={require('../Assets/plumbing/toilet.png')}

@@ -13,18 +13,17 @@ import Colors from '../config/colors';
 const Homesafe = ({navigation}) => {
   return (
     <View style={{flex: 1, backgroundColor: Colors.background}}>
-      <ScrollView style={{backgroundColor:'#fff'}}>
-        <View style={styles.header}>
+      <View style={styles.header}>
         <TouchableOpacity
-            style={{bottom: 5,top:10,left:5}}
-            onPress={() => navigation.goBack(null)}>
-            <AntDesign
-              style={styles.iconItem}
-              name="left"
-              size={20}
-              color={'#fff'}
-            />
-          </TouchableOpacity>
+          style={{bottom: 5, top: 10, left: 5}}
+          onPress={() => navigation.goBack(null)}>
+          <AntDesign
+            style={styles.iconItem}
+            name="left"
+            size={20}
+            color={'#fff'}
+          />
+        </TouchableOpacity>
         <View
           style={{
             flexDirection: 'row',
@@ -42,27 +41,36 @@ const Homesafe = ({navigation}) => {
             }}
           />
           <Text style={{color: '#fff', top: 11, fontWeight: 'bold', left: 6}}>
-            Home Serve
+            HOME SERVE
           </Text>
         </View>
       </View>
+      <ScrollView style={{backgroundColor: '#fff'}}>
         <View style={styles.container}>
-         <View style={{borderRadius:15}}>
-         <ImageBackground
-            style={{height: 257, width: '99%', left: 4, tintColor: '#5F5F82',borderRadius:15}}
-            source={require('../Assets/firstpic.png')}>
-            <View style={styles.containers}>
-              <View style={styles.textBox}>
-                <Image
-                  source={require('../Assets/saftyicon.png')}
-                  style={{width: 25, height: 25, right: 12}}
-                />
-                <Text style={{color: Colors.primarycolor, right: 10}}>HOME safe</Text>
+          <View style={{borderRadius: 15}}>
+            <ImageBackground
+              style={{
+                height: 257,
+                width: '99%',
+                left: 4,
+                tintColor: '#5F5F82',
+                borderRadius: 15,
+              }}
+              source={require('../Assets/firstpic.png')}>
+              <View style={styles.containers}>
+                <View style={styles.textBox}>
+                  <Image
+                    source={require('../Assets/saftyicon.png')}
+                    style={{width: 25, height: 25, right: 12}}
+                  />
+                  <Text style={{color: Colors.primarycolor, right: 10}}>
+                    HOME safe
+                  </Text>
+                </View>
               </View>
-            </View>
-            <Text style={styles.text1}>Best-in class Safety Measures</Text>
-          </ImageBackground>
-         </View>
+              <Text style={styles.text1}>Best-in class Safety Measures</Text>
+            </ImageBackground>
+          </View>
         </View>
         <View style={styles.container1}>
           <Image
@@ -79,7 +87,7 @@ const Homesafe = ({navigation}) => {
 
         <View style={styles.container2}>
           <Text style={styles.title}>jhdjdsj jnfvff knvjbnjbv</Text>
-          <Text style={styles.subText}>
+          <Text style={styles.subText1}>
             jhdjdsj jnfvff knvjbnjbv vbjkvxjn jhdjdsj jnfvff knvjbnjbv vbjkvxjn
             kjnvjgndf jhdjdsj jnfvff nvjbnjbv vbjkvxjn kmdsvjnzvnjv vjnxdvn
             nvfnzjjhdjdsj jnfvff knvjbnjbv vbjkvxjn{' '}
@@ -89,22 +97,53 @@ const Homesafe = ({navigation}) => {
             source={require('../Assets/employee.png')}
           />
         </View>
-        <View style={styles.container1}>
+        <View style={styles.container3}>
           <Image
             style={{width: 160, height: 160, borderRadius: 150 / 2, right: 10}}
             source={require('../Assets/woman.png')}
           />
-          <Text style={styles.title}>jhdjdsj jnfvff knvjbnjbv</Text>
-          <Text style={styles.subText}>
+          <Text
+            style={{
+              fontWeight: '700',
+              color: Colors.primarycolor,
+              left: 10,
+              top: 25,
+            }}>
+            jhdjdsj jnfvff knvjbnjbv
+          </Text>
+          <Text
+            style={{
+              textAlign: 'justify',
+              paddingTop: 34,
+              right: 135,
+              color: 'rgba(95, 95, 130, 1)',
+              alignSelf: 'center',
+              bottom: 25,
+              marginRight: 25,
+            }}>
             jhdjdsj jnfvff knvjbnjbv jhdjdsj jnfvff knvjbnjbv vbjkvxjn jhdjdsj
             jnfvff knvjbnjbv vbjkvxjn kjnvjgndf jhdjdsj jnfvff nvjbnjbv vbjkvxjn
             kmdsvjnzvnjv vjnxdvn nvfnzjjhdjdsj jnfvff knvjbnjbv vbjkvxjn{' '}
           </Text>
         </View>
 
-        <View style={styles.container2}>
-          <Text style={styles.title}>jhdjdsj jnfvff knvjbnjbv</Text>
-          <Text style={styles.subText}>
+        <View
+          style={{
+            flexDirection: 'row',
+            width: 220,
+            height: 200,
+            top: -90,
+          }}>
+          <Text
+            style={{
+              fontWeight: '700',
+              color: Colors.primarycolor,
+              left: 10,
+              top: 38,
+            }}>
+            jhdjdsj jnfvff knvjbnjbv
+          </Text>
+          <Text style={styles.subText1}>
             jhdjdsj jnfvff knvjbnjbv vbjkvxjn jhdjdsj jnfvff knvjbnjbv vbjkvxjn
             kjnvjgndf jhdjdsj jnfvff nvjbnjbv vbjkvxjn kmdsvjnzvnjv vjnxdvn
             nvfnzjjhdjdsj jnfvff knvjbnjbv vbjkvxjn{' '}
@@ -114,31 +153,43 @@ const Homesafe = ({navigation}) => {
             source={require('../Assets/employee.png')}
           />
         </View>
-        <View style={styles.container1}>
+        <View
+          style={{
+            flexDirection: 'row',
+            width: 220,
+            height: 200,
+            top: -110,
+          }}>
           <Image
             style={{width: 160, height: 160, borderRadius: 150 / 2, right: 10}}
             source={require('../Assets/woman.png')}
           />
-          <Text style={styles.title}>jhdjdsj jnfvff knvjbnjbv</Text>
-          <Text style={styles.subText}>
+          <Text
+            style={{
+              fontWeight: '700',
+              color: Colors.primarycolor,
+              left: 10,
+              top: 25,
+            }}>
+            jhdjdsj jnfvff knvjbnjbv
+          </Text>
+          <Text
+            style={{
+              textAlign: 'justify',
+              paddingTop: 34,
+              right: 135,
+              color: 'rgba(95, 95, 130, 1)',
+              alignSelf: 'center',
+              bottom: 25,
+              marginRight:25
+            }}>
             jhdjdsj jnfvff knvjbnjbv jhdjdsj jnfvff knvjbnjbv vbjkvxjn jhdjdsj
             jnfvff knvjbnjbv vbjkvxjn kjnvjgndf jhdjdsj jnfvff nvjbnjbv vbjkvxjn
             kmdsvjnzvnjv vjnxdvn nvfnzjjhdjdsj jnfvff knvjbnjbv vbjkvxjn{' '}
           </Text>
         </View>
 
-        <View style={styles.container2}>
-          <Text style={styles.title}>jhdjdsj jnfvff knvjbnjbv</Text>
-          <Text style={styles.subText}>
-            jhdjdsj jnfvff knvjbnjbv vbjkvxjn jhdjdsj jnfvff knvjbnjbv vbjkvxjn
-            kjnvjgndf jhdjdsj jnfvff nvjbnjbv vbjkvxjn kmdsvjnzvnjv vjnxdvn
-            nvfnzjjhdjdsj jnfvff knvjbnjbv vbjkvxjn{' '}
-          </Text>
-          <Image
-            style={{width: 150, height: 160, right: 140}}
-            source={require('../Assets/employee.png')}
-          />
-        </View>
+       
       </ScrollView>
     </View>
   );
@@ -152,12 +203,10 @@ const styles = StyleSheet.create({
     paddingTop: 1,
     alignItems: 'center',
 
-
-    
     // borderBottomColor:'grey',
     backgroundColor: Colors.primarycolor,
-    borderBottomRightRadius:15,
-    borderBottomLeftRadius:15
+    borderBottomRightRadius: 15,
+    borderBottomLeftRadius: 15,
   },
   text: {
     fontSize: 20,
@@ -185,7 +234,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     top: 150,
     left: 45,
-    borderRadius:15
+    borderRadius: 15,
   },
   textBox: {
     height: 25,
@@ -200,26 +249,47 @@ const styles = StyleSheet.create({
 
   container1: {
     flexDirection: 'row',
-    width: 200,
+    width: '100%',
     height: 200,
+    top: 15,
   },
   container2: {
     flexDirection: 'row',
-    width: 200,
+    width: 220,
     height: 200,
+    top: -40,
   },
   title: {
     fontWeight: '700',
     color: Colors.primarycolor,
     left: 10,
+    top: 38,
   },
   subText: {
     textAlign: 'justify',
-    alignContent: 'flex-start',
+    // alignContent: 'center',
+
     paddingTop: 24,
     right: 135,
-    
 
-    color:'rgba(95, 95, 130, 1)'
+    color: 'rgba(95, 95, 130, 1)',
+    alignSelf: 'center',
+    bottom: 25,
+
+    // justifyContent:'center'
+  },
+  subText1: {
+    textAlign: 'justify',
+    paddingTop: 34,
+    right: 135,
+    color: 'rgba(95, 95, 130, 1)',
+    alignSelf: 'center',
+    bottom: 25,
+  },
+  container3: {
+    flexDirection: 'row',
+    width: 220,
+    height: 200,
+    top: -70,
   },
 });

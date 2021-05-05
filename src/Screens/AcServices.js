@@ -31,9 +31,9 @@ const Services = ({navigation}) => {
               color={Colors.backgroundcolor}
             />
           </TouchableOpacity>
-          <View style={{width: 148, height: 47, paddingLeft: 100}}>
+          <View style={{width: 148, height: 47, paddingLeft: 110}}>
             <Image
-              style={{flex: 1, width: 48, height: 10, tintColor: '#fff'}}
+              style={{ width: 45, height: 45, tintColor: '#fff'}}
               source={require('../Assets/Images/Home.png')}
             />
           </View>
@@ -278,7 +278,8 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     fontWeight: 'bold',
     color: Colors.backgroundcolor,
-    paddingLeft: 5,
+    paddingLeft: 12,
+    top:-4
   },
   searchStyle: {
     height: 40,

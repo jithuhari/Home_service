@@ -39,7 +39,7 @@ const Profile = ({navigation}) => {
             style={{width: 138, height: 60, flexDirection: 'row', right: 98}}>
             <Image
               style={{
-                flex: 1,
+               
                 width: 45,
                 height: 45,
                 tintColor: Colors.backgroundcolor,
@@ -51,8 +51,8 @@ const Profile = ({navigation}) => {
                 fontSize: 15,
                 fontWeight: 'bold',
                 color: 'white',
-                top: 5,
-                left: 3,
+                top: 10,
+                left: 5,
               }}>
               HOME SERVE
             </Text>
@@ -60,11 +60,11 @@ const Profile = ({navigation}) => {
         </View>
         <Text
           style={{
-            alignItems: 'center',
+            alignSelf: 'center',
             color: 'white',
             fontWeight: 'bold',
             fontSize: 15,
-            paddingLeft: 180,
+            // paddingLeft: 180,
             bottom: 18,
             top: 2,
           }}>
@@ -122,7 +122,7 @@ const Profile = ({navigation}) => {
             </TouchableOpacity>
           </TouchableOpacity>
           <TouchableOpacity
-          onPress={() => navigation.navigate('Review')}
+            onPress={() => navigation.navigate('Review')}
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
@@ -165,7 +165,7 @@ const Profile = ({navigation}) => {
         {/*register view starts */}
         <View style={styles.viewfirst2}>
           <TouchableOpacity
-          onPress={() => navigation.navigate('PartnerReg')}
+            onPress={() => navigation.navigate('PartnerReg')}
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
@@ -190,7 +190,7 @@ const Profile = ({navigation}) => {
             </TouchableOpacity>
           </TouchableOpacity>
           <TouchableOpacity
-          onPress={() => navigation.navigate('About')}
+            onPress={() => navigation.navigate('About')}
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',

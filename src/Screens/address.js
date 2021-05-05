@@ -14,17 +14,27 @@ import Colors from '../config/colors';
 // import Modal from 'react-native-modal';
 
 const Address = ({navigation}) => {
+
+  
+  const [name, setName] = useState ('');
+  const [location, setLocation] = useState('')
+  const [houseno, setHnum] = useState('');
+  const [streetAdd, setStreetAdd] = useState ('');
+  const [mobno, setMobileno] = useState('')
+  const [saveAdd, setSaveAdd] = useState('');
+
   //   const [isModalVisible, setModalVisible] = useState(true);
   //   const toggleModal = () => {
   //     setModalVisible(!isModalVisible);
   //   };
+
 
   return (
     <View style={{flex: 1, backgroundColor: Colors.backgroundcolor}}>
       {/*header*/}
 
       <View style={styles.header}>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{flexDirection: 'row',top:-20}}>
           <TouchableOpacity
             style={{paddingLeft: 20, top: 7}}
             onPress={() => navigation.goBack(null)}>
@@ -36,7 +46,7 @@ const Address = ({navigation}) => {
               height: 45,
               width: 45,
               tintColor: Colors.backgroundcolor,
-              left: 120,
+              left: 100,
               top: 4,
             }}
           />
@@ -45,8 +55,8 @@ const Address = ({navigation}) => {
               fontSize: 15,
               color: Colors.backgroundcolor,
               fontWeight: 'bold',
-              left: 125,
-              top: 11,
+              left: 105,
+              top: 14,
             }}>
             HOME SERVE
           </Text>
@@ -56,7 +66,7 @@ const Address = ({navigation}) => {
             color: Colors.backgroundcolor,
             fontSize: 16,
             fontWeight: 'bold',
-            top: 45,
+            top: 30,
             justifyContent: 'flex-start',
             right: 150,
           }}>
@@ -80,7 +90,7 @@ const Address = ({navigation}) => {
             placeholderTextColor="grey"
             underlineColorAndroid="transparent"
             left={35}
-            onChangeText={text => this.setState({text})}></TextInput>
+            onChangeText={(name) => setName(name)}></TextInput>
           <Text
             style={{
               color: Colors.secondaryText,
@@ -96,7 +106,7 @@ const Address = ({navigation}) => {
             placeholderTextColor="grey"
             underlineColorAndroid="transparent"
             left={35}
-            onChangeText={text => this.setState({text})}></TextInput>
+            onChangeText={(loc) => setLocation(loc)}></TextInput>
           <Text
             style={{
               color: Colors.secondaryText,
@@ -112,7 +122,7 @@ const Address = ({navigation}) => {
             placeholderTextColor="grey"
             underlineColorAndroid="transparent"
             left={35}
-            onChangeText={text => this.setState({text})}></TextInput>
+            onChangeText={(hum) => setHnum(hum)}></TextInput>
           <Text
             style={{
               color: Colors.secondaryText,
@@ -128,7 +138,7 @@ const Address = ({navigation}) => {
             placeholderTextColor="grey"
             underlineColorAndroid="transparent"
             left={35}
-            onChangeText={text => this.setState({text})}></TextInput>
+            onChangeText={(add) => setStreetAdd(add)}></TextInput>
           <Text
             style={{
               color: Colors.secondaryText,
@@ -144,7 +154,9 @@ const Address = ({navigation}) => {
             placeholderTextColor="grey"
             underlineColorAndroid="transparent"
             left={35}
-            onChangeText={text => this.setState({text})}></TextInput>
+            keyboardType="number-pad"
+            maxLength={10}
+            onChangeText={(num) => setMobileno(num)}></TextInput>
           <Text
             style={{
               color: Colors.secondaryText,
@@ -160,7 +172,7 @@ const Address = ({navigation}) => {
             placeholderTextColor="grey"
             underlineColorAndroid="transparent"
             left={35}
-            onChangeText={text => this.setState({text})}></TextInput>
+            onChangeText={(save) => setSaveAdd(save)}></TextInput>
           <View
             style={{
               bottom: 35,
@@ -271,7 +283,7 @@ export default Address;
 const styles = StyleSheet.create({
   header: {
     width: '100%',
-    height: 130,
+    height: 110,
     flexDirection: 'row',
     paddingTop: 1,
     alignItems: 'center',

@@ -19,7 +19,7 @@ const ServiceBooking = ({navigation}) => {
         {/*header*/}
 
         <View style={styles.header}>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{flexDirection: 'row',top:-10}}>
           <TouchableOpacity
             style={{paddingLeft: 20, top: 7}}
             onPress={() => navigation.goBack(null)}>
@@ -31,7 +31,7 @@ const ServiceBooking = ({navigation}) => {
               height: 45,
               width: 45,
               tintColor: Colors.backgroundcolor,
-              left: 120,
+              left: 100,
               top: 4,
             }}
           />
@@ -40,8 +40,8 @@ const ServiceBooking = ({navigation}) => {
               fontSize: 15,
               color: Colors.backgroundcolor,
               fontWeight: 'bold',
-              left: 125,
-              top: 11,
+              left: 105,
+              top: 14,
             }}>
             HOME SERVE
           </Text>
@@ -123,7 +123,7 @@ export default ServiceBooking;
 const styles = StyleSheet.create({
     header: {
         width: '100%',
-        height: 100,
+        height: 90,
         flexDirection: 'row',
         paddingTop: 1,
         alignItems: 'center',

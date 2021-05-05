@@ -284,7 +284,7 @@ export default Fan = ({route,navigation}) => {
               left: 15,
               top: 10,
             }}>
-            Interior Designing includes
+            Plumbing Services includes
           </Text>
           <ScrollView horizontal={true}>
             <View
