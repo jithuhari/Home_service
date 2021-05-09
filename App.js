@@ -8,7 +8,7 @@ import Abc from './src/routes/intronav';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Intoslider from './src/Screens/Intoslider'
-
+import Home from './src/Screens/Home1'
 
 
 
@@ -18,17 +18,11 @@ export default HomeSerice = () => {
 
   
   return (
-      <NavigationContainer   >
-      {/* <Intoslider  /> */}
-      {/* <MyTabs />   */}
-
+      <NavigationContainer>
       <Abc/>
-    
-      
-
-    </NavigationContainer>
+     </NavigationContainer>
   
-   
+  // <Home/>
     
    
   );

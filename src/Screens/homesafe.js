@@ -13,7 +13,10 @@ import Colors from '../config/colors';
 const Homesafe = ({navigation}) => {
   return (
     <View style={{flex: 1, backgroundColor: Colors.background}}>
+
+      <View style={{backgroundColor:Colors.primarycolor,}}>
       <View style={styles.header}>
+        
         <TouchableOpacity
           style={{bottom: 5, top: 10, left: 5}}
           onPress={() => navigation.goBack(null)}>
@@ -25,13 +28,7 @@ const Homesafe = ({navigation}) => {
           />
         </TouchableOpacity>
         <View
-          style={{
-            flexDirection: 'row',
-            flex: 1,
-            alignContent: 'center',
-            justifyContent: 'center',
-            top: 8,
-          }}>
+          style={styles.headerview}>
           <Image
             source={require('../Assets/appbar.png')}
             style={{
@@ -44,20 +41,25 @@ const Homesafe = ({navigation}) => {
             HOME SERVE
           </Text>
         </View>
+
       </View>
-      <ScrollView style={{backgroundColor: '#fff'}}>
+    
+      </View>
+      <ScrollView >
+
         <View style={styles.container}>
-          <View style={{borderRadius: 15}}>
+
             <ImageBackground
               style={{
-                height: 257,
-                width: '99%',
-                left: 4,
-                tintColor: '#5F5F82',
-                borderRadius: 15,
-              }}
+              width: null,
+              height: 250,
+              resizeMode: 'cover',
+             //tintColor: '#5F5F82',
+             
+            }}
               source={require('../Assets/firstpic.png')}>
-              <View style={styles.containers}>
+
+            <View style={styles.containers}>
                 <View style={styles.textBox}>
                   <Image
                     source={require('../Assets/saftyicon.png')}
@@ -70,126 +72,110 @@ const Homesafe = ({navigation}) => {
               </View>
               <Text style={styles.text1}>Best-in class Safety Measures</Text>
             </ImageBackground>
-          </View>
-        </View>
-        <View style={styles.container1}>
-          <Image
-            style={{width: 160, height: 160, borderRadius: 150 / 2, right: 10}}
-            source={require('../Assets/woman.png')}
-          />
-          <Text style={styles.title}>jhdjdsj jnfvff knvjbnjbv</Text>
-          <Text style={styles.subText}>
-            jhdjdsj jnfvff knvjbnjbv jhdjdsj jnfvff knvjbnjbv vbjkvxjn jhdjdsj
-            jnfvff knvjbnjbv vbjkvxjn kjnvjgndf jhdjdsj jnfvff nvjbnjbv vbjkvxjn
-            kmdsvjnzvnjv vjnxdvn nvfnzjjhdjdsj jnfvff knvjbnjbv vbjkvxjn{' '}
-          </Text>
-        </View>
 
-        <View style={styles.container2}>
-          <Text style={styles.title}>jhdjdsj jnfvff knvjbnjbv</Text>
-          <Text style={styles.subText1}>
-            jhdjdsj jnfvff knvjbnjbv vbjkvxjn jhdjdsj jnfvff knvjbnjbv vbjkvxjn
-            kjnvjgndf jhdjdsj jnfvff nvjbnjbv vbjkvxjn kmdsvjnzvnjv vjnxdvn
-            nvfnzjjhdjdsj jnfvff knvjbnjbv vbjkvxjn{' '}
-          </Text>
-          <Image
-            style={{width: 150, height: 160, right: 140}}
+            </View>
+
+     
+<View style={styles.imagecontainer}>
+
+
+            <View style={styles.container1}>
+            <Image
+            style={{width: 150, height: 160, borderRadius: 150 / 2, right: 10}}
+            source={require('../Assets/woman.png')}
+            />
+            <View style={{width:'55%',height:150,alignSelf:'center'}}>
+            
+            <Text style={styles.title}>jhdjdsj jnfvff knvjbnjbv</Text>
+         
+              <Text style={styles.subText}>
+           
+           jhdjdsj jnfvff knvjbnjbv js
+           {'\n'}
+            jhdjdsj jnfvff 
+           bjkvxjn kjnvjgndf jhdjdsj
+           kmdsvjnzvnjv vjnxdvn 
+         </Text>
+            </View>
+            </View>
+
+            <View style={styles.container1}>
+            <View style={{width:'55%',height:150,alignSelf:'center',padding:10,marginLeft:16,marginRight:16}}>
+            
+            <Text style={styles.title}>jhdjdsj jnfvff knvjbnjbv</Text>
+         
+              <Text style={styles.subText}>
+           
+           jhdjdsj jnfvff knvjbnjbv jsfjf
+           {'\n'}
+            jhdjdsj jnfvff  dfsd
+           jnfvff knvjbnjbv vbjkvxjn kjnvjgndf jhdjdsj
+           kmdsvjnzvnjv vjnxdvn 
+         </Text>
+
+         </View>
+         <Image
+            style={{width: 160, height: 160,position:'relative',right:20}}
             source={require('../Assets/employee.png')}
           />
-        </View>
-        <View style={styles.container3}>
-          <Image
-            style={{width: 160, height: 160, borderRadius: 150 / 2, right: 10}}
-            source={require('../Assets/woman.png')}
-          />
-          <Text
-            style={{
-              fontWeight: '700',
-              color: Colors.primarycolor,
-              left: 10,
-              top: 25,
-            }}>
-            jhdjdsj jnfvff knvjbnjbv
-          </Text>
-          <Text
-            style={{
-              textAlign: 'justify',
-              paddingTop: 34,
-              right: 135,
-              color: 'rgba(95, 95, 130, 1)',
-              alignSelf: 'center',
-              bottom: 25,
-              marginRight: 25,
-            }}>
-            jhdjdsj jnfvff knvjbnjbv jhdjdsj jnfvff knvjbnjbv vbjkvxjn jhdjdsj
-            jnfvff knvjbnjbv vbjkvxjn kjnvjgndf jhdjdsj jnfvff nvjbnjbv vbjkvxjn
-            kmdsvjnzvnjv vjnxdvn nvfnzjjhdjdsj jnfvff knvjbnjbv vbjkvxjn{' '}
-          </Text>
-        </View>
 
-        <View
-          style={{
-            flexDirection: 'row',
-            width: 220,
-            height: 200,
-            top: -90,
-          }}>
-          <Text
-            style={{
-              fontWeight: '700',
-              color: Colors.primarycolor,
-              left: 10,
-              top: 38,
-            }}>
-            jhdjdsj jnfvff knvjbnjbv
-          </Text>
-          <Text style={styles.subText1}>
-            jhdjdsj jnfvff knvjbnjbv vbjkvxjn jhdjdsj jnfvff knvjbnjbv vbjkvxjn
-            kjnvjgndf jhdjdsj jnfvff nvjbnjbv vbjkvxjn kmdsvjnzvnjv vjnxdvn
-            nvfnzjjhdjdsj jnfvff knvjbnjbv vbjkvxjn{' '}
-          </Text>
-          <Image
-            style={{width: 150, height: 160, right: 140}}
+           
+    </View>
+
+{/* 3rd row */}
+           <View style={styles.container1}>
+            <Image
+            style={{width: 150, height: 160, borderRadius: 150 / 2, right: 10}}
+            source={require('../Assets/woman.png')}
+            />
+            <View style={{width:'55%',height:150,alignSelf:'center'}}>
+            
+            <Text style={styles.title}>jhdjdsj jnfvff knvjbnjbv</Text>
+         
+              <Text style={styles.subText}>
+           
+           jhdjdsj jnfvff knvjbnjbv jsfjf
+           {'\n'}
+            djdsj jnfvff  shfggsgfg
+           jnfvff knvjbnjbv vbjkvxjn kjnvjgndf jhdjdsj
+           kmdsvjnzvnjv vjnxdvn 
+         </Text>
+            </View>
+            </View>
+
+
+            <View style={styles.container1}>
+            <View style={{width:'55%',height:150,alignSelf:'center',padding:10,marginLeft:16,marginRight:16}}>
+            
+            <Text style={styles.title}>jhdjdsj jnfvff knvjbnjbv</Text>
+         
+              <Text style={styles.subText}>
+           
+           jhdjdsj jnfvff knvjbnjbv jsfjf
+           {'\n'}
+            hhdhdhjhdjdsj jnfvff  jsj
+           vbjkvxjn kjnvjgndf jhdjdsj
+           kmdsvjnzvnjv vjnxdvn 
+         </Text>
+
+         </View>
+         <Image
+            style={{width: 160, height: 160,position:'relative',right:20}}
             source={require('../Assets/employee.png')}
           />
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            width: 220,
-            height: 200,
-            top: -110,
-          }}>
-          <Image
-            style={{width: 160, height: 160, borderRadius: 150 / 2, right: 10}}
-            source={require('../Assets/woman.png')}
-          />
-          <Text
-            style={{
-              fontWeight: '700',
-              color: Colors.primarycolor,
-              left: 10,
-              top: 25,
-            }}>
-            jhdjdsj jnfvff knvjbnjbv
-          </Text>
-          <Text
-            style={{
-              textAlign: 'justify',
-              paddingTop: 34,
-              right: 135,
-              color: 'rgba(95, 95, 130, 1)',
-              alignSelf: 'center',
-              bottom: 25,
-              marginRight:25
-            }}>
-            jhdjdsj jnfvff knvjbnjbv jhdjdsj jnfvff knvjbnjbv vbjkvxjn jhdjdsj
-            jnfvff knvjbnjbv vbjkvxjn kjnvjgndf jhdjdsj jnfvff nvjbnjbv vbjkvxjn
-            kmdsvjnzvnjv vjnxdvn nvfnzjjhdjdsj jnfvff knvjbnjbv vbjkvxjn{' '}
-          </Text>
-        </View>
 
-       
+           
+    </View>
+
+</View>
+
+
+
+
+
+
+
+
       </ScrollView>
     </View>
   );
@@ -202,27 +188,33 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingTop: 1,
     alignItems: 'center',
-
-    // borderBottomColor:'grey',
-    backgroundColor: Colors.primarycolor,
+   backgroundColor: Colors.primarycolor,
     borderBottomRightRadius: 15,
     borderBottomLeftRadius: 15,
+  },
+  headerview:{
+    flexDirection: 'row',
+    flex: 1,
+    alignContent: 'center',
+    justifyContent: 'center',
+    top: 8,
   },
   text: {
     fontSize: 20,
     fontWeight: '900',
-    // textAlign:'center',
-    //alignItems:'center',
+   
     fontWeight: 'bold',
     color: Colors.text,
     paddingLeft: 10,
   },
   container: {
-    width: '99%',
-    height: 260,
-    borderRadius: 10,
-    backgroundColor: '#fff',
+    width: '100%',
+    backgroundColor:Colors.primarycolor,
+   borderBottomLeftRadius:20,
+   borderBottomRightRadius:20,
     flexDirection: 'column',
+    opacity:0.8,
+    flex:1,
   },
   text1: {
     paddingTop: 180,
@@ -235,6 +227,7 @@ const styles = StyleSheet.create({
     top: 150,
     left: 45,
     borderRadius: 15,
+    
   },
   textBox: {
     height: 25,
@@ -246,50 +239,33 @@ const styles = StyleSheet.create({
     left: 75,
     borderRadius: 15,
   },
+imagecontainer:{
+flex:1,
+flexDirection:'column',
+justifyContent:'space-evenly',
 
-  container1: {
-    flexDirection: 'row',
-    width: '100%',
-    height: 200,
-    top: 15,
-  },
-  container2: {
-    flexDirection: 'row',
-    width: 220,
-    height: 200,
-    top: -40,
-  },
-  title: {
+},
+
+container1:{
+   
+    flexDirection:'row'
+},
+ title: {
     fontWeight: '700',
     color: Colors.primarycolor,
-    left: 10,
-    top: 38,
+    textAlign:'center',
+    marginTop:25
+  
   },
   subText: {
-    textAlign: 'justify',
-    // alignContent: 'center',
+  color: 'rgba(95, 95, 130, 1)',
+  textAlign:'center',
+  justifyContent:'flex-start',
+  marginTop:10
+  
 
-    paddingTop: 24,
-    right: 135,
+    
+  },
+ 
 
-    color: 'rgba(95, 95, 130, 1)',
-    alignSelf: 'center',
-    bottom: 25,
-
-    // justifyContent:'center'
-  },
-  subText1: {
-    textAlign: 'justify',
-    paddingTop: 34,
-    right: 135,
-    color: 'rgba(95, 95, 130, 1)',
-    alignSelf: 'center',
-    bottom: 25,
-  },
-  container3: {
-    flexDirection: 'row',
-    width: 220,
-    height: 200,
-    top: -70,
-  },
 });

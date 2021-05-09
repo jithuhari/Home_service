@@ -18,7 +18,17 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '../config/colors';
 const Profile = ({navigation}) => {
-  const [isSwitchEnabled, setSwitch] = useState(false);
+  //const [isSwitchEnabled, setSwitch] = useState(false);
+
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+  const toggleSwitchOn = () => setIsEnabled((previousState) => previousState);
+  function onSwitch  (){
+    toggleSwitchOn ();
+    toggleSwitch ();
+  }
+
+
   return (
     /*main view*/
     <View style={{height: '100%', width: '100%'}}>
@@ -95,7 +105,7 @@ const Profile = ({navigation}) => {
           <TouchableOpacity
             style={{bottom: 120, left: 300}}
             onPress={() => navigation.navigate('userprofile')}>
-            <AntDesign name="right" size={20} color="#DCDCDC" />
+            <AntDesign name="right" size={20} color="#DCDCDC" style={{right:10}} />
           </TouchableOpacity>
         </TouchableOpacity>
         {/* ends*/}
@@ -118,7 +128,7 @@ const Profile = ({navigation}) => {
               My Booking
             </Text>
             <TouchableOpacity>
-              <AntDesign name="right" size={15} color="#DCDCDC" />
+              <AntDesign name="right" size={20} color="#DCDCDC" />
             </TouchableOpacity>
           </TouchableOpacity>
           <TouchableOpacity
@@ -138,14 +148,16 @@ const Profile = ({navigation}) => {
               My Reviews
             </Text>
             <TouchableOpacity>
-              <AntDesign name="right" size={15} color="#DCDCDC" />
+              <AntDesign name="right" size={20} color="#DCDCDC" />
             </TouchableOpacity>
           </TouchableOpacity>
         </View>
         {/*booking view ends */}
         {/*notifiction view starts */}
+        <TouchableOpacity onPress={()=> onSwitch()} >
         <View style={styles.viewsecond}>
-          <Feature name="bell" size={30} color={Colors.secondaryText} />
+          
+          <Feature name="bell" size={30} color={Colors.secondaryText} style={{left:"20%"}} />
           <Text
             style={{
               fontSize: 15,
@@ -156,12 +168,17 @@ const Profile = ({navigation}) => {
             Notification
           </Text>
           <Switch
-            style={{paddingLeft: 140}}
-            value={isSwitchEnabled}
-            onValueChange={value => setSwitch(value)}
+            //style={{paddingLeft: 140}}
+            trackColor={{false: '#bdbdbd', true: '#e8eae6'}}
+           thumbColor={isEnabled ? Colors.primarycolor : '#ececec'}
+           onValueChange={toggleSwitch}
+           value={isEnabled}
+            style={{position:'relative',left:120}}
           />
         </View>
+        </TouchableOpacity>
         {/*notifiction view ends */}
+        
         {/*register view starts */}
         <View style={styles.viewfirst2}>
           <TouchableOpacity
@@ -186,7 +203,7 @@ const Profile = ({navigation}) => {
               Register as partner
             </Text>
             <TouchableOpacity>
-              <AntDesign name="right" size={15} color="#DCDCDC" />
+              <AntDesign name="right" size={20} color="#DCDCDC" />
             </TouchableOpacity>
           </TouchableOpacity>
           <TouchableOpacity
@@ -211,48 +228,77 @@ const Profile = ({navigation}) => {
               about HOME SERVE
             </Text>
             <TouchableOpacity>
-              <AntDesign name="right" size={15} color="#DCDCDC" />
+              <AntDesign name="right" size={20} color="#DCDCDC" />
             </TouchableOpacity>
           </TouchableOpacity>
         </View>
         {/*register view ends */}
         {/*contct view starts */}
-        <TouchableOpacity
-          style={styles.viewsecond1}
-          onPress={() => navigation.navigate('Contactus')}>
-          <Ionicons
+
+
+        <View style={styles.viewfirst2}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Contactus')}
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              padding: 10,
+            }}>
+           <Ionicons
             name="md-call-outline"
             size={28}
             color={Colors.secondaryText}
           />
-          <Text
-            style={{
-              fontSize: 15,
-              paddingLeft: 30,
-              color: Colors.secondaryText,
-              paddingLeft: 46,
-              fontWeight: 'bold',
-            }}>
-            Contact Us
-          </Text>
-          <TouchableOpacity style={{paddingLeft: 160}}>
-            <AntDesign name="right" size={15} color="#DCDCDC" />
+            <Text
+              style={{
+                fontWeight: 'bold',
+                color: 'midnightblue',
+                paddingRight: 70,
+                color: Colors.secondaryText,
+              }}>
+              Contact Us
+            </Text>
+
+            <TouchableOpacity>
+              <AntDesign name="right" size={20} color="#DCDCDC" />
+            </TouchableOpacity>
           </TouchableOpacity>
-        </TouchableOpacity>
-        {/*contact view end */}
-        <TouchableOpacity>
-          <Text
+          <TouchableOpacity
+            onPress={() => navigation.navigate('About')}
             style={{
-              color: 'red',
-              alignItems: 'center',
-              // justifyContent:'center',
-              paddingLeft: 157,
-              fontSize: 15,
-              top: 34,
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              padding: 8,
             }}>
-            Logout
-          </Text>
-        </TouchableOpacity>
+            <AntDesign
+              name="logout"
+              size={28}
+              color={Colors.secondaryText}
+              left="60"
+            />
+            <Text
+              style={{
+                fontWeight: 'bold',
+                color: Colors.secondaryText,
+                paddingRight: 65,
+              }}>
+              Logout
+            </Text>
+            <TouchableOpacity>
+              <AntDesign name="right" size={20} color="#DCDCDC"  style={{right:2}}/>
+            </TouchableOpacity>
+          </TouchableOpacity>
+        </View>
+
+        {/*contact view end */}
+
+
+
+
+
+
+
+
       </View>
       {/** */}
     </View>
@@ -300,19 +346,17 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   viewsecond: {
-    // margin: 6,
+    
+  flexDirection: 'row',
     top: 12,
-    bottom: 6,
-    height: 50,
     width: '92%',
-    left: '4%',
+    left: '35%',
     right: '4%',
-    padding: 10,
+    padding: 3,
     backgroundColor: 'white',
     borderColor: '#DCDCDC',
     borderRadius: 4,
     borderWidth: 1,
-    flexDirection: 'row',
   },
   viewfirst2: {
     // margin: 6,
@@ -326,20 +370,7 @@ const styles = StyleSheet.create({
     borderColor: '#DCDCDC',
     borderRadius: 4,
     borderWidth: 1,
+    marginTop:5
   },
-  viewsecond1: {
-    // margin: 6,
-    top: 24,
-    // bottom:6,
-    height: 50,
-    width: '92%',
-    left: '4%',
-    right: '4%',
-    padding: 10,
-    backgroundColor: 'white',
-    borderColor: '#DCDCDC',
-    borderRadius: 4,
-    borderWidth: 1,
-    flexDirection: 'row',
-  },
+  
 });

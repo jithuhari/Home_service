@@ -142,7 +142,7 @@ const App = ({navigation}) => {
                 />
               </View>
             </View>
-            <TouchableOpacity onPress={() => navigation.navigate('MyTabs')}>
+            <TouchableOpacity onPress={() => navigation.navigate('MyTabs')} style={{height:80}}>
               <View style={styles.buttonCircle} >
                 <Text style={{color: '#483D8B'}}> Skip</Text>
                 <FontAwesome
@@ -160,7 +160,10 @@ const App = ({navigation}) => {
           renderItem={RenderItem}
           onDone={onDone}
           showSkipButton={true}
+          showNextButton={true}
           onSkip={onSkip}
+
+
           renderNextButton={_renderNextButton}
           renderDoneButton={_renderDoneButton}
           dotStyle={styles.dote}

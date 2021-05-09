@@ -179,12 +179,13 @@ export default Home = ({navigation}) => {
           <View
             style={{
               backgroundColor: Colors.continercolor,
-              height: 230,
-              width: '92%',
+              height: 250,
+              width: '94%',
               borderRadius: 15,
               left: '4%',
               right: '4%',
               top: 15,
+              //backgroundColor:'blue'
             }}>
             <View
               style={{justifyContent: 'center', alignItems: 'center', top: 5}}>
@@ -205,102 +206,92 @@ export default Home = ({navigation}) => {
             <View
               style={{
                 flexDirection: 'row',
-                justifyContent: 'space-around',
+                justifyContent:'space-around',
                 top: 10,
+            
               }}>
-              {/* step 1 */}
-              <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                <Text
-                  style={{
-                    color: Colors.primarycolor,
-                    fontWeight: 'bold',
-                    justifyContent: 'center',
-                    alignContent: 'center',
-                  }}>
-                  Step 1
-                </Text>
-                <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                  <Image source={require('../Assets/step1.png')} />
-                  <Text
-                    style={{color: Colors.primarycolor, fontWeight: 'bold',top:10}}>
-                    Schedule{' '}
-                  </Text>
-                  <Text
-                    style={{color: Colors.primarycolor, fontWeight: 'bold',top:10}}>
-                    your service{' '}
-                  </Text>
 
-                  <Text style={{color: Colors.primarycolor,fontSize:12,top:10}}>
+                <View style={styles.stepview}>
+                     {/* step1 */}
+                  <Text style={styles.txtstep1}>Step 1</Text>
+
+                  <View style={styles.stepbox}>
+                  <Image source={require('../Assets/step1.png')} style={{marginTop:5}} />
+                    </View>
+                    <Text
+                    style={{color: Colors.primarycolor, fontWeight: 'bold',top:20,textAlign:'center'}}>
+                    Schedule
+                    {'\n'}
+                    your service
+                  </Text>
+                  <View style={{top:30}}>
+                  <Text style={{color: Colors.primarycolor,fontSize:12,textAlign:'center'}}>
                     Fill Credentials,
+                    {'\n'}
+                    Book & Relax
                   </Text>
-                  <Text style={{color: Colors.primarycolor,fontSize:12,top:10}}>
-                    Book & Relax{' '}
-                  </Text>
-                </View>
-              </View>
+                  </View>
+                 </View>
+               {/* 1st step close  */}
 
-              {/* step 2 */}
 
-              <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                <Text style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                  Step 1
-                </Text>
-                <View
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderLeftWidth: 1,
-                    borderLeftColor: 'rgba(51, 52, 88, 0.06)',
-                  }}>
-                  <Image source={require('../Assets/step2.png')} />
-                  <Text
-                    style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+
+                <View style={styles.stepview}>
+                  {/* step2 */}
+                  <Text style={styles.txtstep1}>Step 1</Text>
+                  <View style={styles.stepbox}>
+                    <Image source={require('../Assets/step2.png')} />
+                    </View>
+                    <Text
+                    style={{color: Colors.primarycolor, fontWeight: 'bold',top:10,textAlign:'center'}}>
                     Service at
-                  </Text>
-                  <Text
-                    style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                    {'\n'}
                     your home
                   </Text>
-
-                  <Text style={{color: Colors.primarycolor,fontSize:12}}>
-                    Keep Calm, We Will
-                  </Text>
-                  <Text style={{color: Colors.primarycolor,fontSize:12}}>
+                  <View style={{top:15}}>
+                  <Text style={{color: Colors.primarycolor,fontSize:12,textAlign:'center'}}>
+                  Keep Calm, We Will
+                    {'\n'}
                     Serve At Your Door
                   </Text>
-                </View>
-              </View>
+                  </View>
+                  
 
-              {/* step 3 */}
-              <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                <Text style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                  Step 1
-                </Text>
-                <View
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderLeftWidth: 1,
-                    borderLeftColor: 'rgba(51, 52, 88, 0.06)',
-                  }}>
-                  <Image source={require('../Assets/step3.png')} />
-                  <Text
-                    style={{color: Colors.primarycolor, fontWeight: 'bold',top:10}}>
-                    Pay after
-                  </Text>
-                  <Text
-                    style={{color: Colors.primarycolor, fontWeight: 'bold',top:10}}>
+                </View>
+
+                <View style={styles.stepview}>
+                  {/* step 3 */}
+                    <Text style={styles.txtstep1}>Step 1</Text>
+
+                    <View style={styles.stepbox}>
+                    <Image source={require('../Assets/step3.png')} style={{marginTop:5}} />
+                    </View>
+                    <Text
+                    style={{color: Colors.primarycolor, fontWeight: 'bold',top:20,textAlign:'center'}}>
+                     Pay after
+                    {'\n'}
                     service
                   </Text>
-
-                  <Text style={{color: Colors.primarycolor,fontSize:12,top:10}}>
-                    Make Payment After
-                  </Text>
-                  <Text style={{color: Colors.primarycolor,fontSize:12,top:10}}>
+                  <View style={{top:30}}>
+                  <Text style={{color: Colors.primarycolor,fontSize:12,textAlign:'center'}}>
+                  Make Payment After
+                    {'\n'}
                     work completion
                   </Text>
+                  </View>
+
                 </View>
-              </View>
+             
+            
+
+
+
+
+
+
+
+             
+
             </View>
           </View>
         </View>
@@ -554,12 +545,24 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingTop: 1,
     alignItems: 'center',
-    //padding:2,
-    // paddingLeft:2,
     elevation: 0,
-    // borderBottomColor:'grey',
     backgroundColor: Colors.primarycolor,
-    // justifyContent:'center'
+   
+  },
+  txtstep1:{
+    color: Colors.primarycolor,
+    fontWeight: 'bold',
+    textAlign:'center'
+  },
+  stepbox:{
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderLeftWidth: 1,
+    borderLeftColor: 'rgba(51, 52, 88, 0.06)',
+    top:5
+  },
+  stepview:{
+      padding:5
   },
   text: {
     fontSize: 20,
