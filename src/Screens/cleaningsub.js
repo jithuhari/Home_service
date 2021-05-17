@@ -113,7 +113,7 @@ const HomeSanitization = ({route, navigation}) => {
 
         <View style={{width: 148, height: 47, paddingLeft: 110}}>
           <Image
-            style={{ width: 45, height: 45, tintColor: '#fff'}}
+            style={{width: 45, height: 45, tintColor: '#fff'}}
             source={require('../Assets/Images/Home.png')}
           />
         </View>
@@ -193,7 +193,7 @@ const HomeSanitization = ({route, navigation}) => {
                 containerStyle={{width: 240, height: 38}}
                 style={{backgroundColor: '#fafafa'}}
                 itemStyle={{
-                  justifyContent: 'flex-end',
+                  justifyContent: 'flex-start',
                 }}
                 dropDownStyle={{backgroundColor: '#fafafa'}}
               />
@@ -286,19 +286,19 @@ const HomeSanitization = ({route, navigation}) => {
                     <Text style={{marginLeft: 40, color: '#FFFFFF'}}>
                       1 item
                     </Text>
-                    <View style={{marginLeft:'18%'}}></View>
-                    <Pressable
-                  style={[styles.modalButton, styles.buttonClose]}
-                  onPress={() => {navigation.navigate('Address');}}>
-                  <Text style={styles.continueText}>Continue</Text>
-                </Pressable>
                   </View>
                   <Text style={{color: '#FFFFFF', marginLeft: 15}}>
                     {head} | {dropDownValue} |{' '}
                     {sdText === 'Single' ? 'Single' : 'Duplex'}
                   </Text>
                 </View>
-                
+                <Pressable
+                  style={[styles.modalButton, styles.buttonClose]}
+                  onPress={() => {
+                    navigation.navigate('Address');
+                  }}>
+                  <Text style={styles.continueText}>Continue</Text>
+                </Pressable>
               </View>
             </View>
           </Modal>
@@ -339,10 +339,8 @@ const HomeSanitization = ({route, navigation}) => {
             style={{
               backgroundColor: Colors.continercolor,
               borderRadius: 15,
-              height: 140,
-              borderWidth:.25,
+              height: 110,
               width: '92%',
-
             }}>
             <Text
               style={{
@@ -634,7 +632,7 @@ const styles = StyleSheet.create({
   },
 
   appbarcontainer: {
-    width: '100%',
+    width: 360,
     height: 50,
     backgroundColor: Colors.primarycolor,
     borderBottomEndRadius: 15,
@@ -709,7 +707,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     alignItems: 'center',
     shadowColor: '#000',
-    bottom:25,
+    bottom: 25,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -779,7 +777,7 @@ const styles = StyleSheet.create({
     left: 30,
   },
   appbarcontainer: {
-    width: '100%',
+    width: 360,
     height: 50,
     backgroundColor: Colors.primarycolor,
     borderBottomEndRadius: 15,

@@ -1,5 +1,12 @@
-import React from 'react';
-import {View, Text, Image, StyleSheet, ScrollView,TouchableOpacity } from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,TextInput
+} from 'react-native';
 
 import {Searchbar} from 'react-native-paper';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -12,18 +19,35 @@ import {Rating, AirbnbRating} from 'react-native-elements';
 import colors from '../config/colors';
 import Colors from '../config/colors';
 
+import DropDownPicker from 'react-native-dropdown-picker';
 
-
-import AccordionView from '../components/Collapsible'
+import AccordionView from '../components/Collapsible';
 
 export default Home = ({navigation}) => {
+  const [dropDownValue, setDropDownValue] = useState('Bangalore');
+
+  const [items, setItems] = useState([
+    {label: 'Mumbai', value: 'Mumbai'},
+    {label: 'Delhi', value: 'Delhi'},
+    {label: 'Bangalore', value: 'Bangalore'},
+    {label: 'Hyderabad', value: 'Hyderabad'},
+    {label: 'Pune', value: 'Pune'},
+    {label: 'Lucknow', value: 'Lucknow'},
+    {label: 'Kanpur', value: 'Kanpur'},
+  ]);
+
   image = [
     require('../Assets/1.png'),
     require('../Assets/2.png'),
     require('../Assets/3.png'),
   ];
   return (
-    <View style={{height: '100%', width: '100%',backgroundColor:Colors.backgroundcolor}}>
+    <View
+      style={{
+        height: '100%',
+        width: '100%',
+        backgroundColor: Colors.backgroundcolor,
+      }}>
       <View style={styles.header}>
         <View
           style={{
@@ -42,7 +66,7 @@ export default Home = ({navigation}) => {
             }}
           />
           <Text style={{color: '#fff', top: 11, fontWeight: 'bold', left: 6}}>
-          HOME SERVE
+            HOME SERVE
           </Text>
         </View>
       </View>
@@ -63,11 +87,38 @@ export default Home = ({navigation}) => {
                 padding: 10,
               }}>
               <View style={{flexDirection: 'row'}}>
-                <Text style={{color: '#fff'}}>Bangalore</Text>
+                {/* <Text style={{color: '#fff'}}>Bangalore</Text>
                 <FontAwesome
                   name={'angle-down'}
                   color="#fff"
                   style={{top: 5, left: 4}}
+                /> */}
+                <DropDownPicker style={{zIndex:9}}
+                  items={items}
+                  zIndex={9}
+                  defaultValue={dropDownValue}
+                  onChangeItem={item => setDropDownValue(item.value)}
+                  labelStyle={{
+                    fontSize: 14,
+                    textAlign: 'justify',
+                    color: '#5F5F82',
+                  }}
+                  selectedLabelStyle={{
+                    color:Colors.backgroundcolor,
+                    fontWeight: '800',
+                  }}
+                  arrowColor={Colors.backgroundcolor}
+                  itemStyle={{justifyContent: 'center'}}
+                  style={{paddingVertical: 5}}
+                  dropDownStyle={{backgroundColor: '#fafafa',zIndex:20}}
+                  placeholder="Bangalore"
+                  placeholderStyle={{fontWeight: 'bold', textAlign: 'auto',color:colors.backgroundcolor}}
+                  containerStyle={{width:120, height: 38}}
+                  style={{backgroundColor:colors.primarycolor,borderWidth:0,}}
+                  itemStyle={{
+                    justifyContent: 'flex-start',
+                  }}
+                  dropDownStyle={{backgroundColor: '#fafafa',zIndex:20,position:'absolute'}}
                 />
               </View>
               <View
@@ -80,6 +131,8 @@ export default Home = ({navigation}) => {
                   paddingRight: 8,
                   paddingTop: 2,
                   paddingBottom: 2,
+                  height:25,
+                  top:5
                 }}>
                 <MaterialCommunityIcons
                   name={'phone-in-talk'}
@@ -91,12 +144,29 @@ export default Home = ({navigation}) => {
             </View>
           </View>
           <View style={{}}>
-            <Searchbar
+
+
+
+        
+                <FontAwesome
+                  name={'search'}
+                  color="rgba(191, 191, 205, 1)"
+                  size={20}
+
+                  style={{top: 20, left: 15,position:'absolute',zIndex:2}}
+                />
+            <TextInput
               placeholder="Search for a service"
-              style={{borderRadius: 10, margin: 10, height: 40}}
+              placeholderTextColor='rgba(191, 191, 205, 1)'
+              style={{borderRadius: 10, margin: 10, height: 40,backgroundColor:Colors.backgroundcolor,paddingLeft:30}}
             />
+
+
+
+
+
           </View>
-          <View style={{borderBottomLeftRadius: 10,}}>
+          <View style={{borderBottomLeftRadius: 10}}>
             <SliderBox
               images={image}
               autoplay={true}
@@ -106,17 +176,15 @@ export default Home = ({navigation}) => {
                 // width: 20,
                 marginTop: 5,
                 borderRadius: 15,
-                
-             
               }}
               style={{
                 start: '4%',
                 right: '4%',
-                width:'92%',
+                width: '92%',
                 top: 10,
                 borderRadius: 15,
                 height: 220,
-                borderBottomLeftRadius:15
+                borderBottomLeftRadius: 15,
               }}
               dotStyle={{
                 width: 10,
@@ -132,19 +200,28 @@ export default Home = ({navigation}) => {
         </View>
         <View style={{top: 10, height: 248}}>
           <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
-            <TouchableOpacity style={styles.continer} onPress={() => navigation.navigate('Cleaning')}>
+            <TouchableOpacity
+              style={styles.continer}
+              onPress={() => navigation.navigate('Cleaning')}>
               <Image
                 source={require('../Assets/clean.png')}
                 style={styles.img}
               />
               <Text style={styles.text}>Cleaning & Sanitization</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.continer} onPress={() => navigation.navigate('AcServices')}>
+            <TouchableOpacity
+              style={styles.continer}
+              onPress={() => navigation.navigate('AcServices')}>
               <Image source={require('../Assets/ac.png')} style={{}} />
-              <Text style={(styles.text, {top: 5,color:colors.secondaryText})}>AC Service &</Text>
+              <Text
+                style={(styles.text, {top: 5, color: colors.secondaryText})}>
+                AC Service &
+              </Text>
               <Text style={styles.text}> Repair</Text>
             </TouchableOpacity>
-            <TouchableOpacity  style={styles.continer} onPress={() => navigation.navigate('Ele')}>
+            <TouchableOpacity
+              style={styles.continer}
+              onPress={() => navigation.navigate('Ele')}>
               <Image source={require('../Assets/ele.png')} style={{}} />
               <Text style={styles.text}>Electrical </Text>
               <Text style={styles.text}>Work </Text>
@@ -157,17 +234,26 @@ export default Home = ({navigation}) => {
               justifyContent: 'space-around',
               top: 10,
             }}>
-            <TouchableOpacity style={styles.continer} onPress={() => navigation.navigate('Appliancesrepair')}>
+            <TouchableOpacity
+              style={styles.continer}
+              onPress={() => navigation.navigate('Appliancesrepair')}>
               <Image source={require('../Assets/f.png')} style={{}} />
               <Text style={styles.text}>Appliance</Text>
               <Text style={styles.text}> Repair</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.continer} onPress={() => navigation.navigate('Plumbing')}>
+            <TouchableOpacity
+              style={styles.continer}
+              onPress={() => navigation.navigate('Plumbing')}>
               <Image source={require('../Assets/pu.png')} style={{}} />
-              <Text style={(styles.text, {top: 5,color:colors.secondaryText})}>Plumbing</Text>
+              <Text
+                style={(styles.text, {top: 5, color: colors.secondaryText})}>
+                Plumbing
+              </Text>
               <Text style={styles.text}> Work</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.continer} onPress={() => navigation.navigate('InteriorDesigning')}>
+            <TouchableOpacity
+              style={styles.continer}
+              onPress={() => navigation.navigate('InteriorDesigning')}>
               <Image source={require('../Assets/in.png')} style={{}} />
               <Text style={styles.text}>Interior </Text>
               <Text style={styles.text}>Designing </Text>
@@ -206,82 +292,110 @@ export default Home = ({navigation}) => {
             <View
               style={{
                 flexDirection: 'row',
-                justifyContent:'space-around',
+                justifyContent: 'space-around',
                 top: 10,
-            
               }}>
+              <View style={styles.stepview}>
+                {/* step1 */}
+                <Text style={styles.txtstep1}>Step 1</Text>
 
-                <View style={styles.stepview}>
-                     {/* step1 */}
-                  <Text style={styles.txtstep1}>Step 1</Text>
-
-                  <View style={styles.stepbox}>
-                  <Image source={require('../Assets/step1.png')} style={{marginTop:5}} />
-                    </View>
-                    <Text
-                    style={{color: Colors.primarycolor, fontWeight: 'bold',top:20,textAlign:'center'}}>
-                    Schedule
-                    {'\n'}
-                    your service
-                  </Text>
-                  <View style={{top:30}}>
-                  <Text style={{color: Colors.primarycolor,fontSize:12,textAlign:'center'}}>
+                <View style={styles.stepbox}>
+                  <Image
+                    source={require('../Assets/step1.png')}
+                    style={{marginTop: 5}}
+                  />
+                </View>
+                <Text
+                  style={{
+                    color: Colors.primarycolor,
+                    fontWeight: 'bold',
+                    top: 20,
+                    textAlign: 'center',
+                  }}>
+                  Schedule
+                  {'\n'}
+                  your service
+                </Text>
+                <View style={{top: 30}}>
+                  <Text
+                    style={{
+                      color: Colors.primarycolor,
+                      fontSize: 12,
+                      textAlign: 'center',
+                    }}>
                     Fill Credentials,
                     {'\n'}
                     Book & Relax
                   </Text>
-                  </View>
-                 </View>
-               {/* 1st step close  */}
+                </View>
+              </View>
+              {/* 1st step close  */}
 
-
-
-                <View style={styles.stepview}>
-                  {/* step2 */}
-                  <Text style={styles.txtstep1}>Step 1</Text>
-                  <View style={styles.stepbox}>
-                    <Image source={require('../Assets/step2.png')} />
-                    </View>
-                    <Text
-                    style={{color: Colors.primarycolor, fontWeight: 'bold',top:10,textAlign:'center'}}>
-                    Service at
-                    {'\n'}
-                    your home
-                  </Text>
-                  <View style={{top:15}}>
-                  <Text style={{color: Colors.primarycolor,fontSize:12,textAlign:'center'}}>
-                  Keep Calm, We Will
+              <View style={styles.stepview}>
+                {/* step2 */}
+                <Text style={styles.txtstep1}>Step 1</Text>
+                <View style={styles.stepbox}>
+                  <Image source={require('../Assets/step2.png')} />
+                </View>
+                <Text
+                  style={{
+                    color: Colors.primarycolor,
+                    fontWeight: 'bold',
+                    top: 10,
+                    textAlign: 'center',
+                  }}>
+                  Service at
+                  {'\n'}
+                  your home
+                </Text>
+                <View style={{top: 15}}>
+                  <Text
+                    style={{
+                      color: Colors.primarycolor,
+                      fontSize: 12,
+                      textAlign: 'center',
+                    }}>
+                    Keep Calm, We Will
                     {'\n'}
                     Serve At Your Door
                   </Text>
-                  </View>
-                  
-
                 </View>
+              </View>
 
-                <View style={styles.stepview}>
-                  {/* step 3 */}
-                    <Text style={styles.txtstep1}>Step 1</Text>
+              <View style={styles.stepview}>
+                {/* step 3 */}
+                <Text style={styles.txtstep1}>Step 1</Text>
 
-                    <View style={styles.stepbox}>
-                    <Image source={require('../Assets/step3.png')} style={{marginTop:5}} />
-                    </View>
-                    <Text
-                    style={{color: Colors.primarycolor, fontWeight: 'bold',top:20,textAlign:'center'}}>
-                     Pay after
-                    {'\n'}
-                    service
-                  </Text>
-                  <View style={{top:30}}>
-                  <Text style={{color: Colors.primarycolor,fontSize:12,textAlign:'center'}}>
-                  Make Payment After
+                <View style={styles.stepbox}>
+                  <Image
+                    source={require('../Assets/step3.png')}
+                    style={{marginTop: 5}}
+                  />
+                </View>
+                <Text
+                  style={{
+                    color: Colors.primarycolor,
+                    fontWeight: 'bold',
+                    top: 20,
+                    textAlign: 'center',
+                  }}>
+                  Pay after
+                  {'\n'}
+                  service
+                </Text>
+                <View style={{top: 30}}>
+                  <Text
+                    style={{
+                      color: Colors.primarycolor,
+                      fontSize: 12,
+                      textAlign: 'center',
+                    }}>
+                    Make Payment After
                     {'\n'}
                     work completion
                   </Text>
-                  </View>
-
                 </View>
-
+              </View>
             </View>
           </View>
         </View>
@@ -310,7 +424,7 @@ export default Home = ({navigation}) => {
           </View>
           <ScrollView
             horizontal={true}
-            style={{top: 15, left: 10,  width: '92%',}}>
+            style={{top: 15, left: 10, width: '92%'}}>
             <View style={{right: 10}}>
               <Image source={require('../Assets/s1.png')} />
             </View>
@@ -320,10 +434,9 @@ export default Home = ({navigation}) => {
             <View style={{left: 20}}>
               <Image source={require('../Assets/s3.png')} />
             </View>
-            <View style={{left: 30,marginRight:40}}>
+            <View style={{left: 30, marginRight: 40}}>
               <Image source={require('../Assets/s4.png')} />
             </View>
-            
           </ScrollView>
         </View>
         {/* fourth part */}
@@ -337,7 +450,7 @@ export default Home = ({navigation}) => {
             top: 45,
             borderRadius: 15,
           }}>
-          <View style={{alignItems: 'flex-start', top: 4 ,}}>
+          <View style={{alignItems: 'flex-start', top: 4}}>
             <Text
               style={{
                 color: Colors.primarycolor,
@@ -350,9 +463,7 @@ export default Home = ({navigation}) => {
               Customer Satisfaction is our Priority
             </Text>
           </View>
-          <ScrollView 
-        
-          horizontal={true} style={{right:7}}>
+          <ScrollView horizontal={true} style={{right: 7}}>
             {/* feedback part */}
             <View
               style={{
@@ -384,22 +495,18 @@ export default Home = ({navigation}) => {
                     />
                   </View>
                 </View>
-                <View style={{justifyContent: 'center', alignItems: 'center',
-                  
-              }}>
+                <View style={{justifyContent: 'center', alignItems: 'center'}}>
                   <Text
                     style={{
                       fontSize: 10,
                       color: Colors.primarycolor,
                       padding: 7,
-                      
+
                       top: 4,
-                      
                     }}>
                     “Amet minim mollit non deserunt uAmet minim mollit non
                     deserunt u mjfvet minim mollit non Amet minim mollit non
-                    deserunt uAmet minim Amet minim mollit non deserunt uAmet
-                   .”
+                    deserunt uAmet minim Amet minim mollit non deserunt uAmet .”
                   </Text>
                 </View>
               </View>
@@ -446,8 +553,7 @@ export default Home = ({navigation}) => {
                     }}>
                     “Amet minim mollit non deserunt uAmet minim mollit non
                     deserunt u mjfvet minim mollit non Amet minim mollit non
-                    deserunt uAmet minim Amet minim mollit non deserunt uAmet
-                   ”
+                    deserunt uAmet minim Amet minim mollit non deserunt uAmet ”
                   </Text>
                 </View>
               </View>
@@ -461,7 +567,7 @@ export default Home = ({navigation}) => {
                 width: 290,
                 borderRadius: 15,
                 left: 25,
-                marginRight:30
+                marginRight: 30,
               }}>
               <View>
                 <View style={{flexDirection: 'row', top: 5}}>
@@ -491,12 +597,10 @@ export default Home = ({navigation}) => {
                       color: Colors.primarycolor,
                       padding: 7,
                       top: 4,
-                      
                     }}>
                     “Amet minim mollit non deserunt uAmet minim mollit non
                     deserunt u mjfvet minim mollit non Amet minim mollit non
-                    deserunt uAmet minim Amet minim mollit non deserunt uAmet
-                   ”
+                    deserunt uAmet minim Amet minim mollit non deserunt uAmet ”
                   </Text>
                 </View>
               </View>
@@ -513,17 +617,18 @@ export default Home = ({navigation}) => {
             top: 50,
             height: 250,
             borderRadius: 15,
-            
           }}>
-            
-            <View style={{}}>
+          <View style={{}}>
             <AccordionView />
-            </View>
-            
-           
-            
           </View>
-          <View style={{backgroundColor:'#fff',height:140,width:'100%',top:500}}></View>
+        </View>
+        <View
+          style={{
+            backgroundColor: '#fff',
+            height: 140,
+            width: '100%',
+            top: 500,
+          }}></View>
       </ScrollView>
     </View>
   );
@@ -538,22 +643,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     elevation: 0,
     backgroundColor: Colors.primarycolor,
-   
   },
-  txtstep1:{
+  txtstep1: {
     color: Colors.primarycolor,
     fontWeight: 'bold',
-    textAlign:'center'
+    textAlign: 'center',
   },
-  stepbox:{
+  stepbox: {
     justifyContent: 'center',
     alignItems: 'center',
     borderLeftWidth: 1,
     borderLeftColor: 'rgba(51, 52, 88, 0.06)',
-    top:5
+    top: 5,
   },
-  stepview:{
-      padding:5
+  stepview: {
+    padding: 5,
   },
   text: {
     fontSize: 20,
@@ -578,6 +682,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 12,
-    color:colors.secondaryText
+    color: colors.secondaryText,
   },
 });

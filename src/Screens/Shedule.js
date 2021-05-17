@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -12,14 +12,125 @@ import {
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Colors from '../config/colors';
 
+import DateTimePicker from '@react-native-community/datetimepicker';
+import {colors} from 'react-native-elements';
+
 const Shedule = ({navigation}) => {
+  // date picker start
+
+  const [date, setDate] = useState(new Date());
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+
+    setDate(currentDate);
+    setShow(Platform.OS === 'ios' ? true : false);
+  };
+
+  const showMode = currentMode => {
+    setShow(true);
+    setMode(currentMode);
+  };
+
+  const showDatepicker = () => {
+    showMode('date');
+  };
+
+  let monthNumber = date.getMonth();
+  let monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  let monthName = monthNames[monthNumber];
+
+  // date picker end
+
+  const [color, setcolor] = useState(styles.button1);
+  const [scolor, ssetcolor] = useState(styles.button1);
+  const [color1, setcolor1] = useState(styles.button2);
+  const [scolor1, ssetcolor1] = useState(styles.button2);
+  const [color2, setcolor2] = useState(styles.button2);
+  const [txtcolor, settextcolor] = useState(styles.timeTxt);
+  const [stxtcolor, ssettextcolor] = useState(styles.timeTxt);
+  const [txtcolor1, settextcolor1] = useState(styles.timeTxt2);
+  const [stxtcolor1, ssettextcolor1] = useState(styles.timeTxt2);
+  const [txtcolor2, settextcolor2] = useState(styles.timeTxt2);
+  const time1 = () => {
+    // button1
+    setcolor(styles.button1f);
+    settextcolor(styles.timeTxtf);
+    // button2
+    ssetcolor(styles.button1);
+    ssettextcolor(styles.timeTxt);
+    // button3
+    setcolor1(styles.button1);
+    settextcolor1(styles.timeTxt);
+    // button4
+    setcolor2(styles.button1);
+    settextcolor2(styles.timeTxt);
+  };
+  const time2 = () => {
+    //button1
+    setcolor(styles.button1);
+    settextcolor(styles.timeTxt);
+    //button2
+    ssetcolor(styles.button1f);
+    ssettextcolor(styles.timeTxtf);
+    //button3
+    setcolor1(styles.button1);
+    settextcolor1(styles.timeTxt);
+    //button4
+    setcolor2(styles.button1);
+    settextcolor2(styles.timeTxt);
+  };
+  const time3 = () => {
+    //button1
+    setcolor(styles.button1);
+    settextcolor(styles.timeTxt);
+    //button2
+    ssetcolor(styles.button1);
+    ssettextcolor(styles.timeTxt);
+    //button3
+    setcolor1(styles.button1f);
+    settextcolor1(styles.timeTxtf);
+    //button4
+    setcolor2(styles.button1);
+    settextcolor2(styles.timeTxt);
+  };
+  const time4 = () => {
+    //button1
+    setcolor(styles.button1);
+    settextcolor(styles.timeTxt);
+    //button2
+    ssetcolor(styles.button1);
+    ssettextcolor(styles.timeTxt);
+    //button3
+    setcolor1(styles.button1);
+    settextcolor1(styles.timeTxt);
+    //button4
+    setcolor2(styles.button1f);
+    settextcolor2(styles.timeTxtf);
+  };
+
   return (
     <View style={{flex: 1, backgroundColor: Colors.backgroundcolor}}>
       {/* <ScrollView style={{height: 700}}> */}
-        {/*header*/}
+      {/*header*/}
 
-        <View style={styles.header}>
-        <View style={{flexDirection: 'row',top:-20}}>
+      <View style={styles.header}>
+        <View style={{flexDirection: 'row', top: -20}}>
           <TouchableOpacity
             style={{paddingLeft: 20, top: 7}}
             onPress={() => navigation.goBack(null)}>
@@ -58,75 +169,110 @@ const Shedule = ({navigation}) => {
           Schedule your service
         </Text>
       </View>
-        <View style={styles.mainView}>
-          {/*Service*/}
+      <View style={styles.mainView}>
+        {/*Service*/}
 
-          <Text
-            style={{
-              color: Colors.secondaryText,
-              fontWeight: 'bold',
-              left: 15,
-              marginTop: 15,
-            }}>
-            When do you need this service?
-          </Text>
-          <View style={styles.textBox}>
-            <TouchableOpacity
-              style={{top: 10, left: 20}}
-              onPress={() => navigation.goBack()}>
-              <AntDesign
-                style={styles.iconItem}
-                name="left"
-                size={20}
-                color={Colors.continercolor}
-              />
-            </TouchableOpacity>
-            <Text style={{textAlign: 'center', top: 11, left: 55}}> 02 </Text>
-            <Text style={{textAlign: 'center', top: 11, left: 75}}>
-              {' '}
-              April{' '}
-            </Text>
-            <Text style={{textAlign: 'center', top: 11, left: 95}}> 2021</Text>
-            <TouchableOpacity
-              style={{top: 10, left: 120}}
-              onPress={() => navigation.goBack()}>
-              <AntDesign
-                style={styles.iconItem}
-                name="right"
-                size={20}
-                color={Colors.continercolor}
-              />
-            </TouchableOpacity>
-          </View>
-
-          {/*Time*/}
-
-          <Text
-            style={{
-              color: Colors.secondaryText,
-              fontWeight: 'bold',
-              left: 15,
-              marginTop: 15,
-            }}>
-            Choose Time
-          </Text>
-          <View style={styles.innerView}>
-            <TouchableOpacity style={styles.button1}>
-              <Text style={{color: Colors.secondaryText}}>10am-11am</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button2}>
-              <Text style={{color: Colors.secondaryText}}>12pm--1pm</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button3}>
-              <Text style={{color: Colors.secondaryText}}>2pm-3pm</Text>
-            </TouchableOpacity>
-          </View>
-          <TouchableOpacity style={styles.button4}>
-            <Text style={{color: Colors.secondaryText}}>4pm-5pm</Text>
+        <Text
+          style={{
+            color: Colors.secondaryText,
+            fontWeight: 'bold',
+            left: 15,
+            marginTop: 15,
+          }}>
+          When do you need this service?
+        </Text>
+        <TouchableOpacity style={styles.textBox} onPress={showDatepicker}>
+          <TouchableOpacity
+            style={{top: 10, left: 20}}
+            onPress={() => navigation.goBack()}>
+            <AntDesign
+              style={styles.iconItem}
+              name="left"
+              size={20}
+              color={Colors.continercolor}
+            />
           </TouchableOpacity>
-          
+          <Text style={{textAlign: 'center', top: 11, left: 55}}>
+            {' '}
+            {date.getDate()}{' '}
+          </Text>
+          <Text style={{textAlign: 'center', top: 11, left: 75}}>
+            {' '}
+            {monthName}{' '}
+          </Text>
+          <Text style={{textAlign: 'center', top: 11, left: 95}}>
+            {' '}
+            {date.getFullYear()}
+          </Text>
+          <TouchableOpacity
+            style={{top: 10, left: 120}}
+            onPress={() => navigation.goBack()}>
+            <AntDesign
+              style={styles.iconItem}
+              name="right"
+              size={20}
+              color={Colors.continercolor}
+            />
+          </TouchableOpacity>
+          {show && (
+            <DateTimePicker
+              testID="dateTimePicker"
+              timeZoneOffsetInMinutes={0}
+              value={date}
+              mode={mode}
+              is24Hour={true}
+              display="calendar"
+              onChange={onChange}
+            />
+          )}
+        </TouchableOpacity>
+
+        {/*Time*/}
+
+        <Text
+          style={{
+            color: Colors.secondaryText,
+            fontWeight: 'bold',
+            left: 15,
+            marginTop: 15,
+          }}>
+          Choose Time
+        </Text>
+        <View style={styles.innerView}>
+          <TouchableOpacity
+            style={color}
+            onPress={() => {
+              time1();
+            }}>
+            <Text style={txtcolor}>10am-11am</Text>
+          </TouchableOpacity>
+          <View style={{width: 20}} />
+          <TouchableOpacity
+            style={scolor}
+            onPress={() => {
+              time2();
+            }}>
+            <Text style={stxtcolor}>12pm-1pm</Text>
+          </TouchableOpacity>
+          <View style={{width: 20}} />
+          <TouchableOpacity
+            style={color1}
+            onPress={() => {
+              time3();
+            }}>
+            <Text style={txtcolor1}>2pm-3pm</Text>
+          </TouchableOpacity>
         </View>
-        <View style={{top: 100, left: '4%', right: '4%'}}>
+        <View style={{height: 20}} />
+        <TouchableOpacity
+          style={color2}
+          onPress={() => {
+            time4();
+          }}>
+          <Text style={txtcolor2}>4pm-5pm</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={{top: 100, left: '4%', right: '4%'}}>
         <View
           style={{
             flex: 1,
@@ -204,12 +350,94 @@ const Shedule = ({navigation}) => {
         </View>
       </View>
       {/* </ScrollView> */}
-      
+      {/* {show && (
+        <DateTimePicker 
+          testID="dateTimePicker"
+          timeZoneOffsetInMinutes={0}
+          value={date}
+          mode={mode}
+          is24Hour={true}
+          display="calendar"
+          onChange={onChange}
+        />
+      )} */}
     </View>
   );
 };
 export default Shedule;
 const styles = StyleSheet.create({
+  button1: {
+    backgroundColor: Colors.backgroundcolor,
+    width: '25%',
+    height: 30,
+    borderWidth: 1,
+    borderColor: Colors.primarycolor,
+    borderRadius: 6,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    top: 10,
+    left: 10,
+  },
+  button1f: {
+    backgroundColor: Colors.primarycolor,
+    width: '25%',
+    height: 30,
+    borderWidth: 1,
+    borderColor: Colors.primarycolor,
+    borderRadius: 6,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    top: 10,
+    left: 10,
+  },
+  timeTxt: {
+    color: Colors.primarycolor,
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginLeft: 5,
+  },
+  timeTxtf: {
+    color: Colors.backgroundcolor,
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginLeft: 5,
+  },
+  button2: {
+    backgroundColor: Colors.backgroundcolor,
+    width: '25%',
+    height: 30,
+    borderWidth: 1,
+    borderColor: Colors.primarycolor,
+    borderRadius: 6,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    top: 10,
+    left: 10,
+  },
+  button2f: {
+    backgroundColor: Colors.primarycolor,
+    width: '25%',
+    height: 30,
+    borderWidth: 1,
+    borderColor: Colors.primarycolor,
+    borderRadius: 6,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    top: 10,
+    left: 20,
+  },
+  timeTxt2: {
+    color: Colors.primarycolor,
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginLeft: 5,
+  },
+  timeTxt2f: {
+    color: Colors.backgroundcolor,
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginLeft: 5,
+  },
   header: {
     width: '100%',
     height: 110,
@@ -252,19 +480,6 @@ const styles = StyleSheet.create({
   innerView: {
     flexDirection: 'row',
     left: 10,
-  },
-  button1: {
-    backgroundColor: Colors.backgroundcolor,
-    width: '25%',
-    height: 30,
-    borderRadius: 7,
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    top: 10,
-    left: 10,
-    elevation: 1,
-    borderColor: Colors.secondaryText,
-    borderWidth: 1,
   },
   button2: {
     backgroundColor: Colors.backgroundcolor,

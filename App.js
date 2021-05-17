@@ -10,7 +10,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Intoslider from './src/Screens/Intoslider'
 import Home from './src/Screens/Home1'
 
-
+import Shedule from './src/Screens/Shedule'
 
 const Stack = createStackNavigator();
 
@@ -20,6 +20,9 @@ export default HomeSerice = () => {
   return (
       <NavigationContainer>
       <Abc/>
+
+
+      {/* <Shedule /> */}
      </NavigationContainer>
   
   // <Home/>

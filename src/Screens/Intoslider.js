@@ -11,17 +11,15 @@ import {
   Slider,
   TextInput,
 } from 'react-native';
+
+import CountryPicker from 'react-native-region-country-picker';
+import Colorsn from '../config/colors'
 import AppIntroSlider from 'react-native-app-intro-slider';
 import * as Animatable from 'react-native-animatable';
-import Entypo from 'react-native-vector-icons/Entypo';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-import {NavigationContainer} from '@react-navigation/native';
-import MyTabs from '../routes/tabnavigation';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const App = ({navigation}) => {
-
-
   const [gifs, setGifs] = useState([]);
   const [term, updateTerm] = useState('');
   const [showRealApp, setShowRealApp] = useState(false);
@@ -47,8 +45,8 @@ const App = ({navigation}) => {
   _renderNextButton = () => {
     return (
       <View style={styles.buttonCircle}>
-        <View style={{flexDirection:'row',justifyContent:'flex-end'}}>
-        <Text style={{color: '#483D8B'}}> Skip</Text>
+        <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
+          <Text style={{color: '#483D8B'}}> Skip</Text>
         </View>
       </View>
     );
@@ -107,6 +105,7 @@ const App = ({navigation}) => {
       </View>
     );
   };
+
   return (
     <>
       {showRealApp ? (
@@ -119,33 +118,82 @@ const App = ({navigation}) => {
             <Text style={styles.titleStyle}>
               Amet minim non deserunt ullamco
             </Text>
+            
 
             <View style={{flexDirection: 'row', top: '-20%'}}>
-              <View style={styles.contry}>
+
+
+            <CountryPicker 
+              enable={true}
+              darkMode={false}
+              countryCode={'IN'}
+              containerConfig={{
+                showFlag: true,
+                showCallingCode: true,
+                showCountryName: false,
+                showCountryCode: false,
+              }}
+              modalConfig={{
+                showFlag: true,
+                showCallingCode: true,
+                showCountryName: true,
+                showCountryCode: false,
+              }}
+              title={'Country'}
+              searchPlaceholder={'Search'}
+              showCloseButton={true}
+              showModalTitle={true}
+              modalStyle={{
+                container: {},
+                searchStyle: {},
+                tileStyle: {},
+                itemStyle: {
+                  itemContainer: {},
+                  flagStyle: {},
+                  countryCodeStyle: {},
+                  countryNameStyle: {},
+                  callingNameStyle: {},
+                },
+              }}
+              containerStyle={{
+               
+                container: {borderColor: 'rgba(95, 95, 130, 0.5)', borderWidth: 1,height:60,backgroundColor:'rgba(51, 52, 88, 0.06)'},
+                flagStyle: {fontSize:30},
+                callingCodeStyle: {color:Colorsn.secondaryText,top:10},
+                countryCodeStyle: {},
+                countryNameStyle: {},
+              }}
+            />
+
+
+              {/* <View style={styles.contry}>
                 <Image
                   style={styles.flag}
                   source={require('../Assets/Images/flag.png')}
                 />
                 <Text style={{padding: 10}}>+91</Text>
-              </View>
-              <View style={{borderColor: '#000', borderWidth: 1, width: '70%'}}>
+              </View> */}
+
+              <View style={{borderColor: 'rgba(95, 95, 130, 0.5)', borderWidth: 1, width: '70%'}}>
                 <TextInput
-                  style={styles.input}
+                  style={{backgroundColor:'rgba(51, 52, 88, 0.06)',height:57}}
                   onChangeText={onChangeNumber}
                   value={number}
                   placeholder="Enter Mobile number"
+                  placeholderTextColor='rgba(95, 95, 130, 0.5)'
                   keyboardType="numeric"
                   maxLength={10}
                 />
               </View>
             </View>
-            <TouchableOpacity onPress={() => navigation.navigate('MyTabs')} style={{height:80}}>
-              <View style={styles.buttonCircle} >
-
-                <View style={{flexDirection:'row',justifyContent:'flex-end'}}>
-                <Text style={{color: '#483D8B'}}> Skip</Text>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('MyTabs')}
+              style={{height: 80}}>
+              <View style={styles.buttonCircle}>
+                <View
+                  style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
+                  <Text style={{color: '#483D8B'}}> Skip</Text>
                 </View>
-               
               </View>
             </TouchableOpacity>
           </View>
@@ -158,8 +206,6 @@ const App = ({navigation}) => {
           showSkipButton={true}
           showNextButton={true}
           onSkip={onSkip}
-
-
           renderNextButton={_renderNextButton}
           renderDoneButton={_renderDoneButton}
           dotStyle={styles.dote}
@@ -184,6 +230,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 10,
     top: '-10%',
+    color:Colorsn.secondaryText
+    
   },
   contry: {
     flexDirection: 'row',
@@ -223,7 +271,7 @@ const styles = StyleSheet.create({
   buttonCircle: {
     flexDirection: 'row',
     height: 40,
-    width:'100%',
+    width: '100%',
     //backgroundColor: 'rgba(0, 0, 0, .2)',
     alignItems: 'flex-end',
     bottom: '-5%',

@@ -16,6 +16,7 @@ import {color} from 'react-native-reanimated';
 
 const ServiceSummay = ({navigation}) => {
   const [isSelected, setSelection] = useState(false);
+    const [checked, unchecked] = useState(false);
   return (
     <View style={{backgroundColor:Colors.backgroundcolor}}>
       <View>
@@ -198,27 +199,35 @@ const ServiceSummay = ({navigation}) => {
 
         {/*checkbox */}
 
-        <View style={{flexDirection: 'row', top: 60, left: 20}}>
-          <CheckBox
-            tintColors={{false: Colors.secondaryText}}
-            value={isSelected}
-            onValueChange={setSelection}
-          />
-          <Text style={{margin: 8, color: Colors.secondaryText}}>
-            Make payment after service completion{' '}
-          </Text>
-        </View>
+        <View style={{flexDirection:'row',top:50,left:20}}>
 
-        <View style={{flexDirection: 'row', top: 50, left: 20}}>
-          <CheckBox
-            tintColors={{false: Colors.secondaryText}}
-            value={isSelected}
-            onValueChange={setSelection}
-          />
-          <Text style={{margin: 8, color: Colors.secondaryText}}>
-            I agree to terms and condition{' '}
-          </Text>
-        </View>
+              <CheckBox
+                 value={isSelected}
+                 tintColors={{false: Colors.secondaryText}}
+                onValueChange={setSelection}
+                //status={isSelected ? 'checked' : 'unchecked'}
+                //onPress={()=> {
+                   // setSelection(! isSelected);
+               /// }}
+                />
+               <Text style={{margin:8,color:Colors.secondaryText}}>Make payment after service completion  </Text>
+              
+
+
+            </View>
+
+            <View style={{flexDirection:'row',top:50,left:20}}>
+
+              <CheckBox
+                value={checked}
+                tintColors={{false: Colors.secondaryText}}
+                onValueChange={unchecked}
+                />
+               <Text style={{margin:8,color:Colors.secondaryText}}>I agree to terms and condition </Text>
+               
+
+
+            </View>
         {/*check box end */}
 
         {/*button */}
