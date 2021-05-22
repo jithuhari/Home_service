@@ -13,11 +13,11 @@ import {
 } from 'react-native';
 
 import CountryPicker from 'react-native-region-country-picker';
-import Colorsn from '../config/colors'
+import Colorsn from '../config/colors';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import * as Animatable from 'react-native-animatable';
 
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const App = ({navigation}) => {
   const [gifs, setGifs] = useState([]);
@@ -26,11 +26,11 @@ const App = ({navigation}) => {
   const [number, onChangeNumber] = React.useState(null);
 
   const onDone = () => {
-    setShowRealApp(true);
+    setShowRealApp(false);
   };
 
   const onSkip = () => {
-    setShowRealApp(true);
+    setShowRealApp(false);
   };
 
   const fadeAnim = useState(new Animated.Value(0))[0]; // Initial value for opacity: 0
@@ -54,9 +54,11 @@ const App = ({navigation}) => {
 
   _renderDoneButton = () => {
     return (
-      <View style={styles.buttonCircle}>
+      <TouchableOpacity style={styles.buttonCircle}
+      onPress={() => navigation.navigate('Login')}
+      >
         <Text style={{color: '#483D8B'}}>Done</Text>
-      </View>
+      </TouchableOpacity>
     );
   };
 
@@ -118,69 +120,71 @@ const App = ({navigation}) => {
             <Text style={styles.titleStyle}>
               Amet minim non deserunt ullamco
             </Text>
-            
 
             <View style={{flexDirection: 'row', top: '-20%'}}>
-
-
-            <CountryPicker 
-              enable={true}
-              darkMode={false}
-              countryCode={'IN'}
-              containerConfig={{
-                showFlag: true,
-                showCallingCode: true,
-                showCountryName: false,
-                showCountryCode: false,
-              }}
-              modalConfig={{
-                showFlag: true,
-                showCallingCode: true,
-                showCountryName: true,
-                showCountryCode: false,
-              }}
-              title={'Country'}
-              searchPlaceholder={'Search'}
-              showCloseButton={true}
-              showModalTitle={true}
-              modalStyle={{
-                container: {},
-                searchStyle: {},
-                tileStyle: {},
-                itemStyle: {
-                  itemContainer: {},
-                  flagStyle: {},
+              <CountryPicker
+                enable={true}
+                darkMode={false}
+                countryCode={'IN'}
+                containerConfig={{
+                  showFlag: true,
+                  showCallingCode: true,
+                  showCountryName: false,
+                  showCountryCode: false,
+                }}
+                modalConfig={{
+                  showFlag: true,
+                  showCallingCode: true,
+                  showCountryName: true,
+                  showCountryCode: false,
+                }}
+                title={'Country'}
+                searchPlaceholder={'Search'}
+                showCloseButton={true}
+                showModalTitle={true}
+                modalStyle={{
+                  container: {},
+                  searchStyle: {},
+                  tileStyle: {},
+                  itemStyle: {
+                    itemContainer: {},
+                    flagStyle: {},
+                    countryCodeStyle: {},
+                    countryNameStyle: {},
+                    callingNameStyle: {},
+                  },
+                }}
+                containerStyle={{
+                  container: {
+                    borderColor: 'rgba(95, 95, 130, 0.5)',
+                    borderWidth: 1,
+                    height: 60,
+                    backgroundColor: 'rgba(51, 52, 88, 0.06)',
+                  },
+                  flagStyle: {fontSize: 30},
+                  callingCodeStyle: {color: Colorsn.secondaryText, top: 10},
                   countryCodeStyle: {},
                   countryNameStyle: {},
-                  callingNameStyle: {},
-                },
-              }}
-              containerStyle={{
-               
-                container: {borderColor: 'rgba(95, 95, 130, 0.5)', borderWidth: 1,height:60,backgroundColor:'rgba(51, 52, 88, 0.06)'},
-                flagStyle: {fontSize:30},
-                callingCodeStyle: {color:Colorsn.secondaryText,top:10},
-                countryCodeStyle: {},
-                countryNameStyle: {},
-              }}
-            />
+                }}
+              />
 
+            
 
-              {/* <View style={styles.contry}>
-                <Image
-                  style={styles.flag}
-                  source={require('../Assets/Images/flag.png')}
-                />
-                <Text style={{padding: 10}}>+91</Text>
-              </View> */}
-
-              <View style={{borderColor: 'rgba(95, 95, 130, 0.5)', borderWidth: 1, width: '70%'}}>
+              <View
+                style={{
+                  borderColor: 'rgba(95, 95, 130, 0.5)',
+                  borderWidth: 1,
+                  width: '70%',
+                }}>
                 <TextInput
-                  style={{backgroundColor:'rgba(51, 52, 88, 0.06)',height:57}}
+                  style={{
+                    backgroundColor: 'rgba(51, 52, 88, 0.06)',
+                    height: 57,
+                  }}
                   onChangeText={onChangeNumber}
                   value={number}
                   placeholder="Enter Mobile number"
-                  placeholderTextColor='rgba(95, 95, 130, 0.5)'
+                  placeholderTextColor="rgba(95, 95, 130, 0.5)"
                   keyboardType="numeric"
                   maxLength={10}
                 />
@@ -230,8 +234,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 10,
     top: '-10%',
-    color:Colorsn.secondaryText
-    
+    color: Colorsn.secondaryText,
   },
   contry: {
     flexDirection: 'row',

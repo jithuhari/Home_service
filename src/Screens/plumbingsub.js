@@ -229,7 +229,7 @@ export default Fan = ({route,navigation}) => {
                     alignSelf: 'flex-end',
                     right: 20,
                   }} 
-                  onPress={() => {navigation.navigate('Address');}}
+                  onPress={() => {navigation.navigate('Shedule');}}
                   >
                   <Text
                     style={{
@@ -275,7 +275,7 @@ export default Fan = ({route,navigation}) => {
             borderRadius: 15,
             height: 140,
             width: '92%',
-            borderWidth:.25
+           // borderWidth:.25
           }}>
           <Text
             style={{
@@ -302,7 +302,7 @@ export default Fan = ({route,navigation}) => {
                 <Card.Content>
                   <Title
                     style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                    1&nbsp;
+                    1
                     <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                       Highly trained professionals
                     </Text>
@@ -314,14 +314,14 @@ export default Fan = ({route,navigation}) => {
                   marginTop: 10,
                   width: 280,
                   elevation: 0,
-                  left: 15,
+                  left: 13,
                   borderRadius: 15,
                   height: 70,
                 }}>
                 <Card.Content>
                   <Title
                     style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                    2&nbsp;
+                    2
                     <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                       Experienced, trained, and Background verified Partners
                     </Text>
@@ -340,7 +340,7 @@ export default Fan = ({route,navigation}) => {
                 <Card.Content>
                   <Title
                     style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                    3&nbsp;
+                    3
                     <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                       Lowest Priced Quotes
                     </Text>

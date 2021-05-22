@@ -1,73 +1,290 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Text,
   Image,
   StyleSheet,
   TouchableOpacity,
   View,
+  TextInput,
   ScrollView,
+  ImageBackground,
   SafeAreaView,
+  ToastAndroid,
+  Platform,
+  PermissionsAndroid,
 } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Colors from '../config/colors';
-import IonIcons from 'react-native-vector-icons/Ionicons';
-import {TextInput, Button} from 'react-native-paper';
+import {Button} from 'react-native-paper';
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import RNModal from 'react-native-modal';
+import ImagePicker from 'react-native-image-crop-picker';
+
+import BottomSheet from 'reanimated-bottom-sheet';
+import Animated from 'react-native-reanimated';
+
+import Modal from 'react-native-modal';
 
 const Profile = ({navigation}) => {
-  // const [text, onChangeText] = React.useState(null);
-  // const [number, onChangeNumber] = React.useState(null);
-  // const [email ,onChangeEmail] =React.useState(null);
+  const [isModalVisible, setModalVisible] = useState(false);
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
+
+  const [image, setImage] = useState(
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvts5aHBstDkR8PigS4RmZkbZy78zpZoSuOw&usqp=CAU',
+  );
+
+  const takePhotoFromCamera = () => {
+    ImagePicker.openCamera({
+      compressImageMaxWidth: 300,
+      compressImageMaxHeight: 300,
+      cropping: true,
+      compressImageQuality: 0.7,
+    }).then(image => {
+      console.log(image);
+      setImage(image.path);
+      bs.current.snapTo(0);
+    });
+  };
+
+  const choosePhotoFromLibrary = () => {
+    ImagePicker.openPicker({
+      width: 300,
+      height: 300,
+      cropping: true,
+      compressImageQuality: 0.7,
+    }).then(image => {
+      console.log(image);
+      setImage(image.path);
+      bs.current.snapTo(0);
+    });
+  };
+
+ const renderInner = () => (
+    <View style={styles.panel}>
+      <View style={{alignItems: 'center'}}>
+        <Text style={styles.panelTitle}>Upload Photo</Text>
+        <Text style={styles.panelSubtitle}>Choose Your Profile Picture</Text>
+      </View>
+      <TouchableOpacity
+        style={styles.panelButton}
+        onPress={takePhotoFromCamera}>
+        <Text style={styles.panelButtonTitle}>Take Photo</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.panelButton}
+        onPress={choosePhotoFromLibrary}>
+        <Text style={styles.panelButtonTitle}>Choose From Library</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.panelButton}
+        onPress={() => bs.current.snapTo(0)}>
+        <Text style={styles.panelButtonTitle}>Cancel</Text>
+      </TouchableOpacity>
+    </View>
+  );
+ const renderHeader = () => (
+    <View style={styles.bottomHeader}>
+      <View style={styles.panelHeader}>
+        <View style={styles.panelHandle} />
+      </View>
+    </View>
+  );
+
+  bs = React.createRef();
+  fall = new Animated.Value(1);
   return (
     <View style={{flex: 1, backgroundColor: Colors.backgroundcolor}}>
-      <ScrollView>
-        <View style={styles.header}>
-          <TouchableOpacity
-            style={{bottom: 5, top: 10, left: 5}}
-            onPress={() => navigation.goBack(null)}>
-            <AntDesign
-              style={styles.iconItem}
-              name="left"
-              size={20}
-              color={'#fff'}
-            />
-          </TouchableOpacity>
-          <View
-            style={{
-              flexDirection: 'row',
-              flex: 1,
-              alignContent: 'center',
-              justifyContent: 'center',
-              top: 8,
-            }}>
-            <Image
-              source={require('../Assets/appbar.png')}
-              style={{
-                tintColor: '#fff',
-                height: 45,
-                width: 45,
-              }}
-            />
-            <Text style={{color: '#fff', top: 11, fontWeight: 'bold', left: 6}}>
-              Home Serve
-            </Text>
-          </View>
-        </View>
+      <View style={styles.header}>
+        <TouchableOpacity
+          style={{bottom: 5, top: 10, left: 5}}
+          onPress={() => navigation.goBack(null)}>
+          <AntDesign
+            style={styles.iconItem}
+            name="left"
+            size={20}
+            color={'#fff'}
+          />
+        </TouchableOpacity>
         <View
           style={{
-            flex: 2,
-            backgroundColor: Colors.primarycolor,
-            borderBottomLeftRadius: 15,
-            borderBottomRightRadius: 15,
+            flexDirection: 'row',
+            flex: 1,
+            alignContent: 'center',
+            justifyContent: 'center',
+            top: 8,
           }}>
-          <Text style={styles.text1}>Profile</Text>
+          <Image
+            source={require('../Assets/appbar.png')}
+            style={{
+              tintColor: '#fff',
+              height: 45,
+              width: 45,
+            }}
+          />
+          <Text style={{color: '#fff', top: 11, fontWeight: 'bold', left: 6}}>
+            Home Serve
+          </Text>
         </View>
-        <View style={styles.container}>
-          <Image source={require('../Assets/profile1.png')} style={{top: 20}} />
-          {/* <IonIcons 
-             name="person-circle-outline" 
-             size={100}
-             color={{color:'#333458 '}}
-              /> */}
+      </View>
+      <View
+        style={{
+          // flex: 2,
+          backgroundColor: Colors.primarycolor,
+          borderBottomLeftRadius: 15,
+          borderBottomRightRadius: 15,
+        }}>
+        <Text style={styles.text1}>Edit Profile</Text>
+      </View>
+      <ScrollView style={{height: '100%'}}>
+        <View style={styles.containerDP}>
+          {/* <BottomSheet
+            ref={bs}
+            snapPoints={[330, 0]}
+            renderContent={renderInner}
+            renderHeader={renderHeader}
+            initialSnap={1}
+            callbackNode={fall}
+            enabledGestureInteraction={true}
+            
+          /> */}
+          {/* <Animated.View
+            style={{
+              margin: 20,
+              opacity: Animated.add(0.1, Animated.multiply(fall, 1.0)),
+            }}>
+            <View style={{alignItems: 'center'}}>
+              <TouchableOpacity 
+              onPress={() => bs.current.snapTo(0)}
+              >
+                <View
+                  style={{
+                    height: 100,
+                    width: 100,
+                    borderRadius: 15,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <ImageBackground
+                    source={{
+                      uri: image,
+                    }}
+                    style={{height: 100, width: 100}}
+                    imageStyle={{borderRadius: 15}}>
+                    <View
+                      style={{
+                        flex: 1,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }}>
+                      <FontAwesome
+                        name="camera"
+                        size={35}
+                        color="#fff"
+                        style={{
+                          opacity: 0.7,
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          borderWidth: 1,
+                          borderColor: '#fff',
+                          borderRadius: 10,
+                        }}
+                      />
+                    </View>
+                  </ImageBackground>
+                </View>
+              </TouchableOpacity>
+            </View>
+          </Animated.View> */}
+          <TouchableOpacity
+            style={styles.button2}
+            onPress={() => {
+              toggleModal();
+            }}>
+            <View
+              style={{
+                height: 100,
+                width: 100,
+                borderRadius: 15,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <ImageBackground
+                source={{
+                  uri: image,
+                }}
+                style={{height: 100, width: 100}}
+                imageStyle={{borderRadius: 15}}>
+                <View
+                  style={{
+                    flex: 1,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <FontAwesome
+                    name="camera"
+                    size={35}
+                    color="#fff"
+                    style={{
+                      opacity: 0.7,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      borderWidth: 1,
+                      borderColor: '#fff',
+                      borderRadius: 10,
+                    }}
+                  />
+                </View>
+              </ImageBackground>
+            </View>
+            {/* modal */}
+            <Modal
+              isVisible={isModalVisible}
+              hasBackdrop={true}
+              backdropOpacity={0}
+              style={{backgroundColor: 'rgba(52, 52, 52, alpha)'}}
+              onBackdropPress={() => {
+                toggleModal();
+              }}>
+              <View style={{bottom: -240}}>
+              <View style={styles.bottomHeader}>
+      <View style={styles.panelHeader}>
+        <View style={styles.panelHandle} />
+      </View>
+    </View>
+                <View style={styles.panel}>
+                  <View style={{alignItems: 'center'}}>
+                    <Text style={styles.panelTitle}>Upload Photo</Text>
+                    <Text style={styles.panelSubtitle}>
+                      Choose Your Profile Picture
+                    </Text>
+                  </View>
+                  <TouchableOpacity
+                    style={styles.panelButton}
+                    onPress={takePhotoFromCamera}>
+                    <Text style={styles.panelButtonTitle}>Take Photo</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={styles.panelButton}
+                    onPress={choosePhotoFromLibrary}>
+                    <Text style={styles.panelButtonTitle}>
+                      Choose From Library
+                    </Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={styles.panelButton}
+                    onPress={() => {bs.current.snapTo(0);toggleModal()}}>
+                    <Text style={styles.panelButtonTitle}>Cancel</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </Modal>
+            {/* modal end */}
+          </TouchableOpacity>
         </View>
         <SafeAreaView>
           <View style={styles.containers}>
@@ -80,10 +297,16 @@ const Profile = ({navigation}) => {
               }}>
               Name
             </Text>
-            <View style={styles.SectionStyle}>
-              <Text style={{color: '#BDBDBD', marginLeft: 15, marginTop: 10}}>
-                John Smith
-              </Text>
+            <View>
+              <TextInput
+                style={styles.textInputStyle}
+                placeholder="Enter Full Name"
+                placeholderTextColor="#BDBDBD"
+                textContentType="name"
+                autoCompleteType="name"
+                returnKeyType="next"
+                underlineColor="transparent"
+              />
             </View>
           </View>
           <View style={styles.containers}>
@@ -96,10 +319,18 @@ const Profile = ({navigation}) => {
               }}>
               Mobile Number
             </Text>
-            <View style={styles.SectionStyle}>
-              <Text style={{color: '#BDBDBD', marginLeft: 15, marginTop: 10}}>
-                9876554321
-              </Text>
+            <View>
+              <TextInput
+                style={styles.textInputStyle}
+                placeholder="Enter Mobile Number"
+                placeholderTextColor="#BDBDBD"
+                textContentType="telephoneNumber"
+                keyboardType="phone-pad"
+                autoCapitalize="none"
+                autoCorrect={false}
+                returnKeyType="next"
+                underlineColor="transparent"
+              />
             </View>
           </View>
           <View style={styles.containers}>
@@ -112,32 +343,48 @@ const Profile = ({navigation}) => {
               }}>
               Email ID
             </Text>
-            <View style={styles.SectionStyle}>
-              <Text style={{color: '#BDBDBD', marginLeft: 15, marginTop: 10}}>
-                jsmith@example.com
-              </Text>
+            <View>
+              <TextInput
+                style={styles.textInputStyle}
+                placeholder="Enter Email-ID"
+                placeholderTextColor="#BDBDBD"
+                textContentType="emailAddress"
+                keyboardType="email-address"
+                autoCapitalize="none"
+                returnKeyType="done"
+                underlineColor="transparent"
+              />
             </View>
           </View>
 
           <View style={styles.container2}>
-            <View style={{borderRadius: 10,paddingRight:20}}>
-              <Button
-                color={Colors.primarycolor}
-                mode="outlined"
-                onPress={() => console.log('Pressed')}>
-                Cancel
-              </Button>
-            </View>
-            <View style={{borderRadius: 10,paddingRight:25}}>
-              <Button
-                color={Colors.primarycolor}
-                mode="contained"
-                onPress={() => console.log('Pressed')}>
-                Update
-              </Button>
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity
+                style={styles.btn1}
+                onPress={() => {
+                  ToastAndroid.show('Cancelled', 2000);
+                }}>
+                <Text style={{fontWeight: 'bold', marginTop: 10}}>Cancel</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.btn2}
+                onPress={() => {
+                  navigation.goBack();
+                  ToastAndroid.show('Updated', 2000);
+                }}>
+                <Text
+                  style={{
+                    color: Colors.backgroundcolor,
+                    marginTop: 10,
+                    fontWeight: 'bold',
+                  }}>
+                  Update
+                </Text>
+              </TouchableOpacity>
             </View>
           </View>
         </SafeAreaView>
+        <View style={{height: 130}}></View>
       </ScrollView>
     </View>
   );
@@ -160,16 +407,44 @@ const styles = StyleSheet.create({
     margin: 10,
     justifyContent: 'center',
   },
-  SectionStyle: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    backgroundColor: Colors.backgroundcolor,
-    borderWidth: 0.5,
-    borderColor: '#5F5F82',
-    height: 40,
+  placeholder: {
+    borderWidth: 1,
+    borderColor: Colors.backgroundcolor,
+    width: '70%',
+    height: 200,
+    marginTop: 50,
+  },
+  rnmodalView: {
+    backgroundColor: 'white',
     borderRadius: 5,
-    margin: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 14,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  modalClose: {
+    justifyContent: 'flex-end',
+  },
+
+  textInputStyle: {
+    color: '#BDBDBD',
+    paddingHorizontal: 10,
+    borderColor: '#BDBDBD',
+    flex: 1,
+    fontSize: 16,
+    height: 40,
+    width: '95%',
+    backgroundColor: 'white',
+    borderRadius: 8,
+    borderWidth: 1,
+    left: 10,
+    right: 10,
   },
   text: {
     fontSize: 20,
@@ -191,17 +466,40 @@ const styles = StyleSheet.create({
     color: Colors.backgroundcolor,
   },
 
-  container: {
+  containerDP: {
     marginTop: 10,
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-
-  button: {
-    backgroundColor: Colors.Appbar,
-    width: '40%',
+  DPcard: {
+    borderRadius: 70,
+    borderWidth: 2,
+    width: 80,
+    height: 80,
+    borderColor: Colors.primarycolor,
+    backgroundColor: '#f1f3f6',
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    marginRight: 30,
+  },
+  btn1: {
+    borderRadius: 8,
+    borderColor: Colors.primarycolor,
+    marginRight: 20,
+    borderWidth: 2,
+    width: 96,
     height: 40,
+    alignItems: 'center',
+  },
+  btn2: {
+    borderRadius: 8,
+    backgroundColor: Colors.primarycolor,
+    width: 96,
+    height: 40,
+    alignItems: 'center',
   },
   textInput: {
     paddingTop: 180,
@@ -220,8 +518,55 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    
   },
-
+  bottomHeader: {
+    backgroundColor: '#ffffff',
+    shadowColor: '#333333',
+    shadowOffset: {width: -2, height: -3},
+    shadowRadius: 2,
+    shadowOpacity: 0.4,
+    paddingTop: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    bottom:30
+  },
+  panelHeader: {
+    alignItems: 'center',
+  },
+  panelHandle: {
+    width: 40,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: Colors.continercolor,
+    // marginBottom: 10,
+  },
+  panelTitle: {
+    fontSize: 27,
+    height: 35,
+  },
+  panel: {
+    padding: 20,
+    backgroundColor: '#ffffff',
+    paddingTop: 20,
+    margin: 0,
+  },
+  panelButton: {
+    padding: 13,
+    borderRadius: 10,
+    backgroundColor: Colors.primarycolor,
+    alignItems: 'center',
+    marginVertical: 7,
+  },
+  panelButtonTitle: {
+    fontSize: 17,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  panelSubtitle: {
+    fontSize: 14,
+    color: 'gray',
+    height: 30,
+    marginBottom: 10,
+  },
 });
 export default Profile;

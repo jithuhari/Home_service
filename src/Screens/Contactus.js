@@ -51,7 +51,7 @@ const Contactus = ({navigation}) => {
         </View>
       </View>
         <View style={{flex: 2, backgroundColor: Colors.primarycolor,borderBottomRightRadius:15,borderBottomLeftRadius:15}}>
-          <Text style={styles.profiletxt}>Profile</Text>
+          <Text style={styles.profiletxt}>Contact us</Text>
         </View>
 
         <SafeAreaView style={styles.container}>
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
   },
 
   container: {
-    marginTop: 50,
+    marginTop: 30,
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-around',

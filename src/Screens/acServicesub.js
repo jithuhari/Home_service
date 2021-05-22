@@ -84,7 +84,7 @@ const Servicesub = ({route,navigation}) => {
             />
           </TouchableOpacity>
 
-          <View style={{width: 148, height: 47, paddingLeft: 110}}>
+          <View style={{width: 148, height: 47, paddingLeft:'30%'}}>
             <Image
               style={{ width: 45, height: 45, tintColor: '#fff'}}
               source={require('../Assets/Images/Home.png')}
@@ -95,6 +95,7 @@ const Servicesub = ({route,navigation}) => {
         <View style={{backgroundColor: Colors.primarycolor}}>
           <Searchbar
             style={styles.searchStyle}
+          
             placeholder="Search for a Service"
             onChangeText={onChangeSearch}
             value={searchQuery}
@@ -106,19 +107,17 @@ const Servicesub = ({route,navigation}) => {
         <ScrollView>
         <View style={styles.buttonViewStyle}>
           <TouchableOpacity style={styles.buttonstyle}>
-            <MaterialCommunityIcons
-              style={styles.icon}
-              name="brightness-percent"
-              size={20}
-              color={Colors.backgroundcolor}
+          <Image
+          style={{height: 22, width: 23, top:15, left: 11}}
+              source={require('../Assets/per.png')}
             />
             <Text style={styles.buttonText}>Upto 50% off on AC services</Text>
           </TouchableOpacity>
         </View>
 
         <View style={styles.container2}>
-          <Text style={styles.cardTitle}>{head}</Text>
-          <Divider style={{backgroundColor: 'grey', width: 180, right: -25}} />
+          <Text style={styles.cardTitle}>AC Servicing</Text>
+          <Divider style={{backgroundColor: 'grey', width: 180, right: -20}} />
 
           <View style={{flexDirection: 'row', marginTop: 12}}>
             <Text style={styles.textdot}>{'\u2022'}</Text>
@@ -144,7 +143,9 @@ const Servicesub = ({route,navigation}) => {
           </View>
 
           <View style={{flexDirection: 'row', marginTop: 25}}>
+            
             <Text style={styles.text1}>Type :</Text>
+          
             <TouchableOpacity
               //  disabled={!splitEnabled}
               //  onPress={handleSplitPressed}
@@ -156,7 +157,7 @@ const Servicesub = ({route,navigation}) => {
               }}
               // styles.typeButton1
               style={color}>
-              <Text style={txtcolor}>Split</Text>
+              <Text style={styles.text7}>Split</Text>
             </TouchableOpacity>
             <View style={{width: 17}}></View>
             <TouchableOpacity
@@ -169,7 +170,7 @@ const Servicesub = ({route,navigation}) => {
                 setCustomText('₹ 1,899');
               }}
               style={scolor}>
-              <Text style={stxtcolor}>Window</Text>
+              <Text style={styles.text7}>Window</Text>
             </TouchableOpacity>
           </View>
 
@@ -181,6 +182,7 @@ const Servicesub = ({route,navigation}) => {
               marginBottom: 5,
               borderRadius: 16,
               marginTop: 60,
+              height:'31%',
             //   bottom:50
             }}>
             <TouchableOpacity
@@ -230,7 +232,7 @@ const Servicesub = ({route,navigation}) => {
                 </View>
                 <Pressable
                   style={[styles.modalButton, styles.buttonClose]}
-                  onPress={() => {navigation.navigate('Address');}}>
+                  onPress={() => {navigation.navigate('Shedule');}}>
                   <Text style={styles.continueText}>Continue</Text>
                 </Pressable>
               </View>
@@ -274,7 +276,7 @@ const Servicesub = ({route,navigation}) => {
               backgroundColor: Colors.continercolor,
               borderRadius: 15,
               height: 140,
-              borderWidth:.25,
+            
               width: '92%',
             }}>
             <Text
@@ -293,8 +295,8 @@ const Servicesub = ({route,navigation}) => {
               <View style={{flexDirection:"row",paddingLeft:10,paddingRight:45}}>
                 <Card style={{marginTop:10,width:280,elevation:0,borderRadius:15,height:70}}>
                   <Card.Content>
-                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                      1   &nbsp;
+                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold',fontSize:18}}>
+                      1&nbsp;
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                         
                       Highly trained professionals
@@ -302,9 +304,9 @@ const Servicesub = ({route,navigation}) => {
                     </Title>
                   </Card.Content>
                 </Card>
-                <Card style={{marginTop:10,width:280,elevation:0,left:15,borderRadius:15,height:70}}>
+                <Card style={{marginTop:10,width:280,elevation:0,left:13,borderRadius:15,height:70}}>
                   <Card.Content>
-                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold',fontSize:18}}>
                       2&nbsp;
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                         
@@ -315,7 +317,7 @@ const Servicesub = ({route,navigation}) => {
                 </Card>
                 <Card style={{marginTop:10,width:280,elevation:0,left:25,borderRadius:15,height:70}}>
                   <Card.Content>
-                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold',fontSize:18}}>
                       3&nbsp;
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                         
@@ -326,7 +328,7 @@ const Servicesub = ({route,navigation}) => {
                 </Card>
                 <Card style={{marginTop:10,width:280,elevation:0,left:35,borderRadius:15,height:70}}>
                   <Card.Content>
-                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold',fontSize:18}}>
                       4&nbsp;
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                         
@@ -373,13 +375,13 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   typeText: {
-    color: Colors.primarycolor,
+    color: Colors.backgroundcolor,
     fontSize: 14,
     fontWeight: 'bold',
     marginLeft: 5,
   },
   typeTextf: {
-    color: Colors.backgroundcolor,
+    color: Colors.secondaryText,
     fontSize: 14,
     fontWeight: 'bold',
     marginLeft: 5,
@@ -414,8 +416,9 @@ const styles = StyleSheet.create({
     color: Colors.backgroundcolor,
   },
   container2: {
-    width: 343,
-    height: 305,
+    width: '94%',
+    height: '59%',
+    left:'1%',
     backgroundColor: '#E5E5E5',
     marginStart: 8,
     marginEnd: 5,
@@ -504,10 +507,10 @@ const styles = StyleSheet.create({
     borderRadius: 16,
   },
   text1: {
-    marginTop: 10,
+    marginTop: 5,
     color: Colors.primarycolor,
     fontSize: 14,
-    left: 8,
+    left: 18,
     fontWeight: 'bold',
   },
   text2: {
@@ -522,14 +525,17 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     fontWeight: 'bold',
     color: Colors.backgroundcolor,
-    paddingLeft: 12,
+    left:'28%',
     top:-4
   },
   searchStyle: {
     borderRadius: 16,
     marginStart: 10,
     marginEnd: 15,
+    height:43,
+    right:-2
   },
+ 
 
   appbarcontainer: {
     width: '100%',
@@ -546,17 +552,17 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: Colors.backgroundcolor,
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: '700',
-    right: -6,
-    top: 13,
+    right: -17,
+    top: 16,
   },
   cardTitle: {
     marginTop: 10,
     color: Colors.primarycolor,
     fontWeight: 'bold',
-    fontSize: 15,
-    left: 30,
+    fontSize: 14,
+    left:23,
   },
   cardView: {
     width: 340,
@@ -568,12 +574,12 @@ const styles = StyleSheet.create({
   },
   buttonstyle: {
     backgroundColor: '#6FCF97',
-    height: 45,
+    height: 53,
     width: '92%',
     borderRadius: 15,
     flexDirection: 'row',
     marginBottom: 20,
-    marginTop: 4,
+    marginTop: -1,
   },
   textInput: {
     paddingTop: 180,
@@ -598,8 +604,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     marginTop: 50,
     left:10 ,
-    // width:,
-    // width:'92%',
+   // width:'95%',
     // right:'4%'
     bottom:50
   },
@@ -607,10 +612,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#5F5F82',
     borderRadius: 20,
-    width: 335,
-    height: 90,
-    marginLeft: 5,
-    marginRight: 3,
+    width: '98%',
+    height: '14%',
+    
+    right: '2%',
     marginBottom: -10,
     alignItems: 'center',
     shadowColor: '#000',
@@ -625,8 +630,8 @@ const styles = StyleSheet.create({
   modalButton: {
     borderRadius: 8,
     marginRight: 10,
-    width: 96,
-    height: 32,
+    width: '25%',
+    height: '30%',
     // elevation: 2,
     backgroundColor: '#d1d1d1',
   },
@@ -643,19 +648,28 @@ const styles = StyleSheet.create({
   // },
   buttonClose: {
     backgroundColor: '#FFFFFF',
-    marginLeft: 60,
+    marginLeft: '22%',
   },
   textStyle: {
     color: '#FFFFFF',
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: 5,
+    
   },
   continueText: {
     color: '#5F5F82',
     fontWeight: 'bold',
     textAlign: 'center',
     marginTop: 5,
+  },
+  text7: {
+    marginTop: 5,
+    color: Colors.secondaryText,
+    fontSize: 14,
+    left: -2,
+    fontWeight: 'bold',
+     top:-3
   },
   modalText: {
     color: '#FFFFFF',

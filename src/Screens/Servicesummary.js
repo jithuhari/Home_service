@@ -34,7 +34,7 @@ const ServiceSummay = ({navigation}) => {
               height: 45,
               width: 45,
               tintColor: Colors.backgroundcolor,
-              left: 100,
+              left: 90,
               top: 4,
             }}
           />
@@ -43,7 +43,7 @@ const ServiceSummay = ({navigation}) => {
               fontSize: 15,
               color: Colors.backgroundcolor,
               fontWeight: 'bold',
-              left: 105,
+              left: 98,
               top: 14,
             }}>
             HOME SERVE
@@ -56,7 +56,7 @@ const ServiceSummay = ({navigation}) => {
             fontWeight: 'bold',
             top: 30,
             justifyContent: 'flex-start',
-            right: 40,
+            right: 60,
           }}>
           Service Summary
         </Text>
@@ -84,16 +84,11 @@ const ServiceSummay = ({navigation}) => {
                 color: Colors.secondaryText,
                 fontSize: 15,
                 fontWeight: 'bold',
-                bottom: 3,
+                bottom: 11,
               }}>
               Change{' '}
             </Text>
-            <AntDesign
-              name="doubleright"
-              size={15}
-              color={Colors.secondaryText}
-              fontWeight="bold"
-            />
+            
           </TouchableOpacity>
         </View>
 
@@ -119,16 +114,11 @@ const ServiceSummay = ({navigation}) => {
                 color: Colors.secondaryText,
                 fontSize: 15,
                 fontWeight: 'bold',
-                bottom: 5,
+                bottom: 11,
               }}>
               Change{' '}
             </Text>
-            <AntDesign
-              name="doubleright"
-              size={15}
-              color={Colors.secondaryText}
-              fontWeight="bold"
-            />
+            
           </TouchableOpacity>
         </View>
 
@@ -139,9 +129,10 @@ const ServiceSummay = ({navigation}) => {
           <Text style={styles.textstyle}>Requested Services:</Text>
           <View style={styles.line} />
           <View style={{flexDirection: 'column', padding: 5}}>
-            <Text style={styles.text1}>Home Sanitization</Text>
-            <Text style={styles.text2}>Size of house: 2BHK - 1 +</Text>
-            <Text style={styles.text2}>Storey: Single</Text>
+            <Text style={styles.text1}> Home Sanitization</Text>
+            <Text style={styles.text2}> Size of house: 2BHK</Text>
+            <Text style={styles.text4}> - 1 +</Text>
+            <Text style={styles.text5}> Storey: Single</Text>
           </View>
 
           <Text></Text>
@@ -210,7 +201,7 @@ const ServiceSummay = ({navigation}) => {
                    // setSelection(! isSelected);
                /// }}
                 />
-               <Text style={{margin:8,color:Colors.secondaryText}}>Make payment after service completion  </Text>
+               <Text style={{margin:8,color:Colors.secondaryText,right:6}}>Make payment after service completion  </Text>
               
 
 
@@ -223,7 +214,7 @@ const ServiceSummay = ({navigation}) => {
                 tintColors={{false: Colors.secondaryText}}
                 onValueChange={unchecked}
                 />
-               <Text style={{margin:8,color:Colors.secondaryText}}>I agree to terms and condition </Text>
+               <Text style={{margin:8,color:Colors.secondaryText,right:6}}>I agree to terms and condition </Text>
                
 
 
@@ -335,6 +326,12 @@ const styles = StyleSheet.create({
     //padding:1,
     paddingLeft: 20,
   },
+  text5: {
+    color: Colors.secondaryText,
+    //padding:1,
+    paddingLeft: 20,
+    bottom:18,
+  },
   text3: {
     fontSize: 15,
     color: Colors.backgroundcolor,
@@ -349,5 +346,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     left: 30,
     top: 20,
+  },
+  text4: {
+    color: Colors.secondaryText,
+    //padding:1,
+    paddingLeft: 20,
+    bottom:18,
+    left:240,
   },
 });

@@ -5,36 +5,65 @@ import {
   Image,
   StyleSheet,
   ScrollView,
-  TouchableOpacity,TextInput
+  TouchableOpacity,
+  TextInput,
+  FlatList,
+  StatusBar,
 } from 'react-native';
-
-import {Searchbar} from 'react-native-paper';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
 import {SliderBox} from 'react-native-image-slider-box';
 import {Rating, AirbnbRating} from 'react-native-elements';
+
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Modal from 'react-native-modal';
 
 import colors from '../config/colors';
 import Colors from '../config/colors';
 
-import DropDownPicker from 'react-native-dropdown-picker';
-
 import AccordionView from '../components/Collapsible';
 
-export default Home = ({navigation}) => {
-  const [dropDownValue, setDropDownValue] = useState('Bangalore');
 
-  const [items, setItems] = useState([
-    {label: 'Mumbai', value: 'Mumbai'},
-    {label: 'Delhi', value: 'Delhi'},
-    {label: 'Bangalore', value: 'Bangalore'},
-    {label: 'Hyderabad', value: 'Hyderabad'},
-    {label: 'Pune', value: 'Pune'},
-    {label: 'Lucknow', value: 'Lucknow'},
-    {label: 'Kanpur', value: 'Kanpur'},
-  ]);
+export default Home = ({navigation}) => {
+  const [selectedId, setSelectedId] = useState(null);
+
+  const [place, setplace] = useState('Banglore');
+  console.log(place);
+  const press = k => {
+    setSelectedId(k);
+
+    DATA.filter(on => {
+      if (on.id === k) {
+        const kk = on.location;
+        setplace(kk);
+      }
+    });
+  };
+
+  const renderItem = ({item}) => {
+    const borderColor =
+      item.id === selectedId ? Colors.primarycolor : Colors.secondaryText;
+    const borderWidth = item.id === selectedId ? 2 : 0.5;
+    return (
+      <Item
+        item={item}
+        location={place}
+        onPress={() => {
+          press((k = item.id));
+        }}
+        // backgroundColor={{backgroundColor}}
+        borderWidth={{borderWidth}}
+        borderColor={{borderColor}}
+        // textColor={{color}}
+      />
+    );
+  };
+
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
 
   image = [
     require('../Assets/1.png'),
@@ -86,41 +115,101 @@ export default Home = ({navigation}) => {
                 justifyContent: 'space-between',
                 padding: 10,
               }}>
-              <View style={{flexDirection: 'row'}}>
-                {/* <Text style={{color: '#fff'}}>Bangalore</Text>
-                <FontAwesome
-                  name={'angle-down'}
-                  color="#fff"
-                  style={{top: 5, left: 4}}
-                /> */}
-                <DropDownPicker style={{zIndex:9}}
-                  items={items}
-                  zIndex={9}
-                  defaultValue={dropDownValue}
-                  onChangeItem={item => setDropDownValue(item.value)}
-                  labelStyle={{
-                    fontSize: 14,
-                    textAlign: 'justify',
-                    color: '#5F5F82',
+              {/* <ModalAddress /> */}
+
+            
+                <TouchableOpacity
+                  style={{flexDirection: 'row'}}
+                  onPress={() => {
+                    toggleModal();
                   }}
-                  selectedLabelStyle={{
-                    color:Colors.backgroundcolor,
-                    fontWeight: '800',
-                  }}
-                  arrowColor={Colors.backgroundcolor}
-                  itemStyle={{justifyContent: 'center'}}
-                  style={{paddingVertical: 5}}
-                  dropDownStyle={{backgroundColor: '#fafafa',zIndex:20}}
-                  placeholder="Bangalore"
-                  placeholderStyle={{fontWeight: 'bold', textAlign: 'auto',color:colors.backgroundcolor}}
-                  containerStyle={{width:120, height: 38}}
-                  style={{backgroundColor:colors.primarycolor,borderWidth:0,}}
-                  itemStyle={{
-                    justifyContent: 'flex-start',
-                  }}
-                  dropDownStyle={{backgroundColor: '#fafafa',zIndex:20,position:'absolute'}}
-                />
-              </View>
+                  // onPress={() => {
+                  //   navigation.navigate("Cleaning")
+                  // }}
+                >
+                  <Text style={{color: '#fff', top: 5}}>{place} </Text>
+                  <FontAwesome
+                    name={'angle-down'}
+                    color="#fff"
+                    style={{top: 10, left: 4}}
+                  />
+
+                  <Modal
+                    isVisible={isModalVisible}
+                    hasBackdrop={true}
+                    backdropOpacity={0}
+                    style={{
+                      backgroundColor: 'rgba(52, 52, 52, alpha)',
+                      padding: 0,
+                      margin: 0,
+                    }}
+                    onBackdropPress={() => {
+                      toggleModal();
+                    }}>
+                    <View
+                      style={{
+                        backgroundColor: colors.backgroundcolor,
+                        width: '100%',
+                        height: 230,
+                        bottom: -270,
+                      }}>
+                      <Text
+                        style={{
+                          color: Colors.primarycolor,
+                          fontWeight: 'bold',
+                          fontSize: 16,
+                          top: 10,
+                          left: 15,
+                        }}>
+                        Choose Your Address
+                      </Text>
+
+                      <View
+                        style={{
+                          top: 20,
+                          left: 15,
+                          paddingRight: 15,
+                        }}>
+                        {/* <Addressbox /> */}
+
+                        <FlatList
+                          nestedScrollEnabled
+                          horizontal={true}
+                          data={DATA}
+                          renderItem={renderItem}
+                          keyExtractor={item => item.id}
+                          extraData={selectedId}
+                        />
+                        <View>
+                          <TouchableOpacity
+                          style={{flexDirection:'row'}}
+                            onPress={e => {
+                              navigation.navigate('Addaddress');
+                            }}>
+                            <Ionicons
+                              name={'location'}
+                              color={Colors.primarycolor}
+                              size={30}
+                              style={{top: 10, left: 4}}
+                            />
+                            <Text
+                              style={{
+                                color: Colors.primarycolor,
+                                fontSize: 15,
+                                fontWeight: '700',
+                                top: 15,
+                                left: 5,
+                              }}>
+                              Add an address
+                            </Text>
+                          </TouchableOpacity>
+                        </View>
+                      </View>
+                    </View>
+                  </Modal>
+                </TouchableOpacity>
+             
+
               <View
                 style={{
                   flexDirection: 'row',
@@ -131,8 +220,8 @@ export default Home = ({navigation}) => {
                   paddingRight: 8,
                   paddingTop: 2,
                   paddingBottom: 2,
-                  height:25,
-                  top:5
+                  height: 25,
+                  top: 5,
                 }}>
                 <MaterialCommunityIcons
                   name={'phone-in-talk'}
@@ -144,27 +233,23 @@ export default Home = ({navigation}) => {
             </View>
           </View>
           <View style={{}}>
-
-
-
-        
-                <FontAwesome
-                  name={'search'}
-                  color="rgba(191, 191, 205, 1)"
-                  size={20}
-
-                  style={{top: 20, left: 15,position:'absolute',zIndex:2}}
-                />
+            <FontAwesome
+              name={'search'}
+              color="rgba(191, 191, 205, 1)"
+              size={20}
+              style={{top: 20, left: 15, position: 'absolute', zIndex: 2}}
+            />
             <TextInput
               placeholder="Search for a service"
-              placeholderTextColor='rgba(191, 191, 205, 1)'
-              style={{borderRadius: 10, margin: 10, height: 40,backgroundColor:Colors.backgroundcolor,paddingLeft:30}}
+              placeholderTextColor="rgba(191, 191, 205, 1)"
+              style={{
+                borderRadius: 10,
+                margin: 10,
+                height: 40,
+                backgroundColor: Colors.backgroundcolor,
+                paddingLeft: 30,
+              }}
             />
-
-
-
-
-
           </View>
           <View style={{borderBottomLeftRadius: 10}}>
             <SliderBox
@@ -683,5 +768,97 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 12,
     color: colors.secondaryText,
+  },
+});
+
+const DATA = [
+  {
+    id: '0',
+    name: 'Ajmal',
+    flat: 'house 25',
+    street: 'main road',
+    location: 'Mumbai',
+  },
+  {
+    id: '1',
+    name: 'Yafir',
+    flat: 'house 26',
+    street: 'main road',
+    location: 'Banglore',
+  },
+  {
+    id: '2',
+    name: 'Jashim',
+    flat: 'house 29',
+    street: 'main road',
+    location: 'Kochi',
+  },
+];
+
+const Item = ({item, onPress, borderColor, borderWidth}) => (
+  <TouchableOpacity onPress={onPress} style={{padding: 0, margin: 0}}>
+    <View style={[Dstyles.box, borderColor, borderWidth]}>
+      <Text
+        style={{
+          fontWeight: 'bold',
+          color: Colors.primarycolor,
+          top: 10,
+          fontSize: 16,
+        }}>
+        {item.name}
+      </Text>
+
+      <Text
+        style={{
+          color: Colors.secondaryText,
+          fontSize: 14,
+          top: 8,
+        }}>
+        {item.flat}
+      </Text>
+      <Text
+        style={{
+          color: Colors.secondaryText,
+          fontSize: 14,
+          top: 8,
+        }}>
+        {item.street}
+      </Text>
+      <Text
+        style={{
+          color: Colors.secondaryText,
+          fontSize: 14,
+          top: 8,
+        }}>
+        street
+      </Text>
+      <Text
+        style={{
+          color: Colors.secondaryText,
+          fontSize: 14,
+          top: 8,
+        }}>
+        {item.location}
+      </Text>
+    </View>
+  </TouchableOpacity>
+);
+
+const Dstyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
+  },
+
+  title: {
+    fontSize: 32,
+  },
+  box: {
+    borderWidth: 1,
+    borderColor: colors.primarycolor,
+    width: 120,
+    height: 120,
+    marginRight: 5,
+    paddingLeft: 10,
   },
 });

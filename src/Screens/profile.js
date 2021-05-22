@@ -76,7 +76,7 @@ const Profile = ({navigation}) => {
             fontSize: 15,
             // paddingLeft: 180,
             bottom: 18,
-            top: 2,
+            paddingTop: 12,
           }}>
           Profile
         </Text>
@@ -105,7 +105,7 @@ const Profile = ({navigation}) => {
           <TouchableOpacity
             style={{bottom: 120, left: 300}}
             onPress={() => navigation.navigate('userprofile')}>
-            <AntDesign name="right" size={20} color="#DCDCDC" style={{right:10}} />
+            <AntDesign name="right" size={20} color="#DCDCDC" style={{right:10,paddingTop:6}} />
           </TouchableOpacity>
         </TouchableOpacity>
         {/* ends*/}
@@ -123,7 +123,7 @@ const Profile = ({navigation}) => {
               style={{
                 fontWeight: 'bold',
                 color: Colors.secondaryText,
-                paddingRight:170
+                paddingRight:150
               }}>
               My Booking
             </Text>
@@ -143,7 +143,7 @@ const Profile = ({navigation}) => {
               style={{
                 fontWeight: 'bold',
                 color: Colors.secondaryText,
-                paddingRight: 170,
+                paddingRight: 150,
               }}>
               My Reviews
             </Text>
@@ -162,6 +162,7 @@ const Profile = ({navigation}) => {
             style={{
               fontSize: 15,
               paddingLeft: 25,
+              paddingTop:5,
               color: Colors.secondaryText,
               fontWeight: 'bold',
             }}>
@@ -197,7 +198,8 @@ const Profile = ({navigation}) => {
               style={{
                 fontWeight: 'bold',
                 color: 'midnightblue',
-                paddingRight: 130,
+                paddingRight: 110,
+                paddingTop: 5,
                 color: Colors.secondaryText,
               }}>
               Register as partner
@@ -215,15 +217,17 @@ const Profile = ({navigation}) => {
             }}>
             <Ionicons
               name="md-document-text-outline"
-              size={28}
+              size={29}
               color={Colors.secondaryText}
-              left="60"
+             // left="60"
+              //style={{paddingBottom:"%"}}
             />
             <Text
               style={{
                 fontWeight: 'bold',
                 color: Colors.secondaryText,
-                paddingRight: 120,
+                paddingRight: 110,
+                paddingTop:5,
               }}>
               about HOME SERVE
             </Text>
@@ -253,7 +257,7 @@ const Profile = ({navigation}) => {
               style={{
                 fontWeight: 'bold',
                 color: 'midnightblue',
-                paddingRight: 170,
+                paddingRight: 168,
                 color: Colors.secondaryText,
               }}>
               Contact Us
@@ -272,7 +276,7 @@ const Profile = ({navigation}) => {
             }}>
             <AntDesign
               name="logout"
-              size={28}
+              size={26}
               color={Colors.secondaryText}
               left="60"
             />
@@ -280,7 +284,7 @@ const Profile = ({navigation}) => {
               style={{
                 fontWeight: 'bold',
                 color: Colors.secondaryText,
-                paddingRight: 170,
+                paddingRight: 188,
               }}>
               Logout
             </Text>

@@ -69,7 +69,7 @@ export default ele = ({navigation}) => {
           }}>
           <Image
             source={require('../Assets/elew.png')}
-            style={{left: '4%', right: '4%', top: 5, position: 'absolute'}}
+            style={{left: '4%', right: '4%', top: 5, position: 'absolute',width:'92%',borderRadius:10}}
           />
           <Text
             style={{
@@ -182,7 +182,7 @@ export default ele = ({navigation}) => {
               backgroundColor: Colors.continercolor,
               borderRadius: 15,
               height: 140,
-              borderWidth:.25,
+              // borderWidth:.25,
               width: '92%',
             }}>
             <Text
@@ -210,11 +210,11 @@ export default ele = ({navigation}) => {
                     </Title>
                   </Card.Content>
                 </Card>
-                <Card style={{marginTop:10,width:280,elevation:0,left:15,borderRadius:15,height:70}}>
+                <Card style={{marginTop:10,width:280,elevation:0,left:13,borderRadius:15,height:70}}>
                   <Card.Content>
                     <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
                       2
-                      <Text style={{fontSize: 12, fontWeight: 'normal'}}>
+                      <Text style={{fontSize: 12, fontWeight: 'normal',}}>
                         
                       Experienced, trained, and Background verified Partners
                       </Text>
@@ -236,7 +236,7 @@ export default ele = ({navigation}) => {
             </ScrollView>
           </View>
         </View>
-        <View style={{height: 20, width: '100%'}}></View>
+        {/* <View style={{height: 0, width: '100%'}}></View> */}
         <View style={{margin:35}}></View>
       </ScrollView>
      

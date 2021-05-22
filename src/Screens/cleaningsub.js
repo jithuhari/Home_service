@@ -48,9 +48,8 @@ const HomeSanitization = ({route, navigation}) => {
   };
   const [rateText, setRateText] = useState('');
   const [sdText, setSDTxt] = useState('');
-  const [dropDownValue, setDropDownValue] = useState(
-    'Select size of your house/Apartment',
-  );
+  const [open,setOpen]=useState(false);
+  const [dropDownValue, setDropDownValue] = useState(null);
   const [items, setItems] = useState([
     {label: '1RK', value: '1RK'},
     {label: '1BHK', value: '1BHK'},
@@ -172,35 +171,28 @@ const HomeSanitization = ({route, navigation}) => {
           <View style={{flexDirection: 'row', marginTop: 10}}>
             <Text style={styles.text1}>Size of house:</Text>
             <View style={{marginLeft: 10}}>
-              <DropDownPicker
-                items={items}
-                defaultValue={dropDownValue}
-                onChangeItem={item => setDropDownValue(item.value)}
-                labelStyle={{
-                  fontSize: 12,
-                  textAlign: 'justify',
-                  color: '#5F5F82',
-                }}
-                selectedLabelStyle={{
-                  color: '#5F5F82',
-                  fontWeight: '800',
-                }}
-                itemStyle={{justifyContent: 'center'}}
-                style={{paddingVertical: 5}}
-                dropDownStyle={{backgroundColor: '#fafafa'}}
-                placeholder="Select size of your house/Apartment"
-                placeholderStyle={{fontWeight: 'bold', textAlign: 'auto'}}
-                containerStyle={{width: 240, height: 38}}
-                style={{backgroundColor: '#fafafa'}}
-                itemStyle={{
-                  justifyContent: 'flex-start',
-                }}
-                dropDownStyle={{backgroundColor: '#fafafa'}}
-              />
+            <DropDownPicker
+                 open={open}
+                 dropDownValue={dropDownValue}
+                 items={items}
+                 setOpen={setOpen}
+                 setDropDownValue={setDropDownValue}
+                 setItems={setItems}
+                 style={{backgroundColor:'white'}}
+                 containerStyle={{ width:'620%',height:'33%',left:'-4%'}}
+                 labelStyle={{fontSize: 14,textAlign: 'justify',color:Colors.primarycolor,}}
+                 selectedLabelStyle={{color:Colors.primarycolor,fontWeight:'900'}}
+                 placeholderStyle={{color:'#BDBDBD',fontWeight:'bold',
+                 letterSpacing:-1,fontFamily:'lato',textAlign:'auto'}}
+                 onChangeItem={item=>setDropDownValue(item.value)}
+                 placeholder="Select size of your house/Apartment"
+                 itemStyle={{justifyContent:'flex-start'}}
+                 />
+              
             </View>
           </View>
 
-          <View style={{flexDirection: 'row', marginTop: 15}}>
+          <View style={{flexDirection: 'row', marginTop: '-18%'}}>
             <Text style={styles.text1}>Storey :</Text>
             <TouchableOpacity
               onPress={() => {
@@ -295,51 +287,20 @@ const HomeSanitization = ({route, navigation}) => {
                 <Pressable
                   style={[styles.modalButton, styles.buttonClose]}
                   onPress={() => {
-                    navigation.navigate('Address');
+                    navigation.navigate('Shedule');
                   }}>
                   <Text style={styles.continueText}>Continue</Text>
                 </Pressable>
               </View>
             </View>
           </Modal>
-          {/* Duplex modal view */}
-          {/* 
-           
-              <View style={styles.bottomView}>
-                  <Modal
-                    animationType="slide"
-                    transparent={true}
-                    visible={modalVisible}
-                    hasBackdrop={true}
-                    backdropOpacity={0}
-                    onBackdropPress={() => {toggleModal();selecta()}}
-                    onRequestClose={() => {
-                      setModalVisible(!modalVisible);}}>
-                <View style={styles.bottomView}>
-                  <View style={styles.modalView}>
-                    <View style={{flexDirection:'column'}}>
-                      <View style={{marginLeft:20,flexDirection:'row'}}>
-                  
-                  <Text style={styles.modalText}>₹1,499</Text>
-                  <Text style={{marginLeft:40,color: "#FFFFFF",}}>1 item</Text>
-                  </View>
-                    <Text style={{color: "#FFFFFF",marginLeft:15}}>Home Sanitization | 2BHK | Single</Text>
-               </View>  
-            <Pressable
-              style={[styles.modalButton, styles.buttonClose]}
-              onPress={() => ('')}>
-              <Text style={styles.continueText}>Continue</Text>
-            </Pressable>
-          </View>
-        </View>
-      </Modal> */}
         </View>
         <View style={{left: '4%', right: '4%', top: -25}}>
           <View
             style={{
               backgroundColor: Colors.continercolor,
               borderRadius: 15,
-              height: 110,
+              height: 140,
               width: '92%',
             }}>
             <Text
@@ -358,7 +319,7 @@ const HomeSanitization = ({route, navigation}) => {
                   flexDirection: 'row',
                   paddingLeft: 10,
                   paddingRight: 45,
-                  top: 5,
+                  top: 15,
                 }}>
                 <Card
                   style={{
@@ -371,7 +332,7 @@ const HomeSanitization = ({route, navigation}) => {
                   <Card.Content>
                     <Title
                       style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                      1
+                      1&nbsp;
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                         Use of Top Quality Specialized and Safe Chemicals.
                       </Text>
@@ -390,7 +351,7 @@ const HomeSanitization = ({route, navigation}) => {
                   <Card.Content>
                     <Title
                       style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                      2
+                      2&nbsp;
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                         Use of Mechanical and Professional Equipments{' '}
                       </Text>
@@ -409,7 +370,7 @@ const HomeSanitization = ({route, navigation}) => {
                   <Card.Content>
                     <Title
                       style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                      3
+                      3&nbsp;
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                         Experienced ,Trained and Background Verified Partners
                       </Text>
@@ -428,7 +389,7 @@ const HomeSanitization = ({route, navigation}) => {
                   <Card.Content>
                     <Title
                       style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                      4
+                      4&nbsp;
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                         Lowest Priced Quotes
                       </Text>
@@ -513,9 +474,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: Colors.backgroundcolor,
   },
+  appbarcontainer: {
+    width:'100%',
+    height: 50,
+    backgroundColor: Colors.primarycolor,
+    borderBottomEndRadius: 15,
+  },
   container2: {
-    left: '4%',
-    right: '4%',
+    left: '2.5%',
+    right: '6%',
     width: '92%',
     height: 365,
     backgroundColor: Colors.continercolor,
@@ -631,12 +598,7 @@ const styles = StyleSheet.create({
     marginEnd: 15,
   },
 
-  appbarcontainer: {
-    width: 360,
-    height: 50,
-    backgroundColor: Colors.primarycolor,
-    borderBottomEndRadius: 15,
-  },
+  
 
   container: {
     flex: 1,
@@ -655,7 +617,7 @@ const styles = StyleSheet.create({
     color: Colors.primarycolor,
     fontWeight: 'bold',
     fontSize: 20,
-    left: 8,
+    left: 5,
   },
   cardView: {
     width: 330,
@@ -718,12 +680,13 @@ const styles = StyleSheet.create({
   },
   modalButton: {
     borderRadius: 8,
-    marginLeft: 10,
+    marginLeft: '-3%',
     // right:20,
     width: 96,
     height: 32,
     // elevation: 2,
     backgroundColor: '#d1d1d1',
+    bottom:'5%'
     // top:-10
   },
   modalButtondisable: {

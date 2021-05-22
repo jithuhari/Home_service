@@ -8,6 +8,7 @@ import {
   ScrollView,
   Alert,
 } from 'react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '../config/colors';
@@ -27,11 +28,11 @@ const Services = ({navigation}) => {
             <AntDesign
               style={styles.iconItem}
               name="left"
-              // size ={20}
+              size ={20}
               color={Colors.backgroundcolor}
             />
           </TouchableOpacity>
-          <View style={{width: 148, height: 47, paddingLeft: 110}}>
+          <View style={{width: 148, height: 47,paddingLeft:'5%',left:'99.9%'}}>
             <Image
               style={{ width: 45, height: 45, tintColor: '#fff'}}
               source={require('../Assets/Images/Home.png')}
@@ -40,22 +41,24 @@ const Services = ({navigation}) => {
           <Text style={styles.text}>HOME SERVE</Text>
         </View>
 
-        <View style={{backgroundColor: Colors.primarycolor, fontSize: 30}}>
-          <View style={styles.Searchbar}>
-            <Searchbar
-              style={styles.searchStyle}
-              placeholder="Search for a service"
-              onChangeText={onChangeSearch}
-              value={searchQuery}
-            />
-          </View>
+        <View style={{backgroundColor: Colors.primarycolor}}>
+          <Searchbar
+            style={styles.searchStyle}
+          
+            placeholder="Search for a service"
+            onChangeText={onChangeSearch}
+            value={searchQuery}
+          />
         </View>
+
+
+
         <ScrollView>
         <View style={styles.appbarcontainer}>
           <View style={styles.banner}>
             <Image
               resizeMode="cover"
-              style={{borderRadius: 16,marginLeft:15}}
+              style={{borderRadius: 16,right:'0.1%',width:'99.6%'}}
               source={require('../Assets/Images/Mask5.png')}
             />
             <Text
@@ -63,7 +66,7 @@ const Services = ({navigation}) => {
                 fontWeight: 'bold',
                 color: '#FFFFFF',
                 fontSize: 20,
-                left: 80,
+                left: '27%',
                 bottom: 75,
               }}>
               AIR CONDITIONER
@@ -73,7 +76,7 @@ const Services = ({navigation}) => {
                 fontWeight: 'bold',
                 color: '#FFFFFF',
                 fontSize: 20,
-                left: 80,
+                left: '27%',
                 bottom: 75,
               }}>
               SERVICE & REPAIR
@@ -82,11 +85,9 @@ const Services = ({navigation}) => {
         </View>
         <View style={styles.buttonViewStyle}>
           <TouchableOpacity style={styles.buttonstyle}>
-            <MaterialCommunityIcons
-              style={styles.icon}
-              name="brightness-percent"
-              size={20}
-              color={Colors.backgroundcolor}
+          <Image
+          style={{height: 22, width: 23, top:15, left: 11}}
+              source={require('../Assets/per.png')}
             />
             <Text style={styles.buttonText}>Upto 50% off on AC services</Text>
           </TouchableOpacity>
@@ -95,21 +96,21 @@ const Services = ({navigation}) => {
         <View style={styles.categorycontainer}>
           <TouchableOpacity style={styles.categorybtn} 
           
-          onPress={() => {navigation.navigate('AcServicesub',{head:'AC Service'});}}
+          onPress={() => {navigation.navigate('AcServicesub',{head:'AC SERVICING'});}}
           >
             <View style={styles.categoryicon}>
               <Image source={require('../Assets/Images/Service.png')} />
             </View>
           </TouchableOpacity>
           <TouchableOpacity style={styles.categorybtn} 
-           onPress={() => {navigation.navigate('AcServicesub',{head:'AC Repair'});}}
+           onPress={() => {navigation.navigate('AcServicesub',{head:'AC REPAIR'});}}
           >
             <View style={styles.categoryicon}>
               <Image source={require('../Assets/Images/Repair.png')} />
             </View>
           </TouchableOpacity>
           <TouchableOpacity style={styles.categorybtn} 
-           onPress={() => {navigation.navigate('AcServicesub',{head:'AC Installation / Unistallation'});}}
+           onPress={() => {navigation.navigate('AcServicesub',{head:'AC INSTALLATION / UNINSTALLATION'});}}
           >
             <View style={styles.categoryicon}>
               <Image source={require('../Assets/Images/Installation.png')} />
@@ -118,7 +119,7 @@ const Services = ({navigation}) => {
         </View>
         <View style={styles.categorycontainer}>
           <TouchableOpacity style={styles.categorybtn} 
-           onPress={() => {navigation.navigate('AcServicesub',{head:'AC Gas Charging'});}}
+           onPress={() => {navigation.navigate('AcServicesub',{head:'AC GAS CHARGING'});}}
           >
             <View style={styles.categoryicon}>
               <Image source={require('../Assets/Images/Charging.png')} />
@@ -139,8 +140,7 @@ const Services = ({navigation}) => {
               backgroundColor: Colors.continercolor,
               borderRadius: 15,
               height: 140,
-              borderWidth:.25,
-              width: '92%',
+               width: '92%',
               marginBottom:20
             }}>
             <Text
@@ -159,8 +159,8 @@ const Services = ({navigation}) => {
               <View style={{flexDirection:"row",paddingLeft:10,paddingRight:45}}>
                 <Card style={{marginTop:10,width:280,elevation:0,borderRadius:15,height:70}}>
                   <Card.Content>
-                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                      1   &nbsp;
+                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold',fontSize:18}}>
+                      1&nbsp;
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                         
                       Highly trained professionals
@@ -168,9 +168,9 @@ const Services = ({navigation}) => {
                     </Title>
                   </Card.Content>
                 </Card>
-                <Card style={{marginTop:10,width:280,elevation:0,left:15,borderRadius:15,height:70}}>
+                <Card style={{marginTop:10,width:280,elevation:0,left:13,borderRadius:15,height:70}}>
                   <Card.Content>
-                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold',fontSize:18}}>
                       2&nbsp;
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                         
@@ -181,7 +181,7 @@ const Services = ({navigation}) => {
                 </Card>
                 <Card style={{marginTop:10,width:280,elevation:0,left:25,borderRadius:15,height:70}}>
                   <Card.Content>
-                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold',fontSize:18}}>
                       3&nbsp;
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                         
@@ -192,8 +192,8 @@ const Services = ({navigation}) => {
                 </Card>
                 <Card style={{marginTop:10,width:280,elevation:0,left:35,borderRadius:15,height:70}}>
                   <Card.Content>
-                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                      4
+                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold',fontSize:18}}>
+                      4&nbsp;
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                         
                       Lowest Priced Quotes
@@ -265,8 +265,8 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   banner: {
-    width: '90%',
-    height: 200,
+    width: '95%',
+    height: '50%',
     marginTop: -25,
     marginLeft: 12,
     marginRight: 20,
@@ -282,13 +282,13 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     fontWeight: 'bold',
     color: Colors.backgroundcolor,
-    paddingLeft: 12,
+    paddingLeft:'6%',
     top:-4
   },
   searchStyle: {
     height: 40,
-    top: 5,
-
+    top:5,
+left:3,
     borderRadius: 10,
     marginTop: 0,
     marginBottom: 12,
@@ -310,10 +310,10 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: Colors.backgroundcolor,
-    fontSize: 14,
-    fontWeight: 'bold',
-    left: 5,
-    top: 13,
+    fontSize: 15,
+    fontWeight:'700',
+    right: -17,
+    top: 16,
   },
   cardTitle: {
     marginTop: 10,
@@ -340,12 +340,15 @@ const styles = StyleSheet.create({
   },
   buttonstyle: {
     backgroundColor: '#6FCF97',
-    height: 45,
+    height: 53,
     width: '92%',
     borderRadius: 15,
     marginBottom: 20,
-    marginTop: 10,
+    marginTop: 6,
     flexDirection: 'row',
+
+
+    
   },
   textInput: {
     paddingTop: 180,

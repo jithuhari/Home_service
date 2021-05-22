@@ -42,7 +42,7 @@ const Cleaning = ({navigation}) => {
         <View style={{backgroundColor: Colors.primarycolor,height:58}}>
           <Searchbar
             style={styles.searchStyle}
-            placeholder="Search"
+            placeholder="Search for Service"
             onChangeText={onChangeSearch}
             value={searchQuery}
           />
@@ -52,7 +52,7 @@ const Cleaning = ({navigation}) => {
           <View style={styles.banner}>
             <Image
               resizeMode="cover"
-              style={{borderRadius: 16}}
+              style={{borderRadius: 16,width:'92%',left:'4%',right:'4%'}}
               source={require('../Assets/cleaning/banner.png')}
             />
           </View>
@@ -70,7 +70,7 @@ const Cleaning = ({navigation}) => {
           </TouchableOpacity>
         </View>
 
-        <Divider />
+        
         <View style={styles.categorycontainer}>
           <TouchableOpacity style={styles.categorybtn} 
            onPress={() => {
@@ -139,7 +139,6 @@ const Cleaning = ({navigation}) => {
               borderRadius: 15,
               height: 140,
               width: '92%',
-              borderWidth:.25
               
               
             }}>
@@ -159,7 +158,7 @@ const Cleaning = ({navigation}) => {
                   flexDirection: 'row',
                   paddingLeft: 10,
                   paddingRight: 45,
-                  top: 5,
+                  top: 15,
                 }}>
                 <Card
                   style={{
@@ -172,9 +171,9 @@ const Cleaning = ({navigation}) => {
                   <Card.Content>
                     <Title
                       style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                      1 &nbsp;
+                      1
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
-                        Use of Top Quality Specialized and Safe Chemicals.
+                     Use of Top Quality Specialized and Safe Chemicals.
                       </Text>
                     </Title>
                   </Card.Content>
@@ -184,14 +183,14 @@ const Cleaning = ({navigation}) => {
                     marginTop: 10,
                     width: 280,
                     elevation: 0,
-                    left: 15,
+                    left: 13,
                     borderRadius: 15,
                     height: 70,
                   }}>
                   <Card.Content>
                     <Title
                       style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                      2 &nbsp;
+                      2
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                         Use of Mechanical and Professional Equipments{' '}
                       </Text>
@@ -210,7 +209,7 @@ const Cleaning = ({navigation}) => {
                   <Card.Content>
                     <Title
                       style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                      3 &nbsp;
+                      3
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                         Experienced ,Trained and Background Verified Partners
                       </Text>
@@ -229,7 +228,7 @@ const Cleaning = ({navigation}) => {
                   <Card.Content>
                     <Title
                       style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                      4 &nbsp;
+                      4&nbsp;
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                         Lowest Priced Quotes
                       </Text>
@@ -317,12 +316,12 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   banner: {
-    width: '90%',
     height: 200,
     marginTop: 20,
-    marginLeft: 15,
-    marginRight: 20,
+    marginLeft: 8,
+    // marginRight: 20,
     borderRadius: 16,
+    width:345
   },
 
   text: {
@@ -339,7 +338,7 @@ const styles = StyleSheet.create({
   },
 
   appbarcontainer: {
-    width: '100%',
+    width: '200%',
     height: 230,
     backgroundColor: Colors.primarycolor,
     borderBottomEndRadius: 15,

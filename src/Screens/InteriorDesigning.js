@@ -49,7 +49,7 @@ const InteriorDesigning = ({navigation}) => {
         <View style={{backgroundColor: Colors.primarycolor}}>
           <Searchbar
             style={styles.searchStyle}
-            placeholder="Search"
+            placeholder="Search for Service"
             onChangeText={onChangeSearch}
             value={searchQuery}
           />
@@ -59,7 +59,7 @@ const InteriorDesigning = ({navigation}) => {
           <View style={styles.banner}>
             <Image
               resizeMode="cover"
-              style={{borderRadius: 16}}
+              style={{borderRadius: 16,width:'92%',left:'4%',right:'4%'}}
               source={require('../Assets/interiordesigning/interior.png')}
             />
           </View>
@@ -77,7 +77,7 @@ const InteriorDesigning = ({navigation}) => {
           </TouchableOpacity>
         </View>
 
-        <Divider />
+        
         <View style={styles.categorycontainer}>
           <TouchableOpacity style={styles.categorybtn} 
            onPress={() => {navigation.navigate('Interiorsub',{head:'Complete House'});}}
@@ -141,7 +141,6 @@ const InteriorDesigning = ({navigation}) => {
             backgroundColor: Colors.continercolor,
             borderRadius: 15,
             height: 140,
-            borderWidth:.25,
             width: '92%',
           }}>
           <Text
@@ -169,8 +168,8 @@ const InteriorDesigning = ({navigation}) => {
                 <Card.Content>
                   <Title
                     style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                    1&nbsp;
-                    <Text style={{fontSize: 12, fontWeight: 'normal'}}>
+                    1
+                    <Text style={{fontSize: 12, fontWeight: 'normal',justifyContent:'center'}}>
                       Highly trained professionals
                     </Text>
                   </Title>
@@ -181,14 +180,14 @@ const InteriorDesigning = ({navigation}) => {
                   marginTop: 10,
                   width: 280,
                   elevation: 0,
-                  left: 15,
+                  left: 13,
                   borderRadius: 15,
                   height: 70,
                 }}>
                 <Card.Content>
                   <Title
                     style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                    2&nbsp;
+                    2
                     <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                       Experienced, trained, and Background verified Partners
                     </Text>
@@ -207,7 +206,7 @@ const InteriorDesigning = ({navigation}) => {
                 <Card.Content>
                   <Title
                     style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                    3&nbsp;
+                    3
                     <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                       Lowest Priced Quotes
                     </Text>
@@ -290,11 +289,11 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   banner: {
-    width: '90%',
+    width: 345,
     height: 200,
     marginTop: 20,
-    marginLeft: 15,
-    marginRight: 20,
+    marginLeft: 8,
+    // marginRight: 20,
     borderRadius: 16,
   },
 

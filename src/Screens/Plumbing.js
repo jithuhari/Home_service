@@ -171,7 +171,7 @@ export default Plumbing = ({navigation}) => {
                   <Card.Content>
                     <Title
                       style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                      1&nbsp;
+                      1
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                         Doorstep Service
                       </Text>
@@ -183,14 +183,14 @@ export default Plumbing = ({navigation}) => {
                     marginTop: 10,
                     width: 280,
                     elevation: 0,
-                    left: 15,
+                    left: 13,
                     borderRadius: 15,
                     height: 70,
                   }}>
                   <Card.Content>
                     <Title
                       style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                      2&nbsp;
+                      2
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                         Experienced, trained, and Background verified Partners
                       </Text>
@@ -209,7 +209,7 @@ export default Plumbing = ({navigation}) => {
                   <Card.Content>
                     <Title
                       style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                      3&nbsp;
+                      3
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
                         Lowest Priced Quotes
                       </Text>
@@ -243,15 +243,16 @@ const styles = StyleSheet.create({
     height: 45,
     width: 45,
     tintColor: Colors.backgroundcolor,
-    left: 80,
-    top: 2,
+    left: '75%',
+    top: 1,
+    justifyContent:'center'
   },
   text1: {
     fontSize: 15,
     color: Colors.backgroundcolor,
     fontWeight: 'bold',
-    left: 85,
-    top: 11,
+    left: '79%',
+    top: 10,
   },
   mainView: {
     backgroundColor: Colors.primarycolor,
@@ -283,14 +284,15 @@ const styles = StyleSheet.create({
     color: Colors.primarycolor,
     fontSize: 12,
     textAlign: 'center',
+    
   },
   rectangle: {
     backgroundColor: Colors.continercolor,
     borderRadius: 15,
     height: 130,
-    marginLeft:20,
+    marginRight:'10%',
     width: '92%',
-    borderWidth:.25
+   // borderWidth:.25
   },
   text3: {
     fontSize: 16,

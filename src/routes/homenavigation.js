@@ -24,6 +24,9 @@ import Shedule from '../Screens/Shedule';
 import Servicesummary from '../Screens/Servicesummary';
 import ServiceBooking from '../Screens/ServiceBooking';
 
+
+import Addaddress from '../components/Addaddress'
+
 import Intro from '../Screens/Intoslider';
 
 const Stack = createStackNavigator();
@@ -54,6 +57,9 @@ export default HomeNavigations = () => {
       <Stack.Screen name="Servicesummary" component={Servicesummary} />
       <Stack.Screen name="ServiceBooking" component={ServiceBooking} />
 
+
+
+      <Stack.Screen name="Addaddress" component={Addaddress} />
 
       {/* <Stack.Screen name="Intro" component={Intro}  /> */}
 
