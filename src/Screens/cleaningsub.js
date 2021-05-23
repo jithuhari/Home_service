@@ -168,31 +168,41 @@ const HomeSanitization = ({route, navigation}) => {
             <Text style={styles.text3}>Featccncncn cncjnj slvhnfvskak</Text>
           </View>
 
-          <View style={{flexDirection: 'row', marginTop: 10}}>
+          <View style={{ marginTop: '2%',flexDirection:'row'}}>
             <Text style={styles.text1}>Size of house:</Text>
-            <View style={{marginLeft: 10}}>
+            <View style={{margin: '2%'}}>
             <DropDownPicker
-                 open={open}
-                 dropDownValue={dropDownValue}
-                 items={items}
-                 setOpen={setOpen}
-                 setDropDownValue={setDropDownValue}
-                 setItems={setItems}
-                 style={{backgroundColor:'white'}}
-                 containerStyle={{ width:'620%',height:'33%',left:'-4%'}}
-                 labelStyle={{fontSize: 14,textAlign: 'justify',color:Colors.primarycolor,}}
-                 selectedLabelStyle={{color:Colors.primarycolor,fontWeight:'900'}}
-                 placeholderStyle={{color:'#BDBDBD',fontWeight:'bold',
-                 letterSpacing:-1,fontFamily:'lato',textAlign:'auto'}}
-                 onChangeItem={item=>setDropDownValue(item.value)}
-                 placeholder="Select size of your house/Apartment"
-                 itemStyle={{justifyContent:'flex-start'}}
-                 />
+                open={open}
+                items={items}
+                defaultValue={dropDownValue}
+                onChangeItem={item=> setDropDownValue(item.value)}
+                labelStyle={{
+                  fontSize: 12,
+                  textAlign: 'justify',
+                  color: '#5F5F82',
+                }}
+                selectedLabelStyle={{
+                  color: '#5F5F82',
+                  fontWeight: '800',
+                }}
+                itemStyle={{justifyContent: 'center'}}
+                style={{paddingVertical: 5}}
+                dropDownStyle={{backgroundColor: '#fafafa'}}
+                placeholder="Select size of your house/Apartment"
+                placeholderStyle={{fontWeight: 'bold', textAlign: 'auto'}}
+                containerStyle={{width: 240, height: 38,left:'2%',bottom:'2%'}}
+                style={{backgroundColor: 'white'}}
+                itemStyle={{
+                  justifyContent: 'flex-start',
+                }}
+                dropDownStyle={{backgroundColor: 'white'}}
+              />
+            
               
             </View>
           </View>
 
-          <View style={{flexDirection: 'row', marginTop: '-18%'}}>
+          <View style={{flexDirection: 'row', marginTop: '2%'}}>
             <Text style={styles.text1}>Storey :</Text>
             <TouchableOpacity
               onPress={() => {
@@ -238,10 +248,10 @@ const HomeSanitization = ({route, navigation}) => {
           <View
             style={{
               alignItems: 'flex-end',
-              marginRight: 15,
+              marginRight: '5%',
               marginBottom: 5,
               borderRadius: 16,
-              marginTop: 10,
+              marginTop: '2%',
             }}>
             <TouchableOpacity
               style={secolor}
@@ -271,31 +281,32 @@ const HomeSanitization = ({route, navigation}) => {
             <View style={styles.bottomView}>
               <View style={styles.modalView}>
                 <View style={{flexDirection: 'column'}}>
-                  <View style={{marginLeft: 20, flexDirection: 'row'}}>
+                  <View style={{marginLeft: 20, flexDirection: 'row',justifyContent:'space-between'}}>
                     <Text style={styles.modalText}>
                       {rateText === '₹1,499' ? '₹1,499' : '₹1,899'}
                     </Text>
                     <Text style={{marginLeft: 40, color: '#FFFFFF'}}>
                       1 item
                     </Text>
-                  </View>
-                  <Text style={{color: '#FFFFFF', marginLeft: 15}}>
-                    {head} | {dropDownValue} |{' '}
-                    {sdText === 'Single' ? 'Single' : 'Duplex'}
-                  </Text>
-                </View>
-                <Pressable
+                    <Pressable
                   style={[styles.modalButton, styles.buttonClose]}
                   onPress={() => {
                     navigation.navigate('Shedule');
                   }}>
                   <Text style={styles.continueText}>Continue</Text>
                 </Pressable>
+                  </View>
+                  <Text style={{color: '#FFFFFF', marginLeft: 15}}>
+                    {head} | {dropDownValue} |{' '}
+                    {sdText === 'Single' ? 'Single' : 'Duplex'}
+                  </Text>
+                </View>
+                
               </View>
             </View>
           </Modal>
         </View>
-        <View style={{left: '4%', right: '4%', top: -25}}>
+        <View style={{left: '4%', right: '4%', top:'-5%'}}>
           <View
             style={{
               backgroundColor: Colors.continercolor,
@@ -563,14 +574,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
   },
-  banner: {
-    width: '90%',
-    height: 200,
-    marginTop: 20,
-    marginLeft: 15,
-    marginRight: 20,
-    borderRadius: 16,
-  },
+  
   text1: {
     marginTop: 10,
     color: Colors.primarycolor,
@@ -594,8 +598,8 @@ const styles = StyleSheet.create({
   },
   searchStyle: {
     borderRadius: 16,
-    marginStart: 10,
-    marginEnd: 15,
+    marginStart: '4%',
+    marginEnd: '4%',
   },
 
   
@@ -662,8 +666,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#5F5F82',
     borderRadius: 20,
-    width: 330,
-    height: 90,
+    width:'100%',
+    height: '15%',
     marginLeft: 5,
     marginRight: 10,
     marginBottom: 15,
@@ -680,14 +684,14 @@ const styles = StyleSheet.create({
   },
   modalButton: {
     borderRadius: 8,
-    marginLeft: '-3%',
-    // right:20,
+    left:'150%',
+    // right:'2%',
     width: 96,
     height: 32,
     // elevation: 2,
     backgroundColor: '#d1d1d1',
-    bottom:'5%'
-    // top:-10
+    bottom:'5%',
+    top:'-2%'
   },
   modalButtondisable: {
     borderRadius: 8,
@@ -737,14 +741,8 @@ const styles = StyleSheet.create({
     color: Colors.primarycolor,
     fontWeight: 'bold',
     fontSize: 15,
-    left: 30,
+    left: '4%',
   },
-  appbarcontainer: {
-    width: 360,
-    height: 50,
-    backgroundColor: Colors.primarycolor,
-    borderBottomEndRadius: 15,
-    borderBottomStartRadius: 15,
-  },
+ 
 });
 export default HomeSanitization;

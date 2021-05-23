@@ -64,7 +64,7 @@ const Profile = ({navigation}) => {
     });
   };
 
- const renderInner = () => (
+  const renderInner = () => (
     <View style={styles.panel}>
       <View style={{alignItems: 'center'}}>
         <Text style={styles.panelTitle}>Upload Photo</Text>
@@ -87,7 +87,7 @@ const Profile = ({navigation}) => {
       </TouchableOpacity>
     </View>
   );
- const renderHeader = () => (
+  const renderHeader = () => (
     <View style={styles.bottomHeader}>
       <View style={styles.panelHeader}>
         <View style={styles.panelHandle} />
@@ -251,11 +251,6 @@ const Profile = ({navigation}) => {
                 toggleModal();
               }}>
               <View style={{bottom: -240}}>
-              <View style={styles.bottomHeader}>
-      <View style={styles.panelHeader}>
-        <View style={styles.panelHandle} />
-      </View>
-    </View>
                 <View style={styles.panel}>
                   <View style={{alignItems: 'center'}}>
                     <Text style={styles.panelTitle}>Upload Photo</Text>
@@ -277,7 +272,10 @@ const Profile = ({navigation}) => {
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={styles.panelButton}
-                    onPress={() => {bs.current.snapTo(0);toggleModal()}}>
+                    onPress={() => {
+                      bs.current.snapTo(0);
+                      toggleModal();
+                    }}>
                     <Text style={styles.panelButtonTitle}>Cancel</Text>
                   </TouchableOpacity>
                 </View>
@@ -528,7 +526,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    bottom:30
+    bottom: 30,
   },
   panelHeader: {
     alignItems: 'center',

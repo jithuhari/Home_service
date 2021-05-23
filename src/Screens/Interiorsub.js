@@ -199,7 +199,7 @@ export default Fan = ({route,navigation}) => {
                   bottom: 40,
                   borderRadius: 15,
 
-                  height: 80,
+                  height: '12%',
                 }}>
                 <View style={{flexDirection: 'row', left: 20, bottom: 7}}>
                   <Text

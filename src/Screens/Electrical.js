@@ -8,7 +8,7 @@ import {
   Image,
 } from 'react-native';
 
-import {Searchbar,Card,Title} from 'react-native-paper';
+import {Searchbar, Card, Title} from 'react-native-paper';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -21,7 +21,9 @@ export default ele = ({navigation}) => {
     <View style={{backgroundColor: Colors.backgroundcolor}}>
       <View style={styles.header}>
         <View style={{flexDirection: 'row'}}>
-          <TouchableOpacity style={{paddingLeft: 20, top: 7}} onPress={() => navigation.goBack(null)}>
+          <TouchableOpacity
+            style={{paddingLeft: 20, top: 7}}
+            onPress={() => navigation.goBack(null)}>
             <AntDesign name="left" size={20} color="white"></AntDesign>
           </TouchableOpacity>
           <Image
@@ -69,7 +71,14 @@ export default ele = ({navigation}) => {
           }}>
           <Image
             source={require('../Assets/elew.png')}
-            style={{left: '4%', right: '4%', top: 5, position: 'absolute',width:'92%',borderRadius:10}}
+            style={{
+              left: '4%',
+              right: '4%',
+              top: 5,
+              position: 'absolute',
+              width: '92%',
+              borderRadius: 10,
+            }}
           />
           <Text
             style={{
@@ -110,20 +119,32 @@ export default ele = ({navigation}) => {
         <View style={{top: 15, height: 400}}>
           {/* firsr row */}
           <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
-            <TouchableOpacity style={styles.continer} onPress={() => {navigation.navigate('Fan',{head:'Switch & Socket'});}}>
+            <TouchableOpacity
+              style={styles.continer}
+              onPress={() => {
+                navigation.navigate('Fan', {head: 'Switch & Socket'});
+              }}>
               <Image
                 source={require('../Assets/switch.png')}
                 style={styles.img}
               />
               <Text style={styles.text}>Switch & Socket</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.continer} onPress={() => {navigation.navigate('Fan',{head:'Fan'});}}>
+            <TouchableOpacity
+              style={styles.continer}
+              onPress={() => {
+                navigation.navigate('Fan', {head: 'Fan'});
+              }}>
               <Image source={require('../Assets/fan.png')} style={{}} />
-              <Text style={(styles.text, {top: 5,color:colors.primarycolor})}>Fan</Text>
+              <Text style={(styles.text, {top: 5, color: colors.primarycolor})}>
+                Fan
+              </Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.continer}
-              onPress={() => {navigation.navigate('Fan',{head:'Room Heater'});}}>
+              onPress={() => {
+                navigation.navigate('Fan', {head: 'Room Heater'});
+              }}>
               <Image source={require('../Assets/room.png')} style={{}} />
               <Text style={styles.text}>Room Heater </Text>
             </TouchableOpacity>
@@ -132,20 +153,33 @@ export default ele = ({navigation}) => {
           <View style={{top: 15}}>
             <View
               style={{flexDirection: 'row', justifyContent: 'space-around'}}>
-              <TouchableOpacity style={styles.continer} onPress={() => {navigation.navigate('Fan',{head:'Light'});}}>
+              <TouchableOpacity
+                style={styles.continer}
+                onPress={() => {
+                  navigation.navigate('Fan', {head: 'Light'});
+                }}>
                 <Image
                   source={require('../Assets/light.png')}
                   style={styles.img}
                 />
                 <Text style={styles.text}>Light</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.continer} onPress={() => {navigation.navigate('Fan',{head:'Wiring'});}}>
+              <TouchableOpacity
+                style={styles.continer}
+                onPress={() => {
+                  navigation.navigate('Fan', {head: 'Wiring'});
+                }}>
                 <Image source={require('../Assets/wiring.png')} style={{}} />
-                <Text style={(styles.text, {top: 5,color:Colors.primarycolor})}>Wiring</Text>
+                <Text
+                  style={(styles.text, {top: 5, color: Colors.primarycolor})}>
+                  Wiring
+                </Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.continer}
-                onPress={() => {navigation.navigate('Fan',{head:'MCB & Fuse'});}}>
+                onPress={() => {
+                  navigation.navigate('Fan', {head: 'MCB & Fuse'});
+                }}>
                 <Image source={require('../Assets/mcb.png')} style={{}} />
                 <Text style={styles.text}>MCB & Fuse </Text>
               </TouchableOpacity>
@@ -154,7 +188,11 @@ export default ele = ({navigation}) => {
           {/* thired row */}
           <View style={{top: 30, paddingLeft: 5}}>
             <View style={{flexDirection: 'row'}}>
-              <TouchableOpacity style={styles.continer} onPress={() => {navigation.navigate('Fan',{head:'Inverter & stabilizer'});}}>
+              <TouchableOpacity
+                style={styles.continer}
+                onPress={() => {
+                  navigation.navigate('Fan', {head: 'Inverter & stabilizer'});
+                }}>
                 <Image
                   source={require('../Assets/inverter.png')}
                   style={styles.img}
@@ -192,41 +230,68 @@ export default ele = ({navigation}) => {
                 color: Colors.primarycolor,
                 left: 15,
                 top: 10,
-                marginBottom:10
+                marginBottom: 10,
               }}>
               Electrical Services includes
             </Text>
             <ScrollView horizontal={true}>
-             
-              <View style={{flexDirection:"row",paddingLeft:10,paddingRight:35}}>
-                <Card style={{marginTop:10,width:280,elevation:0,borderRadius:15,height:70}}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  paddingLeft: 10,
+                  paddingRight: 35,
+                }}>
+                <Card
+                  style={{
+                    marginTop: 10,
+                    width: 280,
+                    elevation: 0,
+                    borderRadius: 15,
+                    height: 70,
+                  }}>
                   <Card.Content>
-                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
-                      1   
+                    <Title
+                      style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                      1
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
-                        
-                      Doorstep Service
+                        Doorstep Service
                       </Text>
                     </Title>
                   </Card.Content>
                 </Card>
-                <Card style={{marginTop:10,width:280,elevation:0,left:13,borderRadius:15,height:70}}>
+                <Card
+                  style={{
+                    marginTop: 10,
+                    width: 280,
+                    elevation: 0,
+                    left: 13,
+                    borderRadius: 15,
+                    height: 70,
+                  }}>
                   <Card.Content>
-                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                    <Title
+                      style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
                       2
-                      <Text style={{fontSize: 12, fontWeight: 'normal',}}>
-                        
-                      Experienced, trained, and Background verified Partners
+                      <Text style={{fontSize: 12, fontWeight: 'normal'}}>
+                        Experienced, trained, and Background verified Partners
                       </Text>
                     </Title>
                   </Card.Content>
                 </Card>
-                <Card style={{marginTop:10,width:280,elevation:0,left:25,borderRadius:15,height:70}}>
+                <Card
+                  style={{
+                    marginTop: 10,
+                    width: 280,
+                    elevation: 0,
+                    left: 25,
+                    borderRadius: 15,
+                    height: 70,
+                  }}>
                   <Card.Content>
-                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
+                    <Title
+                      style={{color: Colors.primarycolor, fontWeight: 'bold'}}>
                       3
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
-                        
                         Lowest Priced Quotes
                       </Text>
                     </Title>
@@ -237,9 +302,8 @@ export default ele = ({navigation}) => {
           </View>
         </View>
         {/* <View style={{height: 0, width: '100%'}}></View> */}
-        <View style={{margin:35}}></View>
+        <View style={{margin: 35}}></View>
       </ScrollView>
-     
     </View>
   );
 };
@@ -268,6 +332,7 @@ const styles = StyleSheet.create({
 
   text: {
     fontSize: 12,
-    color:Colors.primarycolor,top:5
+    color: Colors.primarycolor,
+    top: 5,
   },
 });

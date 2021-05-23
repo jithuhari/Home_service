@@ -52,7 +52,7 @@ const Cleaning = ({navigation}) => {
           <View style={styles.banner}>
             <Image
               resizeMode="cover"
-              style={{borderRadius: 16,width:'92%',left:'4%',right:'4%'}}
+              style={{borderRadius: 10,width:'102%',left:'4%',right:'4%',position:'absolute'}}
               source={require('../Assets/cleaning/banner.png')}
             />
           </View>
@@ -333,8 +333,8 @@ const styles = StyleSheet.create({
   },
   searchStyle: {
     borderRadius: 16,
-    marginStart: 10,
-    marginEnd: 15,
+    marginStart: '4%',
+    marginEnd: '4%',
   },
 
   appbarcontainer: {

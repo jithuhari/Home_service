@@ -251,7 +251,7 @@ export default Fan = ({route,navigation}) => {
                       borderRightWidth: 0.54,
                       paddingRight: 10,
                     }}>
-                    AC DServicing
+                  {head}
                   </Text>
                   <Text
                     style={{

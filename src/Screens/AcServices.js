@@ -20,45 +20,42 @@ const Services = ({navigation}) => {
 
   return (
     <View style={{flex: 1, backgroundColor: Colors.backgroundcolor}}>
-     
-        <View style={styles.header}>
-          <TouchableOpacity
-            style={{bottom: 5, left: 20}}
-            onPress={() => navigation.goBack()}>
-            <AntDesign
-              style={styles.iconItem}
-              name="left"
-              size ={20}
-              color={Colors.backgroundcolor}
-            />
-          </TouchableOpacity>
-          <View style={{width: 148, height: 47,paddingLeft:'5%',left:'99.9%'}}>
-            <Image
-              style={{ width: 45, height: 45, tintColor: '#fff'}}
-              source={require('../Assets/Images/Home.png')}
-            />
-          </View>
-          <Text style={styles.text}>HOME SERVE</Text>
-        </View>
-
-        <View style={{backgroundColor: Colors.primarycolor}}>
-          <Searchbar
-            style={styles.searchStyle}
-          
-            placeholder="Search for a service"
-            onChangeText={onChangeSearch}
-            value={searchQuery}
+      <View style={styles.header}>
+        <TouchableOpacity
+          style={{bottom: 5, left: 20}}
+          onPress={() => navigation.goBack()}>
+          <AntDesign
+            style={styles.iconItem}
+            name="left"
+            size={20}
+            color={Colors.backgroundcolor}
+          />
+        </TouchableOpacity>
+        <View
+          style={{width: 148, height: 47, paddingLeft: '5%', left: '99.9%'}}>
+          <Image
+            style={{width: 45, height: 45, tintColor: '#fff'}}
+            source={require('../Assets/Images/Home.png')}
           />
         </View>
+        <Text style={styles.text}>HOME SERVE</Text>
+      </View>
 
+      <View style={{backgroundColor: Colors.primarycolor}}>
+        <Searchbar
+          style={styles.searchStyle}
+          placeholder="Search for a service"
+          onChangeText={onChangeSearch}
+          value={searchQuery}
+        />
+      </View>
 
-
-        <ScrollView>
+      <ScrollView>
         <View style={styles.appbarcontainer}>
           <View style={styles.banner}>
             <Image
               resizeMode="cover"
-              style={{borderRadius: 16,right:'0.1%',width:'99.6%'}}
+              style={{borderRadius: 16, right: '0.1%', width: '99.6%'}}
               source={require('../Assets/Images/Mask5.png')}
             />
             <Text
@@ -83,44 +80,69 @@ const Services = ({navigation}) => {
             </Text>
           </View>
         </View>
-        <View style={styles.buttonViewStyle}>
-          <TouchableOpacity style={styles.buttonstyle}>
-          <Image
-          style={{height: 22, width: 23, top:15, left: 11}}
-              source={require('../Assets/per.png')}
+        <View style={{left: '4%', right: '4%', top: 15, height: 90}}>
+          <TouchableOpacity
+            style={{
+              backgroundColor: Colors.green,
+              height: 64,
+              width: '92%',
+              borderRadius: 15,
+              flexDirection: 'row',
+            }}>
+            <Image
+              source={require('../Assets/plumbing/per.png')}
+              style={{height: 24, width: 24, top: 20, left: 15}}
             />
-            <Text style={styles.buttonText}>Upto 50% off on AC services</Text>
+            <Text
+              style={{
+                fontSize: 14,
+                color: Colors.backgroundcolor,
+                fontWeight: 'bold',
+                left: 25,
+                top: 21,
+              }}>
+              Upto 50% off on AC services
+            </Text>
           </TouchableOpacity>
         </View>
 
         <View style={styles.categorycontainer}>
-          <TouchableOpacity style={styles.categorybtn} 
-          
-          onPress={() => {navigation.navigate('AcServicesub',{head:'AC SERVICING'});}}
-          >
+          <TouchableOpacity
+            style={styles.categorybtn}
+            onPress={() => {
+              navigation.navigate('AcServicesub', {head: 'AC SERVICING'});
+            }}>
             <View style={styles.categoryicon}>
               <Image source={require('../Assets/Images/Service.png')} />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.categorybtn} 
-           onPress={() => {navigation.navigate('AcServicesub',{head:'AC REPAIR'});}}
-          >
+          <TouchableOpacity
+            style={styles.categorybtn}
+            onPress={() => {
+              navigation.navigate('AcServicesub', {head: 'AC REPAIR'});
+            }}>
             <View style={styles.categoryicon}>
               <Image source={require('../Assets/Images/Repair.png')} />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.categorybtn} 
-           onPress={() => {navigation.navigate('AcServicesub',{head:'AC INSTALLATION / UNINSTALLATION'});}}
-          >
+          <TouchableOpacity
+            style={styles.categorybtn}
+            onPress={() => {
+              navigation.navigate('AcServicesub', {
+                head: 'AC INSTALLATION / UNINSTALLATION',
+              });
+            }}>
             <View style={styles.categoryicon}>
               <Image source={require('../Assets/Images/Installation.png')} />
             </View>
           </TouchableOpacity>
         </View>
         <View style={styles.categorycontainer}>
-          <TouchableOpacity style={styles.categorybtn} 
-           onPress={() => {navigation.navigate('AcServicesub',{head:'AC GAS CHARGING'});}}
-          >
+          <TouchableOpacity
+            style={styles.categorybtn}
+            onPress={() => {
+              navigation.navigate('AcServicesub', {head: 'AC GAS CHARGING'});
+            }}>
             <View style={styles.categoryicon}>
               <Image source={require('../Assets/Images/Charging.png')} />
             </View>
@@ -140,8 +162,8 @@ const Services = ({navigation}) => {
               backgroundColor: Colors.continercolor,
               borderRadius: 15,
               height: 140,
-               width: '92%',
-              marginBottom:20
+              width: '92%',
+              marginBottom: 20,
             }}>
             <Text
               style={{
@@ -150,53 +172,104 @@ const Services = ({navigation}) => {
                 color: Colors.primarycolor,
                 left: 15,
                 top: 10,
-                marginBottom:10
+                marginBottom: 10,
               }}>
-             AC servicing and repair includes
+              AC servicing and repair includes
             </Text>
             <ScrollView horizontal={true}>
-             
-              <View style={{flexDirection:"row",paddingLeft:10,paddingRight:45}}>
-                <Card style={{marginTop:10,width:280,elevation:0,borderRadius:15,height:70}}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  paddingLeft: 10,
+                  paddingRight: 45,
+                }}>
+                <Card
+                  style={{
+                    marginTop: 10,
+                    width: 280,
+                    elevation: 0,
+                    borderRadius: 15,
+                    height: 70,
+                  }}>
                   <Card.Content>
-                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold',fontSize:18}}>
+                    <Title
+                      style={{
+                        color: Colors.primarycolor,
+                        fontWeight: 'bold',
+                        fontSize: 18,
+                      }}>
                       1&nbsp;
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
-                        
-                      Highly trained professionals
+                        Highly trained professionals
                       </Text>
                     </Title>
                   </Card.Content>
                 </Card>
-                <Card style={{marginTop:10,width:280,elevation:0,left:13,borderRadius:15,height:70}}>
+                <Card
+                  style={{
+                    marginTop: 10,
+                    width: 280,
+                    elevation: 0,
+                    left: 13,
+                    borderRadius: 15,
+                    height: 70,
+                  }}>
                   <Card.Content>
-                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold',fontSize:18}}>
+                    <Title
+                      style={{
+                        color: Colors.primarycolor,
+                        fontWeight: 'bold',
+                        fontSize: 18,
+                      }}>
                       2&nbsp;
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
-                        
-                      30 days service warranty
+                        30 days service warranty
                       </Text>
                     </Title>
                   </Card.Content>
                 </Card>
-                <Card style={{marginTop:10,width:280,elevation:0,left:25,borderRadius:15,height:70}}>
+                <Card
+                  style={{
+                    marginTop: 10,
+                    width: 280,
+                    elevation: 0,
+                    left: 25,
+                    borderRadius: 15,
+                    height: 70,
+                  }}>
                   <Card.Content>
-                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold',fontSize:18}}>
+                    <Title
+                      style={{
+                        color: Colors.primarycolor,
+                        fontWeight: 'bold',
+                        fontSize: 18,
+                      }}>
                       3&nbsp;
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
-                        
-                      100% genuine spare parts
+                        100% genuine spare parts
                       </Text>
                     </Title>
                   </Card.Content>
                 </Card>
-                <Card style={{marginTop:10,width:280,elevation:0,left:35,borderRadius:15,height:70}}>
+                <Card
+                  style={{
+                    marginTop: 10,
+                    width: 280,
+                    elevation: 0,
+                    left: 35,
+                    borderRadius: 15,
+                    height: 70,
+                  }}>
                   <Card.Content>
-                    <Title style={{color: Colors.primarycolor, fontWeight: 'bold',fontSize:18}}>
+                    <Title
+                      style={{
+                        color: Colors.primarycolor,
+                        fontWeight: 'bold',
+                        fontSize: 18,
+                      }}>
                       4&nbsp;
                       <Text style={{fontSize: 12, fontWeight: 'normal'}}>
-                        
-                      Lowest Priced Quotes
+                        Lowest Priced Quotes
                       </Text>
                     </Title>
                   </Card.Content>
@@ -206,7 +279,6 @@ const Services = ({navigation}) => {
           </View>
         </View>
       </ScrollView>
-      
     </View>
   );
 };
@@ -282,13 +354,13 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     fontWeight: 'bold',
     color: Colors.backgroundcolor,
-    paddingLeft:'6%',
-    top:-4
+    paddingLeft: '6%',
+    top: -4,
   },
   searchStyle: {
     height: 40,
-    top:5,
-left:3,
+    top: 5,
+    left: 3,
     borderRadius: 10,
     marginTop: 0,
     marginBottom: 12,
@@ -311,7 +383,7 @@ left:3,
   buttonText: {
     color: Colors.backgroundcolor,
     fontSize: 15,
-    fontWeight:'700',
+    fontWeight: '700',
     right: -17,
     top: 16,
   },
@@ -346,9 +418,6 @@ left:3,
     marginBottom: 20,
     marginTop: 6,
     flexDirection: 'row',
-
-
-    
   },
   textInput: {
     paddingTop: 180,

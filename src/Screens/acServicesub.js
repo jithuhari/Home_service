@@ -224,7 +224,7 @@ const Servicesub = ({route,navigation}) => {
                       1 item
                     </Text>
                   </View>
-                  <Text style={{color: '#FFFFFF', marginLeft: 25}}>
+                  <Text style={{color: '#FFFFFF', marginLeft: 10}}>
                     {customText === '₹ 1,499'
                       ? 'AC  Servicing   |  Split'
                       : 'AC DServicing   |  Window'}
@@ -232,6 +232,8 @@ const Servicesub = ({route,navigation}) => {
                 </View>
                 <Pressable
                   style={[styles.modalButton, styles.buttonClose]}
+                  // style={{left}}
+
                   onPress={() => {navigation.navigate('Shedule');}}>
                   <Text style={styles.continueText}>Continue</Text>
                 </Pressable>
@@ -525,7 +527,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     fontWeight: 'bold',
     color: Colors.backgroundcolor,
-    left:'28%',
+    left:10,
     top:-4
   },
   searchStyle: {
@@ -637,7 +639,7 @@ const styles = StyleSheet.create({
   },
   modalButtondisable: {
     borderRadius: 8,
-    marginLeft: 20,
+    // marginLeft: 20,
     width: 96,
     height: 32,
     // elevation: 2,
@@ -648,7 +650,9 @@ const styles = StyleSheet.create({
   // },
   buttonClose: {
     backgroundColor: '#FFFFFF',
-    marginLeft: '22%',
+    // marginLeft: '22%',
+    right:-60,
+    
   },
   textStyle: {
     color: '#FFFFFF',
