@@ -46,7 +46,7 @@ const Profile = ({navigation}) => {
             <AntDesign name="left" size={20} color="white"></AntDesign>
           </TouchableOpacity>
           <View
-            style={{width: 138, height: 60, flexDirection: 'row', right: 98}}>
+            style={{width:'100%', height: 60, flexDirection: 'row', right: '20%',left:'20%'}}>
             <Image
               style={{
                
@@ -118,7 +118,8 @@ const Profile = ({navigation}) => {
               justifyContent: 'space-between',
               padding: 10,
             }}>
-            <Ionicons name="md-newspaper-outline" size={28} color={'#5F5F82'} />
+            <Ionicons name="md-newspaper-outline" size={26} color={'#5F5F82'}
+              style={{bottom:5,left:2}} />
             <Text
               style={{
                 fontWeight: 'bold',
@@ -138,7 +139,7 @@ const Profile = ({navigation}) => {
               justifyContent: 'space-between',
               padding: 10,
             }}>
-            <Feature name="star" size={28} color={Colors.secondaryText} />
+            <Feature name="star" size={26} color={Colors.secondaryText}  style={{bottom:5,right:1}}/>
             <Text
               style={{
                 fontWeight: 'bold',
@@ -157,14 +158,15 @@ const Profile = ({navigation}) => {
         <TouchableOpacity onPress={()=> onSwitch()} >
         <View style={styles.viewsecond}>
           
-          <Feature name="bell" size={30} color={Colors.secondaryText} style={{left:"20%"}} />
+          <Feature name="bell" size={29} color={Colors.secondaryText} style={{left:"21%"}} />
           <Text
             style={{
               fontSize: 15,
               paddingLeft: 25,
-              paddingTop:5,
+              paddingTop:'1%',
               color: Colors.secondaryText,
               fontWeight: 'bold',
+
             }}>
             Notification
           </Text>
@@ -191,8 +193,10 @@ const Profile = ({navigation}) => {
             }}>
             <MaterialCommunityIcons
               name="account-tie-outline"
-              size={30}
+              size={32}
               color={Colors.secondaryText}
+              style={{right:4,bottom:6}}
+
             />
             <Text
               style={{
@@ -201,6 +205,7 @@ const Profile = ({navigation}) => {
                 paddingRight: 110,
                 paddingTop: 5,
                 color: Colors.secondaryText,
+                left:1,bottom:6,
               }}>
               Register as partner
             </Text>
@@ -217,10 +222,11 @@ const Profile = ({navigation}) => {
             }}>
             <Ionicons
               name="md-document-text-outline"
-              size={29}
+              size={31}
               color={Colors.secondaryText}
              // left="60"
               //style={{paddingBottom:"%"}}
+              style={{bottom:7,right:2}}
             />
             <Text
               style={{
@@ -228,8 +234,10 @@ const Profile = ({navigation}) => {
                 color: Colors.secondaryText,
                 paddingRight: 110,
                 paddingTop:5,
+                bottom:5,
+                left:3,
               }}>
-              about HOME SERVE
+               about HOME SERVE
             </Text>
             <TouchableOpacity>
               <AntDesign name="right" size={20} color="#DCDCDC" />
@@ -252,6 +260,7 @@ const Profile = ({navigation}) => {
             name="md-call-outline"
             size={28}
             color={Colors.secondaryText}
+            style={{bottom:5}}
           />
             <Text
               style={{
@@ -259,6 +268,7 @@ const Profile = ({navigation}) => {
                 color: 'midnightblue',
                 paddingRight: 168,
                 color: Colors.secondaryText,
+                left:5,
               }}>
               Contact Us
             </Text>
@@ -279,12 +289,15 @@ const Profile = ({navigation}) => {
               size={26}
               color={Colors.secondaryText}
               left="60"
+              style={{bottom:5,left:3}}
             />
             <Text
               style={{
                 fontWeight: 'bold',
                 color: Colors.secondaryText,
                 paddingRight: 188,
+                left:4,
+                bottom:1,
               }}>
               Logout
             </Text>

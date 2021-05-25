@@ -25,7 +25,7 @@ const Register = ({navigation}) => {
         {/*headerview */}
         <View style={styles.header}>
           <View
-            style={{width: '100%', height: 47, top: 10, alignItems: 'center'}}>
+            style={{width: '100%', height: 47, top: 5, alignItems: 'center'}}>
             <Image
               style={{width: 55, height: 55, tintColor: '#fff'}}
               source={require('../Assets/Images/Home.png')}
@@ -56,6 +56,7 @@ const Register = ({navigation}) => {
               fontSize: 16,
               fontWeight: 'bold',
               color: Colors.backgroundcolor,
+              top:10,
             }}>
             Register
           </Text>
@@ -81,7 +82,7 @@ const Register = ({navigation}) => {
             onChangeText={name => setusername(name)}></TextInput>
         </View>
         <View style={{top: -40}}>
-          <Text style={styles.text}>password</Text>
+          <Text style={styles.text}>Password</Text>
           <TextInput
             style={styles.textInput}
             placeholder=" Password"

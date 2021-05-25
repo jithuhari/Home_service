@@ -32,7 +32,7 @@ export default ele = ({navigation}) => {
               height: 45,
               width: 45,
               tintColor: Colors.backgroundcolor,
-              left: 100,
+              left: 80,
               top: 4,
             }}
           />
@@ -41,7 +41,7 @@ export default ele = ({navigation}) => {
               fontSize: 15,
               color: Colors.backgroundcolor,
               fontWeight: 'bold',
-              left: 105,
+              left: 81,
               top: 14,
             }}>
             HOME SERVE

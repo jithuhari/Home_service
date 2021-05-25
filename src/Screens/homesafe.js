@@ -12,13 +12,13 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Colors from '../config/colors';
 const Homesafe = ({navigation}) => {
   return (
-    <View style={{flex: 1, backgroundColor: Colors.background}}>
+    <View style={{flex: 1, width:'100%'}}>
 
-      <View style={{backgroundColor:Colors.primarycolor,}}>
+      <View style={{backgroundColor:Colors.primarycolor,width:'100%'}}>
       <View style={styles.header}>
         
         <TouchableOpacity
-          style={{bottom: 5, top: 10, left: 5}}
+          style={{ bottom:5, left: 5}}
           onPress={() => navigation.goBack(null)}>
           <AntDesign
             style={styles.iconItem}
@@ -37,7 +37,7 @@ const Homesafe = ({navigation}) => {
               width: 45,
             }}
           />
-          <Text style={{color: '#fff', top: 11, fontWeight: 'bold', left: 6}}>
+          <Text style={{color: '#fff', top: 11, fontWeight: 'bold', left: 6,fontSize:15}}>
             HOME SERVE
           </Text>
         </View>
@@ -164,20 +164,24 @@ export default Homesafe;
 const styles = StyleSheet.create({
   header: {
     width: '100%',
-    height: 100,
+    height: 120,
     flexDirection: 'row',
-    paddingTop: 1,
+    alignSelf:'center',
     alignItems: 'center',
    backgroundColor: Colors.primarycolor,
-   borderBottomRightRadius: 15,
-   borderBottomLeftRadius: 15,
+   borderBottomEndRadius:15,
+  // borderBottomRightRadius: 15,
+  // borderBottomLeftRadius: 15,
   },
   headerview:{
     flexDirection: 'row',
     flex: 1,
     alignContent: 'center',
     justifyContent: 'center',
-    top: 8,
+    alignSelf:'center',
+    bottom: 5,
+    right:'6%',
+    borderBottomEndRadius:15,
     
   },
   text: {
@@ -240,9 +244,12 @@ container1:{
   },
   subText: {
   color: 'rgba(95, 95, 130, 1)',
-  
+  textAlign:'justify',
   justifyContent:'flex-start',
-  margin:10
+  right:10,
+  height:70,
+  width:170,
+  alignSelf:'center'
   
 
     

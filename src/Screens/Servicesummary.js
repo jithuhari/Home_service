@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
-  Image,
+  Image,Modal,FlatList
 } from 'react-native';
 import {Searchbar, Card, Title} from 'react-native-paper';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -13,13 +13,107 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Colors from '../config/colors';
 import CheckBox from '@react-native-community/checkbox';
 import {color} from 'react-native-reanimated';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 const ServiceSummay = ({navigation}) => {
   const [isSelected, setSelection] = useState(false);
     const [checked, unchecked] = useState(false);
+
+
+
+    const [place, setplace] = useState('Banglore');
+  console.log(place);
+  const press = k => {
+    setSelectedId(k);
+
+    DATA.filter(on => {
+      if (on.id === k) {
+        const kk = on.location;
+        setplace(kk);
+      }
+    });
+  };
+
+  const renderItem = ({item}) => {
+    const borderColor =
+      item.id === selectedId ? Colors.primarycolor : Colors.secondaryText;
+    const borderWidth = item.id === selectedId ? 2 : 0.5;
+    return (
+      <Item
+        item={item}
+        location={place}
+        onPress={() => {
+          press((k = item.id));
+        }}
+        // backgroundColor={{backgroundColor}}
+        borderWidth={{borderWidth}}
+        borderColor={{borderColor}}
+        // textColor={{color}}
+      />
+    );
+  };
+
+
+    const [isModalVisible, setModalVisible] = useState(false);
+
+    const toggleModal = () => {
+      setModalVisible(!isModalVisible);
+    };
+  
+
+
+    // date picker start
+
+  const [date, setDate] = useState(new Date());
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+
+    setDate(currentDate);
+    setShow(Platform.OS === 'ios' ? true : false);
+  };
+
+  const showMode = currentMode => {
+    setShow(true);
+    setMode(currentMode);
+  };
+
+  const showDatepicker = () => {
+    showMode('date');
+  };
+
+  let monthNumber = date.getMonth();
+  let monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  let monthName = monthNames[monthNumber];
+
+  // date picker end
+
+
+
+
+
+
+
   return (
-    <View style={{backgroundColor:Colors.backgroundcolor}}>
+    <View style={{backgroundColor:Colors.backgroundcolor,height:'1 00%'}}>
+     
       <View>
+      
         {/*headerview */}
         <View style={styles.header}>
         <View style={{flexDirection: 'row',top:-20}}>
@@ -34,7 +128,7 @@ const ServiceSummay = ({navigation}) => {
               height: 45,
               width: 45,
               tintColor: Colors.backgroundcolor,
-              left: 90,
+              left: 80,
               top: 4,
             }}
           />
@@ -43,7 +137,7 @@ const ServiceSummay = ({navigation}) => {
               fontSize: 15,
               color: Colors.backgroundcolor,
               fontWeight: 'bold',
-              left: 98,
+              left: 81,
               top: 14,
             }}>
             HOME SERVE
@@ -63,21 +157,52 @@ const ServiceSummay = ({navigation}) => {
       </View>
         {/*headerview ends*/}
       </View>
-      <View style={{backgroundColor: Colors.backgroundcolor, height: '100%',top:20}}>
+      <ScrollView style={{backgroundColor: Colors.backgroundcolor, height: '100%',top:20}}>
         {/*first rectangle view starts */}
         <View style={styles.rect1}>
           <Text style={styles.textstyle}>Service Date:</Text>
           <View style={styles.line} />
-          <Text
-            style={{
-              color: Colors.secondaryText,
-              padding: 8,
-              top: 6,
-              paddingLeft: 30,
-            }}>
-            02 April 2021 | 10.00am
-          </Text>
-          <TouchableOpacity
+          
+           {/** <Text
+                style={{
+                 color: Colors.secondaryText,
+                 padding: 8,
+                 top: 6,
+                 paddingLeft: 30,
+                }}>
+            02 April 2021 | 
+             </Text> */}
+
+              <Text
+                style={{
+                 color: Colors.secondaryText,
+                 padding: 8,
+                 top: 6,
+                 paddingLeft: 30,
+                }}>
+            {' '}
+            {date.getDate()}{' '} | {' '}
+            {monthName}{' '}|{' '}
+            {date.getFullYear()} 
+             </Text>
+
+
+             
+        <TouchableOpacity style={styles.textBox} >
+          
+          {show && (
+            <DateTimePicker
+              testID="dateTimePicker"
+              timeZoneOffsetInMinutes={0}
+              value={date}
+              mode={mode}
+              is24Hour={true}
+              display="calendar"
+              onChange={onChange}
+            />
+          )}
+        </TouchableOpacity>
+        <TouchableOpacity
             style={{flexDirection: 'row', left: 250, bottom: 10}}>
             <Text
               style={{
@@ -85,7 +210,7 @@ const ServiceSummay = ({navigation}) => {
                 fontSize: 15,
                 fontWeight: 'bold',
                 bottom: 11,
-              }}>
+              }}   onPress={showDatepicker}>
               Change{' '}
             </Text>
             
@@ -108,7 +233,10 @@ const ServiceSummay = ({navigation}) => {
             {'agthujggddfhss\nsfhkuhhvg\nadgbbijgfcv'}
           </Text>
           <TouchableOpacity
-            style={{flexDirection: 'row', left: 250, bottom: 17}}>
+            style={{flexDirection: 'row', left: 250, bottom: 17}}
+             //onPress={() => {isModalVisible(true)
+            //}}
+            >  
             <Text
               style={{
                 color: Colors.secondaryText,
@@ -121,6 +249,13 @@ const ServiceSummay = ({navigation}) => {
             
           </TouchableOpacity>
         </View>
+
+        
+        
+        
+
+
+
 
         {/*2 rectangle view ends */}
 
@@ -245,8 +380,10 @@ const ServiceSummay = ({navigation}) => {
           </View>
         </TouchableOpacity>
         {/*button */}
-      </View>
-    </View>
+        
+      </ScrollView>
+       
+    </View>   
   );
 };
 

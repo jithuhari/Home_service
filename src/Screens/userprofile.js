@@ -101,7 +101,7 @@ const Profile = ({navigation}) => {
     <View style={{flex: 1, backgroundColor: Colors.backgroundcolor}}>
       <View style={styles.header}>
         <TouchableOpacity
-          style={{bottom: 5, top: 10, left: 5}}
+          style={{ top: 5,left:10 }}
           onPress={() => navigation.goBack(null)}>
           <AntDesign
             style={styles.iconItem}
@@ -117,6 +117,8 @@ const Profile = ({navigation}) => {
             alignContent: 'center',
             justifyContent: 'center',
             top: 8,
+            alignSelf:'center',
+            right:'5%'
           }}>
           <Image
             source={require('../Assets/appbar.png')}
@@ -126,7 +128,7 @@ const Profile = ({navigation}) => {
               width: 45,
             }}
           />
-          <Text style={{color: '#fff', top: 11, fontWeight: 'bold', left: 6}}>
+          <Text style={{color: '#fff', top: 11, fontWeight: 'bold', left: 6,fontSize:15}}>
             Home Serve
           </Text>
         </View>

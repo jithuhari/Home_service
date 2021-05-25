@@ -110,9 +110,9 @@ const HomeSanitization = ({route, navigation}) => {
           />
         </TouchableOpacity>
 
-        <View style={{width: 148, height: 47, paddingLeft: 110}}>
+        <View style={{width: 148, height: 47, left: 80}}>
           <Image
-            style={{width: 45, height: 45, tintColor: '#fff'}}
+            style={{width: 45, height: 45, tintColor: '#fff',left:'10%'}}
             source={require('../Assets/Images/Home.png')}
           />
         </View>
@@ -594,7 +594,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     fontWeight: 'bold',
     color: Colors.backgroundcolor,
-    paddingLeft: 12,
+    right: 5,
   },
   searchStyle: {
     borderRadius: 16,

@@ -32,13 +32,13 @@ const InteriorDesigning = ({navigation}) => {
             />
           </TouchableOpacity>
 
-          <View style={{width: 148, height: 70, paddingLeft: 80}}>
+          <View style={{width: 148, height: 70, left: 80}}>
             <Image
               style={{
                 width: 45,
                 height: 45,
                 tintColor: '#fff',
-                left: 40,
+                left: 15,
                 top: 10,
               }}
               source={require('../Assets/appbar.png')}
@@ -58,8 +58,8 @@ const InteriorDesigning = ({navigation}) => {
         <View style={styles.appbarcontainer}>
           <View style={styles.banner}>
             <Image
-              resizeMode="cover"
-              style={{borderRadius: 10,width:'102%',left:'4%',right:'5%'}}
+              //resizeMode="cover"
+              style={{borderRadius: 10,width:'92%',left:'4%',right:'4%'}}
               source={require('../Assets/interiordesigning/interior.png')}
             />
           </View>
@@ -302,7 +302,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     fontWeight: 'bold',
     color: Colors.backgroundcolor,
-    paddingLeft: 23,
+   right: 5,
     top:-6
   },
   searchStyle: {

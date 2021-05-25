@@ -28,7 +28,7 @@ const ServiceBooking = ({navigation}) => {
         <View style={{flexDirection: 'row', top: -10}}>
           <TouchableOpacity
             style={{paddingLeft: 20, top: 7}}
-            onPress={() => navigation.goBack(null)}>
+            o nPress={() => navigation.goBack(null)}>
             <AntDesign name="left" size={20} color="white"></AntDesign>
           </TouchableOpacity>
           <Image
@@ -37,7 +37,7 @@ const ServiceBooking = ({navigation}) => {
               height: 45,
               width: 45,
               tintColor: Colors.backgroundcolor,
-              left: 100,
+              left: 80,
               top: 4,
             }}
           />
@@ -46,7 +46,7 @@ const ServiceBooking = ({navigation}) => {
               fontSize: 15,
               color: Colors.backgroundcolor,
               fontWeight: 'bold',
-              left: 105,
+              left: 81,
               top: 14,
             }}>
             HOME SERVE

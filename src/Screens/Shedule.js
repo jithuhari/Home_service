@@ -132,7 +132,7 @@ const Shedule = ({navigation}) => {
       <View style={styles.header}>
         <View style={{flexDirection: 'row', top: -20}}>
           <TouchableOpacity
-            style={{paddingLeft: 20, top: 7}}
+            style={{paddingLeft: 20, top: 10}}
             onPress={() => navigation.goBack(null)}>
             <AntDesign name="left" size={20} color="white"></AntDesign>
           </TouchableOpacity>
@@ -142,7 +142,7 @@ const Shedule = ({navigation}) => {
               height: 45,
               width: 45,
               tintColor: Colors.backgroundcolor,
-              left: 100,
+              left: 70,
               top: 4,
             }}
           />
@@ -151,7 +151,8 @@ const Shedule = ({navigation}) => {
               fontSize: 15,
               color: Colors.backgroundcolor,
               fontWeight: 'bold',
-              left: 105,
+              justifyContent:'center',
+              left: 75,
               top: 14,
             }}>
             HOME SERVE
@@ -163,8 +164,10 @@ const Shedule = ({navigation}) => {
             fontSize: 16,
             fontWeight: 'bold',
             top: 30,
-            justifyContent: 'flex-start',
-            right: 150,
+            justifyContent: 'center',
+            alignSelf:'center',
+            textAlign:'center',
+            right: 70,
           }}>
           Schedule your service
         </Text>
@@ -196,16 +199,16 @@ const Shedule = ({navigation}) => {
             {' '}
             {date.getDate()}{' '}
           </Text>
-          <Text style={{textAlign: 'center', top: 11, left: 75}}>
+          <Text style={{textAlign: 'center', top: 11, left: 95}}>
             {' '}
             {monthName}{' '}
           </Text>
-          <Text style={{textAlign: 'center', top: 11, left: 95}}>
+          <Text style={{textAlign: 'center', top: 11, left:125}}>
             {' '}
             {date.getFullYear()}
           </Text>
           <TouchableOpacity
-            style={{top: 10, left: 120}}
+            style={{top: 10, left: 150}}
             onPress={() => navigation.goBack()}>
             <AntDesign
               style={styles.iconItem}
@@ -246,7 +249,7 @@ const Shedule = ({navigation}) => {
             }}>
             <Text style={txtcolor}>10am-11am</Text>
           </TouchableOpacity>
-          <View style={{width: 20}} />
+          <View style={{width: 15}} />
           <TouchableOpacity
             style={scolor}
             onPress={() => {
@@ -254,7 +257,7 @@ const Shedule = ({navigation}) => {
             }}>
             <Text style={stxtcolor}>12pm-1pm</Text>
           </TouchableOpacity>
-          <View style={{width: 20}} />
+          <View style={{width: 15}} />
           <TouchableOpacity
             style={color1}
             onPress={() => {
@@ -263,7 +266,7 @@ const Shedule = ({navigation}) => {
             <Text style={txtcolor1}>2pm-3pm</Text>
           </TouchableOpacity>
         </View>
-        <View style={{height: 20}} />
+        <View style={{height: 20,width:20}} />
         <TouchableOpacity
           style={color2}
           onPress={() => {
@@ -272,7 +275,7 @@ const Shedule = ({navigation}) => {
           <Text style={txtcolor2}>4pm-5pm</Text>
         </TouchableOpacity>
       </View>
-      <View style={{top: 100, left: '4%', right: '4%'}}>
+      <View style={{top: 40, left: '4%', right: '4%'}}>
         <View
           style={{
             flex: 1,
@@ -479,7 +482,7 @@ const styles = StyleSheet.create({
   },
   innerView: {
     flexDirection: 'row',
-    left: 10,
+    left: 3,
   },
   button2: {
     backgroundColor: Colors.backgroundcolor,

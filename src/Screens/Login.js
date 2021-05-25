@@ -35,7 +35,7 @@ const Login = ({navigation}) => {
               }}
               source={require('../Assets/appbar.png')}
             />
-        <Text style={{color:Colors.backgroundcolor,fontSize:18,fontWeight:'bold',top:10}}>HOME SERVE</Text>
+        <Text style={{color:Colors.backgroundcolor,fontSize:18,fontWeight:'bold',top:5}}>HOME SERVE</Text>
           </View>
          
         </View>
@@ -52,14 +52,14 @@ const Login = ({navigation}) => {
               alignSelf: 'center',
               fontSize: 16,
               fontWeight: 'bold',
-              color: Colors.backgroundcolor,top:10
+              color: Colors.backgroundcolor,top:20
             }}>
             Login
           </Text>
         </View>
       </View>
       <View style={styles.mainView}>
-        <View style={{top: 0}}>
+        <View style={{bottom: 10}}>
           <Text style={styles.text}>Email/Mobile No</Text>
           <TextInput
             style={styles.textInput}
@@ -69,7 +69,7 @@ const Login = ({navigation}) => {
             onChangeText={name => setusername(name)}></TextInput>
         </View>
         <View style={{top: -15}}>
-          <Text style={styles.text}>password</Text>
+          <Text style={styles.text}>Password</Text>
           <TextInput
             style={styles.textInput}
             placeholder=" Password"
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
   },
   mainView: {
     flexDirection: 'column',
-    top: 80,
+    top: 40,
     height: 700,
   },
   textInput: {

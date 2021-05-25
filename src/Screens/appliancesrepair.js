@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: Colors.backgroundcolor,
     fontWeight: 'bold',
-    left: 85,
+    left: 81,
     top: 11,
   },
   mainView: {

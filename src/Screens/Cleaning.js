@@ -31,7 +31,7 @@ const Cleaning = ({navigation}) => {
             />
           </TouchableOpacity>
 
-          <View style={{width: 148, height: 70, paddingLeft: 110,top:15}}>
+          <View style={{width: 148, height: 70, left: 90,top:15}}>
             <Image
               style={{ width: 45, height: 45, tintColor: '#fff'}}
               source={require('../Assets/appbar.png')}
@@ -52,7 +52,7 @@ const Cleaning = ({navigation}) => {
           <View style={styles.banner}>
             <Image
               resizeMode="cover"
-              style={{borderRadius: 10,width:'102%',left:'4%',right:'4%',position:'absolute'}}
+              style={{borderRadius: 10,width:'92%',left:'4%',right:'4%',position:'absolute'}}
               source={require('../Assets/cleaning/banner.png')}
             />
           </View>
@@ -329,7 +329,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     fontWeight: 'bold',
     color: Colors.backgroundcolor,
-    paddingLeft: 10,
+    right: 10,
   },
   searchStyle: {
     borderRadius: 16,

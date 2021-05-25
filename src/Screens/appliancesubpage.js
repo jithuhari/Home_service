@@ -68,7 +68,7 @@ export default Fan = ({route,navigation}) => {
               height: 45,
               width: 45,
               tintColor: Colors.backgroundcolor,
-              left: 95,
+              left: 80,
               top: 4,
             }}
           />
@@ -77,7 +77,7 @@ export default Fan = ({route,navigation}) => {
               fontSize: 15,
               color: Colors.backgroundcolor,
               fontWeight: 'bold',
-              left: 100,
+              left: 81,
               top: 14,
             }}>
             HOME SERVE
